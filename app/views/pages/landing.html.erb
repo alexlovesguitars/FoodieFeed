@@ -1,0 +1,25 @@
+<div class="carousel-container">
+  <div class="carousel-inner">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "Influencer_2.jpg", class: "d-block w-100", alt: "Influencer" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "Pasta_byHand.jpg", class: "d-block w-100", alt: "Pasta" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "Streetfood_Vietnam.jpg", class: "d-block w-100", alt: "Streetfood" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "SteamingKitchen.jpg", class: "d-block w-100", alt: "Kitchen" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= image_tag "FoodieFeedLogo.svg", class: "image-overlay" %>
+  <div class="buttons d-flex justify-content-center">
+    <%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-primary rounded-pill image-overlay-button-1" %>
+    <%= link_to "Sign In!", user_session_path, class: "btn btn-primary rounded-pill image-overlay-button-2" %>
+  </div>
+</div>
