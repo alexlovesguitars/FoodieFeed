@@ -1,0 +1,37 @@
+.carousel-container {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-item {
+  width: 100vw;
+  height: 100vh;
+  filter: grayscale(0.7);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure image stays on top */
+}
+
+.image-overlay-button-1 {
+  position: absolute;
+  top: 62%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure image stays on top */
+}
+
+.image-overlay-button-2 {
+  position: absolute;
+  top: 62%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure image stays on top */
+}
