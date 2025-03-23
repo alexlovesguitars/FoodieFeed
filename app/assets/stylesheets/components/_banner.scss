@@ -1,0 +1,36 @@
+.banner {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  img {
+    margin-top: 45px;
+    margin-left: 150px;
+  }
+
+  .nav-items {
+    color: rgba(255, 255, 255, 0.669);
+    align-items: center;
+    font-size: 25px;
+    margin-top: 190px;
+    margin-right: 50px;
+
+    i {
+      padding: 15px;
+
+      &:hover {
+        transform: scale(1.1);
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    img {
+      margin-bottom: 45px;
+      margin-left: 15px;
+    }
+  }
+}

@@ -10,8 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% unless action_name == "landing" %>
+  <body style="background: #F4EBCA;">
+    <% unless action_name == "landing" || action_name = "configure_sign_up_params" %>
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
