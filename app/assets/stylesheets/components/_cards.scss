@@ -1,0 +1,80 @@
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.container-fluid {
+  padding: 0 100px 0 100px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 33px;
+  height: 260px;
+}
+
+.card-category {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  border-radius: 15px;
+  justify-content: flex-start;
+  align-items: center;
+
+  .icons {
+    margin-left: 45px;
+    align-items: flex-start;
+  }
+
+  i {
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin: 0 2px 0 2px;
+  }
+
+  img {
+    border-radius: 15px;
+  }
+
+  .color-title {
+    background-color: #DF9755;
+
+  }
+}
+
+// // Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr 1fr 1fr;
+//   }
+// }
