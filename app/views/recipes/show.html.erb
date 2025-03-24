@@ -5,14 +5,21 @@
   <div class="col-3">
     <%= render "shared/info_box" %>
     <h2>ingredients</h2>
-    <p>placeholder text</p>
+      <% if (@recipe) %>
+      <p><%= @recipe.ingredients %></p>
+    <% end %>
+
     <h2>utensils</h2>
-    <p>placeholder text</p>
+    <% if (@recipe) %>
+      <p><%= @recipe.utensils %></p>
+    <% end %>
   </div>
 
   <div class="col-3">
     <h2>instructions</h2>
-    <p>placeholder text</p>
+    <% if (@recipe) %>
+      <p><%= @recipe.method %></p>
+    <% end %>
   </div>
 
  <div class="col-6">
@@ -22,7 +29,7 @@
         <h2>reused the info_box but should be replaced once we have videos</h2>
       </div>
       <div style="display: flex; justify-content: center;">
-        <%= link_to "Cook!", recipe_path, class: "btn btn-primary rounded-pill px-3" %> <!-- this link redirects to the showpage as we dont have a link to cook mode yet -->
+        <%= link_to "Cook!", recipe_path, class: "btn btn-primary rounded-pill px-3" %>
       </div>
 
     </div>
