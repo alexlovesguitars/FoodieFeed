@@ -2,102 +2,26 @@
 
 
 <div class="container-fluid">
-  <div>
-    <h4 class="mt-5 mb-3 lato-bold">FEATURED RECIPES</h4>
-
+  <div class="row">
+    <h4 class="mt-4 mb-1 lato-bold">FEATURED RECIPES</h4>
     <div class="cards mb-3">
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <div class="photo mt-4 mb-1">
-          <%= image_tag("Pasta_byHand.jpg", gravity: "auto", height: 220, width: 320, crop: "auto", class: "justify-content-center") %>
-        </div>
-        <div class="content d-flex mt-1">
-          <h4 class="lato-bold">THIS IS A RECIPE</h4>
-          <div class="icons">
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-bookmark"></i>
-            <i class="fa-solid fa-arrow-up-from-bracket"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">THIS IS A RECIPE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">THIS IS A RECIPE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">THIS IS A RECIPE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
     </div>
   </div>
-  <div>
-    <h4 class="mt-5 mb-3 lato-bold">FEATURED EXPERIENCES</h4>
 
+  <div class="row">
+    <h4 class="mt-4 mb-1 lato-bold">FEATURED EXPERIENCES</h4>
     <div class="cards mb-3">
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">AN EXPERIENCE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">AN EXPERIENCE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">AN EXPERIENCE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
-      <div class="card-category" style="background-color: #de6f2e;">
-
-        <h4 class="lato-bold px-4">AN EXPERIENCE</h4>
-        <div class="icons">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </div>
-      </div>
-
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
     </div>
   </div>
+
 </div>

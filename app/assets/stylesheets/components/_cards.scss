@@ -10,9 +10,12 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 33px;
-  height: 260px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+
+  .card-resize {
+    width: 300px;
+  }
 }
 
 .card-category {
@@ -24,13 +27,13 @@
   align-items: center;
 
   .icons {
-    margin-left: 45px;
+    margin-left: 13px;
     align-items: flex-start;
   }
 
   i {
-    font-size: 25px;
-    padding-bottom: 10px;
+    font-size: 20px;
+    padding-bottom: 2px;
     margin: 0 2px 0 2px;
   }
 
@@ -42,39 +45,49 @@
     background-color: #DF9755;
 
   }
+
+  h4 {
+    font-size: 20px;
+    margin-right: 20px;
+  }
 }
 
-// // Smallest device
-// @media (min-width: 100px) and (max-width: 575px) {
-//   .cards {
-//     grid-template-columns: 1fr;
-//   }
-// }
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
 
-// // Small devices (landscape phones, 576px and up)
-// @media (min-width: 576px) {
-//   .cards {
-//     grid-template-columns: 1fr;
-//   }
-// }
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {
-//   .cards {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) {
-//   .cards {
-//     grid-template-columns: 1fr 1fr 1fr 1fr;
-//   }
-// }
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
