@@ -1,0 +1,21 @@
+<div class="cookmode-container">
+  <h1><%= @recipe.name %></h1>
+
+  <% if @recipe.youtube_link.present? %>
+    <div class="video-container">
+      <iframe width="100%" height="400" src="<%= @recipe.youtube_link %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+     <% end %>
+
+  <% if @recipe.method.present? %>
+  <div class="recipe-steps">
+    <h2>Step-by-Step Instructions</h2>
+    <% @recipe.method.each_with_index do |method, index| %>
+      <div class="step-card">
+        <h3>Step <%= index + 1 %></h3>
+        <p><%= method %></p>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
