@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "shared/banner" %>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <h4 class="mt-4 mb-1 lato-bold">FEATURED RECIPES</h4>
+    <div class="cards mb-3">
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="mt-4 mb-1 lato-bold">FEATURED EXPERIENCES</h4>
+    <div class="cards mb-3">
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+      <%= render "shared/card"%>
+    </div>
+  </div>
+
+</div>

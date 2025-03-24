@@ -1,0 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "FoodieFeedLogo.svg", class: "Hero" %>
+    <% end %>
+  <div class="nav-items d-flex justify-content-end">
+    <i class="fa-solid fa-filter"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-book"></i>
+    <i class="fa-solid fa-receipt"></i>
+    <% if user_signed_in? %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    <% else %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
+  </div>
+</div>
+</div>
