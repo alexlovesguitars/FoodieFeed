@@ -1,21 +1,19 @@
 <div class="info_box" style="background-color: green">
   <div style="color: light-gray">
 
-    <h2><i class="far fa-clock"></i>
-    <% if (@recipe) %>
-      <p><%= @recipe.cook_time %></p>
-    <% end %>
-    </h2>
+    <div style="display: flex">
+      <i class="fas fa-clock"></i>
+      <p style="margin-left: 5px;">15 min</p>
+    </div>
 
+    <div style="display: flex">
+      <i class="fas fa-leaf"></i>
+      <p style="margin-left: 5px;"><%= @recipe.cuisine_type %></p>
+    </div>
 
-    <h2><i class="fas fa-leaf"></i></h2>
-        <% if (@recipe) %>
-      <p><%= @recipe.cuisine_type %></p>
-    <% end %>
-
-    <i class="fas fa-globe"></i></h2>
-            <% if (@recipe) %>
-      <p><%= @recipe.dietary_restrictions %></p>
-    <% end %>
+    <div style="display: flex">
+      <i class="fas fa-globe"></i>
+      <p style="margin-left: 5px;"><%= @recipe.dietary_restrictions %></p>
+    </div>
   </div>
 </div>
