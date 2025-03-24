@@ -1,0 +1,16 @@
+<%= render "shared/banner" %>
+
+<div class="container">
+  <%= simple_form_for(@recipe) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :ingredients, as: :text %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :method, as: :text %>
+    <%= f.input :cuisine_type %>
+    <%= f.input :utensils %>
+    <%= f.input :dietary_restrictions %>
+    <%= f.input :recipe_hashtags %>
+
+    <%= f.button :submit, class: "btn btn-primary rounded-pill px-3" %>
+  <% end %>
+</div>

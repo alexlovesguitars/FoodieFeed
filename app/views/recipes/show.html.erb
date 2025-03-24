@@ -1,0 +1,31 @@
+<%= render "shared/banner" %>
+
+<div class="d-flex">
+
+  <div class="col-3">
+    <%= render "shared/info_box" %>
+    <h2>ingredients</h2>
+    <p>placeholder text</p>
+    <h2>utensils</h2>
+    <p>placeholder text</p>
+  </div>
+
+  <div class="col-3">
+    <h2>instructions</h2>
+    <p>placeholder text</p>
+  </div>
+
+ <div class="col-6">
+    <div style="width: 100%;">
+      <div class="info_box" style="background-color: gray;">
+        <h1>just a placeholder box for the video</h1>
+        <h2>reused the info_box but should be replaced once we have videos</h2>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <%= link_to "Cook!", recipe_path, class: "btn btn-primary rounded-pill px-3" %> <!-- this link redirects to the showpage as we dont have a link to cook mode yet -->
+      </div>
+
+    </div>
+  </div>
+
+</div>
