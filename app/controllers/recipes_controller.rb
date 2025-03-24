@@ -19,6 +19,10 @@ class RecipesController < ApplicationController
   def show
   end
 
+  def cookmode
+    @recipe = Recipe.find(params[:id])
+  end
+
   private
 
   def recipe_params

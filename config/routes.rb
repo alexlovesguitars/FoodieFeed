@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   root to: "pages#landing"
   get "home", to: "pages#home", as: :home
 
-  resources :recipes, only: [:show, :new, :create]
+  resources :recipes, only: [:show, :new, :create] do
+    member do
+      get 'cookmode'
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
