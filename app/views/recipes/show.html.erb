@@ -24,6 +24,9 @@
 
  <div class="col-6">
     <div style="width: 100%;">
+      <div style="display: flex; justify-content: center;">
+        <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), "javascript:history.back()", class: "btn btn-primary rounded-pill px-3" %>
+      </div>
       <div class="info_box" style="background-color: gray;">
         <h1>just a placeholder box for the video</h1>
         <h2>reused the info_box but should be replaced once we have videos</h2>
@@ -31,7 +34,6 @@
       <div style="display: flex; justify-content: center;">
         <%= link_to "Cook!", cookmode_recipe_path, class: "btn btn-primary rounded-pill px-3" %>
       </div>
-
     </div>
   </div>
 
