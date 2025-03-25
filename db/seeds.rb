@@ -12,12 +12,17 @@
 require 'faker'
 
 
-puts "Destroying previous Foodies & Recipes"
-User.destroy_all
+require 'faker'
+
+puts "Destroying previous Recipes"
 Recipe.destroy_all
+puts "Destroying previous Foodies"
+User.destroy_all
+puts "Creating foodies..."
+
 puts "Creating foodies..."
 10.times do |user|
-  user = User.new(
+  new_user = User.new( # Renamed to new_user to avoid issues
     email:  Faker::Internet.email,
     password: "123456",
     user_name: Faker::Internet.username,
@@ -25,9 +30,10 @@ puts "Creating foodies..."
     social: "Instagram",
     creator: true
   )
-  user.save!
+  new_user.save!
 end
-user = User.new(
+
+mattymatheson = User.new(
   email:  Faker::Internet.email,
   password: "123456",
   user_name: "mattymatheson",
@@ -35,10 +41,9 @@ user = User.new(
   social: "Instagram",
   creator: true
 )
-user.save!
+mattymatheson.save!
 
-
-if user.persisted?
+if mattymatheson.persisted?
 
   recipe = Recipe.new(
     title: "Matty's Next Level White Ragu Baked Shells",
@@ -75,7 +80,7 @@ if user.persisted?
     dietary_restrictions: "Contains meat & dairy",
     recipe_hashtags: ["italian", "american", "canadian", "pasta", "parmesan"],
     cook_time: 90,
-    user: user
+    user: mattymatheson
   )
   recipe.save!
 end

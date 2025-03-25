@@ -1,10 +1,10 @@
 class CreateRecipes < ActiveRecord::Migration[7.1]
   def change
     create_table :recipes do |t|
-      t.string :title
-      t.text :ingredients
-      t.string :description
-      t.text :method
+      t.string :title, presence: true
+      t.text :ingredients, presence: true
+      t.string :description, presence: true
+      t.text :method, presence: true
       t.string :cuisine_type
       t.string :utensils
       t.string :dietary_restrictions
