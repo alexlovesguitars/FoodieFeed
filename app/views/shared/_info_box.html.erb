@@ -1,19 +1,19 @@
-<div class="info_box" style="background-color: green">
-  <div style="color: light-gray">
+<div class="info_box col-6">
+  <div>
 
-    <div class="d-flex">
+    <div class="d-flex justify-content-start align-items-center">
       <i class="fas fa-clock"></i>
-      <p style="margin-left: 5px;">15 min</p>
+      <p class="px-2">15min</p>
     </div>
 
-    <div class="d-flex">
+    <div class="d-flex justify-content-start align-items-center">
       <i class="fas fa-leaf"></i>
-      <p style="margin-left: 5px;"><%= @recipe.cuisine_type %></p>
+      <p class="px-2"><%= @recipe.cuisine_type %></p>
     </div>
 
-    <div class="d-flex">
+    <div class="d-flex justify-content-start align-items-center">
       <i class="fas fa-globe"></i>
-      <p style="margin-left: 5px;"><%= @recipe.dietary_restrictions %></p>
+      <p class="px-2"><%= @recipe.dietary_restrictions %></p>
     </div>
   </div>
 </div>
