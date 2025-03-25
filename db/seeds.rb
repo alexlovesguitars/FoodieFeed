@@ -45,7 +45,7 @@ user.save!
 if user.persisted?
 
   recipe = Recipe.new(
-    title: "Matty's Next Level White Ragu Baked Shells",
+    title: "White Ragu Shells",
     ingredients: ["For the White Ragu:
                     Olive oil
                     1 pound ground pork
