@@ -5,41 +5,31 @@
 
   <div class="cookmode-content d-flex" data-controller="steps">
     <div class="instructions-section w-40">
-      <div id="recipe-steps" class="recipe-steps">
-        <% if @recipe.method.is_a?(Array) %>
-          <% @recipe.method.each_with_index do |step, index| %>
-            <div class="step-card mb-3 p-3 border rounded hidden" data-step-target>
-              <h3>Step <%= index + 1 %></h3>
-              <p><%= step %></p>
-            </div>
-          <% end %>
-        <% elsif @recipe.method.present? %>
-          <div class="step-card mb-3 p-3 border rounded" data-step-target>
-            <h3>Step 1</h3>
-            <p><%= @recipe.method %></p>
-          </div>
-        <% else %>
-          <p>No instructions available.</p>
-        <% end %>
-      </div>
-
-      <!-- Navigation Buttons -->
-      <button data-action="click->steps#previousStep">Previous Step</button>
-      <button data-action="click->steps#nextStep">Next Step</button>
+     <div id="recipe-steps" class="recipe-steps">
+  <% @recipe.method.each_with_index do |step, index| %>
+    <div class="step-card mb-3 p-3 border rounded" data-steps-target="step">
+      <h3>Step <%= index + 1 %></h3>
+      <p><%= step %></p>
     </div>
+  <% end %>
+</div>
 
-    <div class="video-section w-60">
-      <div class="video-container">
-        <iframe
-          class="responsive-iframe"
-          src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <button data-action="click->steps#previousStep">Previous Step</button>
+    <button data-action="click->steps#nextStep">Next Step</button>
+  </div>
+
+  <div class="video-section w-60">
+    <div class="video-container">
+      <iframe
+        class="responsive-iframe"
+        src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
+ </div>
 </div>
