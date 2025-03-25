@@ -11,18 +11,17 @@
 
 require 'faker'
 
-
-require 'faker'
-
 puts "Destroying previous Recipes"
+
 Recipe.destroy_all
+
 puts "Destroying previous Foodies"
+
 User.destroy_all
-puts "Creating foodies..."
 
 puts "Creating foodies..."
 10.times do |user|
-  new_user = User.new( # Renamed to new_user to avoid issues
+  user = User.new(
     email:  Faker::Internet.email,
     password: "123456",
     user_name: Faker::Internet.username,
@@ -30,10 +29,10 @@ puts "Creating foodies..."
     social: "Instagram",
     creator: true
   )
-  new_user.save!
+  user.save!
 end
 
-mattymatheson = User.new(
+user = User.new(
   email:  Faker::Internet.email,
   password: "123456",
   user_name: "mattymatheson",
@@ -41,9 +40,9 @@ mattymatheson = User.new(
   social: "Instagram",
   creator: true
 )
-mattymatheson.save!
+user.save!
 
-if mattymatheson.persisted?
+if user.persisted?
 
   recipe = Recipe.new(
     title: "Matty's Next Level White Ragu Baked Shells",
@@ -76,11 +75,12 @@ if mattymatheson.persisted?
     "Fill shells with the cheesy mixture. Fill the bottom of a casserole dish with the meat and veggies mixture. Top with grated parmesan. Fill the casserole with the cheese-filled pasta shells and top with another layer of grated parmesan. Drizzle with olive oil with a sprinkle of salt and pepper.",
     "Place in the preheated oven and bake until lightly browned. Plate and serve."],
     cuisine_type: "Italian",
+    description: "This recipe will warm your heart & your gut! Everyone loves a good Ragu!",
     utensils: "None",
     dietary_restrictions: "Contains meat & dairy",
     recipe_hashtags: ["italian", "american", "canadian", "pasta", "parmesan"],
     cook_time: 90,
-    user: mattymatheson
+    user: user
   )
   recipe.save!
 end
