@@ -1,21 +1,45 @@
+<%= render "shared/banner" %>
+
 <div class="cookmode-container">
-  <h1><%= @recipe.title %></h1>
+  <h1 class="recipe-title"><%= @recipe.title %></h1>
 
-  <% if @recipe.youtube_link.present? %>
-    <div class="video-container">
-      <iframe width="100%" height="400" src="<%= @recipe.youtube_link %>" frameborder="0" allowfullscreen></iframe>
-    </div>
-     <% end %>
-
-  <% if @recipe.method.present? %>
-  <div class="recipe-steps">
-    <h2>Step-by-Step Instructions</h2>
-    <% @recipe.method.each_with_index do |method, index| %>
-      <div class="step-card">
-        <h3>Step <%= index + 1 %></h3>
-        <p><%= method %></p>
+  <div class="cookmode-content d-flex" data-controller="steps">
+    <div class="instructions-section w-40">
+      <div id="recipe-steps" class="recipe-steps">
+        <% if @recipe.method.is_a?(Array) %>
+          <% @recipe.method.each_with_index do |step, index| %>
+            <div class="step-card mb-3 p-3 border rounded hidden" data-step-target>
+              <h3>Step <%= index + 1 %></h3>
+              <p><%= step %></p>
+            </div>
+          <% end %>
+        <% elsif @recipe.method.present? %>
+          <div class="step-card mb-3 p-3 border rounded" data-step-target>
+            <h3>Step 1</h3>
+            <p><%= @recipe.method %></p>
+          </div>
+        <% else %>
+          <p>No instructions available.</p>
+        <% end %>
       </div>
-    <% end %>
+
+      <!-- Navigation Buttons -->
+      <button data-action="click->steps#previousStep">Previous Step</button>
+      <button data-action="click->steps#nextStep">Next Step</button>
+    </div>
+
+    <div class="video-section w-60">
+      <div class="video-container">
+        <iframe
+          class="responsive-iframe"
+          src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
   </div>
-  <% end %>
 </div>
