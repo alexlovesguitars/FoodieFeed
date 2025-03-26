@@ -1,4 +1,4 @@
-import * as bootstrap from 'bootstrap';
+/* import * as bootstrap from 'bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
   const favoriteIcons = document.querySelectorAll('.favorite-icon');
@@ -12,3 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+ */
