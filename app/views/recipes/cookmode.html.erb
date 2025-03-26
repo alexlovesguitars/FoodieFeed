@@ -21,15 +21,18 @@
 
     <div class="video-section w-60">
       <div class="video-container">
-      <iframe
-        class="responsive-iframe"
-        src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
+        <iframe
+          class="responsive-iframe"
+          src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="d-flex justify-content-end">
+        <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), home_path, class: "mt-4 mx-2 btn btn-primary btn-xs rounded-pill" %>
       </div>
     </div>
   </div>
