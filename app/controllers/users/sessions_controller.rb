@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  before_action :configure_account_update_params, only: [:update]
   # GET /resource/sign_in
   # def new
   #   super
@@ -21,6 +21,10 @@ class Users::SessionsController < Devise::SessionsController
   protected
   def after_sign_in_path_for(resource)
     home_path
+  end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :creator, :bio, :social])
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
