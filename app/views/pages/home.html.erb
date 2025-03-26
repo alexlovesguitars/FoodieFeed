@@ -5,8 +5,27 @@
   <div class="row">
     <h4 class="mt-4 mb-1 lato-bold">FEATURED RECIPES</h4>
     <div class="cards mb-3">
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
+      <div class="card-resize">
+        <div class="card-category" style="background-color: #de6f2e;">
+          <div class="photo mt-4 mb-1">
+            <% @recipes.each do |recipe| %>
+              <a href="<%= recipe_path(recipe) %>">
+                <%= image_tag("ragoutstill.jpg", gravity: "auto", height: 240, width: 280, crop: "auto", class: "img-fluid justify-content-center") %>
+              </a>
+          </div>
+          <div class="content d-flex py-1">
+            <h4 class="lato-bold"><%= recipe.title %></h4>
+            <div class="icons">
+              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-bookmark"></i>
+              <i class="fa-solid fa-share-from-square"></i>
+               <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <%= render "shared/card"%>
       <%= render "shared/card"%>
       <%= render "shared/card"%>
@@ -16,7 +35,6 @@
   <div class="row">
     <h4 class="mt-4 mb-1 lato-bold">FEATURED EXPERIENCES</h4>
     <div class="cards mb-3">
-      <%= render "shared/card"%>
       <%= render "shared/card"%>
       <%= render "shared/card"%>
       <%= render "shared/card"%>
