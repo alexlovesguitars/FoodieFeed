@@ -11,8 +11,8 @@
       <% end %>
     <% end %>
 
-    <h2 class="mb-3 lato-bold">Utensils</h2>
-    <% if (@recipe) %>
+    <% if @recipe && @recipe.utensils.present? && @recipe.utensils.downcase != "none" %>
+      <h2 class="mb-3 lato-bold">Utensils</h2>
       <p><%= @recipe.utensils %></p>
     <% end %>
   </div>

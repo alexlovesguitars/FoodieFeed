@@ -13,26 +13,35 @@
   grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
   gap: 1rem;
 
-  // .card-resize {
-  //   width: 260px;
-  // }
+  .card-resize {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+  }
 }
 
 .card-category {
   display: flex;
   flex-direction: column;
-  align-content: space-around;
-  border-radius: 15px;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: inherit;
 
   .icons {
     margin-left: 13px;
-    align-items: flex-start;
+    font-size: 16px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
   }
 
   i {
-    font-size: 20px;
+    font-size: px;
     padding-bottom: 2px;
     margin: 0 2px 0 2px;
   }
@@ -40,6 +49,12 @@
   img {
     border-radius: 15px;
     overflow: hidden;
+    height: 240px;
+    width: 280px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    object-fit: cover;
   }
 
   .color-title {
@@ -50,6 +65,9 @@
   h4 {
     font-size: 20px;
     margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    align-self: flex-start;
   }
 }
 
