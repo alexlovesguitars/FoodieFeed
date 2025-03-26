@@ -1,4 +1,4 @@
-<%= render "shared/banner" %>
+<%= render "shared/banner_show" %>
 
 <div class="container-fluid d-flex">
 
@@ -17,11 +17,11 @@
     <% end %>
   </div>
 
-  <div class="col-4 mt-5 mx-5">
+  <div class="col-4 mt-5 mx-4 scrollable">
     <h2 class="lato-bold mb-5 mt-3">Instructions</h2>
      <% if (@recipe) %>
       <% @recipe.method.each_with_index do |step, index| %>
-        <h6 class="mt-3"><strong>Step <%= index+1 %></strong></h6>
+        <h6 class="mt-5"><strong>Step <%= index+1 %></strong></h6>
         <p><%= step %></p>
       <% end %>
     <% end %>
