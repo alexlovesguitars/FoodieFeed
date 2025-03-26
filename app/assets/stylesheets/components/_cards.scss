@@ -31,7 +31,25 @@
   .icons {
     margin-left: 13px;
     font-size: 16px;
+
+    i:hover {
+      transform: scale(1.2);
+    }
+
+    .favorite-icon {
+      color: #000000;
+      &:hover {
+        color: rgba(182, 2, 2, 0.732);
+        transform: scale(1.2);
+      }
+
+      &.active {
+        color: #FD1015;
+        transform: scale(1.2);
+      }
+    }
   }
+
 
   .content {
     display: flex;
