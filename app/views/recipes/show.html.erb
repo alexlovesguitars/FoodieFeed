@@ -1,37 +1,39 @@
-<%= render "shared/banner" %>
+<%= render "shared/banner_show" %>
 
-<div class="d-flex">
+<div class="container-fluid d-flex">
 
   <div class="col-3">
     <%= render "shared/info_box" %>
-    <h2>ingredients</h2>
-      <% if (@recipe) %>
-      <p><%= @recipe.ingredients %></p>
+    <h2 class="mb-5 lato-bold">Ingredients</h2>
+    <% if (@recipe) %>
+      <% @recipe.ingredients.each do |ingrdient| %>
+        <p><%= ingrdient %></p>
+      <% end %>
     <% end %>
 
-    <h2>utensils</h2>
+    <h2 class="mb-3 lato-bold">Utensils</h2>
     <% if (@recipe) %>
       <p><%= @recipe.utensils %></p>
     <% end %>
   </div>
 
-  <div class="col-3">
-    <h2>instructions</h2>
-    <% if (@recipe) %>
-      <p><%= @recipe.method %></p>
+  <div class="col-4 mt-5 mx-4 scrollable">
+    <h2 class="lato-bold mb-5 mt-3">Instructions</h2>
+     <% if (@recipe) %>
+      <% @recipe.method.each_with_index do |step, index| %>
+        <h6 class="mt-5"><strong>Step <%= index+1 %></strong></h6>
+        <p><%= step %></p>
+      <% end %>
     <% end %>
   </div>
 
- <div class="col-6">
+  <div class="col-4 video mt-5">
     <div style="width: 100%;">
-      <div style="display: flex; justify-content: center;">
-        <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), "javascript:history.back()", class: "btn btn-primary rounded-pill px-3" %>
-      </div>
-      <div class="info_box" style="background-color: gray;">
-        <h1>just a placeholder box for the video</h1>
-        <h2>reused the info_box but should be replaced once we have videos</h2>
+      <div class="video mt-5">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8gvdG2bpOEc?si=NX9HXws00IfjG5SW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: center;">
+        <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), "javascript:history.back()", class: "btn btn-primary rounded-pill px-3 mx-2" %>
         <%= link_to "Cook!", cookmode_recipe_path, class: "btn btn-primary rounded-pill px-3" %>
       </div>
     </div>

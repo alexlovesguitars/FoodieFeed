@@ -77,7 +77,7 @@ if user.persisted?
     cuisine_type: "Italian",
     description: "This recipe will warm your heart & your gut! Everyone loves a good Ragu!",
     utensils: "None",
-    dietary_restrictions: "Contains meat & dairy",
+    dietary_restrictions: "Omnivore",
     recipe_hashtags: ["italian", "american", "canadian", "pasta", "parmesan"],
     cook_time: 90,
     user: user
