@@ -1,35 +1,34 @@
-<div class="container mt-5" style="border: solid, #DF9755; border-radius: 15px; padding: 15px; border-width: 10px; margin: 0 250px 0 250px; background-color: white;">
+<div style="max-width: 700px; margin: 50px auto; border: solid #DF9755; border-radius: 15px; padding: 15px; border-width: 10px; background-color: white;">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :user_name, required: true, autofocus: true, input_html: { autocomplete: "username" } %>
+
+      <%= f.input :email, required: true, input_html: { autocomplete: "email" } %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <div class="form-inputs">
-    <%= f.input :user_name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "user name" }%>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
+      <%= f.input :password, required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
+
+      <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
+
+      <%= f.input :current_password, required: true, input_html: { autocomplete: "current-password" } %>
+
       <div data-controller="creator-form">
-      <%= f.input :creator, as: :boolean, label: "Are you a creator?",
-          input_html: { data: { creator_form_target: "checkbox", action: "change->creator-form#toggle" } } %>
+        <%= f.input :creator, as: :boolean, label: "Are you a creator?",
+                    input_html: {
+                      data: {
+                        creator_form_target: "checkbox",
+                        action: "change->creator-form#toggle"
+                      }
+                    } %>
 
         <div class="creator-fields" data-creator-form-target="fields">
           <%= f.input :bio, as: :text, label: "Bio" %>
@@ -45,7 +44,11 @@
 
   <h3>Cancel my account</h3>
 
-  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "mt-4 mb-4 btn btn-primary rounded-pill px-3" %></div>
+  <div>
+    Unhappy? <%= button_to "Cancel my account", registration_path(resource_name),
+      data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+      method: :delete %>
+  </div>
 
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
 </div>
