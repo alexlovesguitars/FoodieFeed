@@ -5,21 +5,22 @@
 
   <div class="cookmode-content d-flex" data-controller="steps">
     <div class="instructions-section w-40">
-     <div id="recipe-steps" class="recipe-steps">
-  <% @recipe.method.each_with_index do |step, index| %>
-    <div class="step-card mb-3 p-3 border rounded" data-steps-target="step">
-      <h3>Step <%= index + 1 %></h3>
-      <p><%= step %></p>
+      <div id="recipe-steps" class="recipe-steps mt-4">
+        <% @recipe.method.each_with_index do |step, index| %>
+        <div class="step-card mb-3 p-3" data-steps-target="step">
+          <h3>Step <%= index + 1 %></h3>
+          <p><%= step %></p>
+        </div>
+        <% end %>
+      </div>
+      <div class="buttons d-flex justify-content-center">
+        <button class="mt-4 mx-2 btn btn-primary rounded-pill" data-action="click->steps#previousStep">Previous Step</button>
+        <button class="mt-4 mx-2 btn btn-primary rounded-pill" data-action="click->steps#nextStep">Next Step</button>
+      </div>
     </div>
-  <% end %>
-</div>
 
-    <button data-action="click->steps#previousStep">Previous Step</button>
-    <button data-action="click->steps#nextStep">Next Step</button>
-  </div>
-
-  <div class="video-section w-60">
-    <div class="video-container">
+    <div class="video-section w-60">
+      <div class="video-container">
       <iframe
         class="responsive-iframe"
         src="https://www.youtube.com/embed/8gvdG2bpOEc?si=0K2PEnYiPjAyHBNZ"
@@ -29,7 +30,7 @@
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
       </iframe>
+      </div>
     </div>
   </div>
- </div>
 </div>
