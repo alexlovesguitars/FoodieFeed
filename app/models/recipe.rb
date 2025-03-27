@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
   validates :method, presence: true
   validates :dietary_restrictions, presence: true
   validates :recipe_hashtags, presence: true
+
+  has_one_attached :image
 end
