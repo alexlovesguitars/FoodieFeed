@@ -9,8 +9,13 @@
     <i class="fa-solid fa-receipt"></i>
     <% if user_signed_in? %>
     <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-      </a>
+      <%= cl_image_tag(current_user.image.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,
+                                transformation: [
+                                {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                                {radius: "max"},
+                                {fetch_format: "auto"}
+                                ])%>
+    </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>

@@ -20,9 +20,13 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :image, as: :file %>
+
       <div data-controller="creator-form">
       <%= f.input :creator, as: :boolean, label: "Are you a creator?",
           input_html: { data: { creator_form_target: "checkbox", action: "change->creator-form#toggle" } } %>
+
+
 
         <div class="creator-fields" data-creator-form-target="fields">
           <%= f.input :bio, as: :text, label: "Bio", class: "rounded" %>

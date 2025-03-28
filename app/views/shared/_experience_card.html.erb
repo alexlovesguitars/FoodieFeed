@@ -1,16 +1,14 @@
-<div class="card-resize">
-  <div class="card-category" style="background-color: #de6f2e;">
-    <div class="photo mt-2 mb-1">
-      <a href="#">
-        <%= image_tag("Pasta_byHand.jpg", gravity: "auto", width: 280, crop: "auto", class: "img-fluid justify-content-center") %>
-      </a>
-    </div>
-    <div class="content d-flex py-1">
-      <h4 class="lato-bold">This is an experience</h4>
-      <div class="icons">
+<div class="cards">
+  <div class="card-resize">
+    <div class="card-category">
+      <div class="photo">
         <i class="fa-regular fa-heart favorite-icon"></i>
-        <i class="fa-regular fa-bookmark"></i>
-        <i class="fa-solid fa-share-from-square"></i>
+        <a href="#">
+          <%= image_tag("Pasta_byHand.jpg", gravity: "auto", width: 298, height: 220, class: "img-fluid justify-content-center") %>
+        </a>
+      </div>
+      <div class="content d-flex justify-content-start align-items-center">
+        <h4 class="card-title">This is a recipe</h4>
       </div>
     </div>
   </div>
