@@ -133,7 +133,7 @@
   height: 100%;
   background: #FFFAE7;
   z-index: 0; /* Keep it behind the photo card */
-  transform: translateX(-50%); /* Start hidden */
+  transform: translateX(-90%); /* Start hidden */
   transition: transform 0.7s ease-in-out; /* Smooth slide animation */
   border-radius: 15px;
   overflow: hidden;
@@ -153,12 +153,13 @@
   z-index: 2; /* Ensure it's above initially */
   border-radius: 15px;
   overflow: hidden;
+  transform: translateX(-40%);
 
 }
 
 /* Slide out when modal opens */
 .sliding-content.show {
-  transform: translateX(40%);
+  transform: translateX(0%);
   z-index: 1; /* Bring it in front */
   opacity: 1; /* Make it fully visible */
 }
