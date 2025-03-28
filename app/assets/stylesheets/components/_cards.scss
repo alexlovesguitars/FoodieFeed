@@ -69,6 +69,94 @@
   }
 }
 
+.card-category-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: inherit;
+  background-color: #DF9755;
+  box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
+
+  .photo {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      overflow: hidden;
+    }
+
+    i {
+      position: absolute;
+      right: auto;
+      padding: 10px 10px 0 0;
+      font-size: 20px;
+      color: white;
+
+      i:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h4 {
+    font-size: 20px;
+    padding: 5px 10px 10px 10px;
+    align-self: flex-start;
+  }
+}
+
+.modal-content {
+  background-color: transparent !important; /* Remove the white background */
+  border: none; /* Optional: Removes the border */
+}
+
+/* Initially keep the white card hidden by 15px */
+.sliding-content {
+  position: absolute;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 65%; /* Adjust width as needed */
+  height: 100%;
+  background: #FFFAE7;
+  z-index: 0; /* Keep it behind the photo card */
+  transform: translateX(-50%); /* Start hidden */
+  transition: transform 0.7s ease-in-out; /* Smooth slide animation */
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0; /* Make sure it’s fully hidden */
+  padding-right: 24px;
+
+  h4 {
+    font-family: "Abril Fatface", "serif";
+    font-size: 20px;
+    color: #401511;
+  }
+}
+
+/* Image card should remain on top */
+.card-category-modal {
+  position: relative;
+  z-index: 2; /* Ensure it's above initially */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Slide out when modal opens */
+.sliding-content.show {
+  transform: translateX(40%);
+  z-index: 1; /* Bring it in front */
+  opacity: 1; /* Make it fully visible */
+}
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);

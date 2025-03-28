@@ -20,3 +20,26 @@
     margin-bottom: 10px;
   }
 }
+
+
+.info_box-slider {
+  display: flex;
+  flex-direction: column;
+  background-color: #2D593B;
+  color: lightgray;
+  box-shadow: -10px -10px #638C6D;
+  border-radius: 15px;
+  padding: 10px;
+
+  h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: lightgray;
+  }
+
+  i, p {
+    color: #EDF4C2;
+    margin-bottom: 10px;
+  }
+}
