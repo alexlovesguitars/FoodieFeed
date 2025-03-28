@@ -5,6 +5,7 @@
     <% end %>
     <h1 class="recipe-title-red" style="font-size: 50px;"><%= @recipe.title %></h1>
     <h2 class="recipe-title-red" style="font-size: 20px;">by <%= @recipe.user.user_name %></h1>
+    <%= render "shared/info_box" %>
   </div>
   <div class="nav-items d-flex justify-content-end">
     <i class="fa-solid fa-filter"></i>
