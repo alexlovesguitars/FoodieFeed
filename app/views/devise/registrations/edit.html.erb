@@ -21,6 +21,7 @@
 
       <%= f.input :current_password, required: true, input_html: { autocomplete: "current-password" } %>
       <%= f.input :image, as: :file %>
+
       <div data-controller="creator-form">
         <%= f.input :creator, as: :boolean, label: "Are you a creator?",
                     input_html: {
