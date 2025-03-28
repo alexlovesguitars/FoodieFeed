@@ -8,4 +8,7 @@ class Recipe < ApplicationRecord
   validates :recipe_hashtags, presence: true
 
   has_one_attached :image
+
+  has_many :cookbooks
+  has_many :users, through: :cookbooks
 end
