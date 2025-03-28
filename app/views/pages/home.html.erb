@@ -8,7 +8,7 @@
       <% @recipes.each do |recipe| %>
         <div class="card-resize">
           <div class="card-category">
-            <div class="photo">
+            <div class="photo" data-recipe-id="<%= recipe.id %>">
               <a href="<%= recipe_path(recipe) %>">
                 <%= image_tag("ragu_still.png", gravity: "auto", width: 298, height: 220, class: "img-fluid justify-content-center") %>
               </a>

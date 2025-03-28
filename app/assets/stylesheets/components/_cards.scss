@@ -42,7 +42,7 @@
       overflow: hidden;
     }
 
-    i {
+    i:not(.favorite-icon) {
       position: absolute;
       right: auto;
       padding: 10px 10px 0 0;
@@ -87,7 +87,7 @@
       overflow: hidden;
     }
 
-    i {
+    i:not(.favorite-icon) {
       position: absolute;
       right: auto;
       padding: 10px 10px 0 0;
