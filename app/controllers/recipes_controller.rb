@@ -20,6 +20,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def index
+  end
+
   def cookmode
     @recipe = Recipe.find(params[:id])
   end
