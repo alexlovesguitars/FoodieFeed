@@ -8,4 +8,5 @@ class Recipe < ApplicationRecord
   validates :recipe_hashtags, presence: true
 
   has_one_attached :image
+  has_many :reviews, dependent: :destroy
 end

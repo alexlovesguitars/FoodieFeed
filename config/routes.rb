@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/create'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     member do
       get 'cookmode'
     end
+    resources :reviews, only: [:create]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
