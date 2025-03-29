@@ -4,15 +4,16 @@
       <div class="photo">
         <i class="fa-regular fa-heart favorite-icon"></i>
         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <%= image_tag("Pasta_byHand.jpg", gravity: "auto", width: 298, height: 220, class: "img-fluid justify-content-center") %>
+        <% if recipe.image.present? && recipe.image.key? %>
+          <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
         </a>
+        <% end %>
       </div>
       <div class="content d-flex justify-content-between align-items-center">
-        <h4 class="card-title">White Ragu Shells</h4>
-        <% if user_signed_in? %>
+        <h4 class="card-title"> <%= recipe.title %></h4>
       <a href="#" class="avatar-card">
-        <% if current_user.image.present? && current_user.image.key.present? %>
-          <%= cl_image_tag(current_user.image.key, class: "avatar-card", transformation: [
+        <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
+          <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
             {gravity: "face", height: 200, width: 200, crop: "thumb"},
             {radius: "max"},
             {fetch_format: "auto"}
@@ -21,15 +22,13 @@
           <i class="fa-solid fa-user avatar-card"></i>
         <% end %>
       </a>
-      <% end %>
       </div>
     </div>
   </div>
 </div>
 
-
 <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="card" data-action="shown.bs.modal->card#show hidden.bs.modal->card#hide">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="card" data-action="shown.bs.modal->card#show hidden.bs.modal->card#hide">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content p-4 position-relative">
       <div class="cards position-relative d-flex">
@@ -38,14 +37,15 @@
         <div class="card-category-modal position-relative">
           <div class="photo position-relative">
             <i class="fa-regular fa-heart favorite-icon"></i>
-            <%= image_tag("Pasta_byHand.jpg", gravity: "auto", width: 298, height: 220, class: "img-fluid justify-content-center") %>
+          <% if recipe.image.present? && recipe.image.key? %>
+            <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop:"auto", class: "img-fluid justify-content-center") %>
+          <% end %>
           </div>
           <div class="content d-flex justify-content-between align-items-center">
-            <h4 class="card-title">White Ragu Shells</h4>
-            <% if user_signed_in? %>
+            <h4 class="card-title"> <%= recipe.title %></h4>
               <a href="#" class="avatar-card dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <% if current_user.image.present? && current_user.image.key.present? %>
-                  <%= cl_image_tag(current_user.image.key, class: "avatar-card", transformation: [
+                <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
+                  <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
                     {gravity: "face", height: 200, width: 200, crop: "thumb"},
                     {radius: "max"},
                     {fetch_format: "auto"}
@@ -54,7 +54,6 @@
                   <i class="fa-solid fa-user avatar-card"></i>
                 <% end %>
               </a>
-            <% end %>
           </div>
         </div>
 

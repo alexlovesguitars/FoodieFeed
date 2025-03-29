@@ -9,13 +9,17 @@
     <i class="fa-solid fa-receipt"></i>
     <% if user_signed_in? %>
     <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= cl_image_tag(current_user.image.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,
-                                transformation: [
-                                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                                {radius: "max"},
-                                {fetch_format: "auto"}
-                                ])%>
+      <% if current_user.avatar.present? && current_user.avatar.key.present? %>
+          <%= cl_image_tag(current_user.avatar.key, class: "avatar", transformation: [
+            {gravity: "face", height: 200, width: 200, crop: "thumb"},
+            {radius: "max"},
+            {fetch_format: "auto"}
+          ]) %>
+        <% else %>
+          <i class="fa-solid fa-user avatar"></i>
+        <% end %>
       </a>
+      <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>

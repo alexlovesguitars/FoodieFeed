@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_account_update_params, only: [:update]
   # GET /resource/sign_in
   # def new
   #   super
@@ -14,9 +14,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    sign_out(@user)
+    redirect_to root_path
+  end
 
   protected
   def after_sign_in_path_for(resource)

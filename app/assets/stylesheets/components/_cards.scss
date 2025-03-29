@@ -7,6 +7,7 @@
   grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
   gap: 1rem;
 
+
   .card-resize {
     width: 298px;
     border-radius: 15px;
@@ -26,6 +27,7 @@
   border-radius: inherit;
   background-color: #DF9755;
   box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
+
 
   &:hover {
     transform: scale(1.1);
@@ -135,7 +137,7 @@
   z-index: 0; /* Keep it behind the photo card */
   transform: translateX(-90%); /* Start hidden */
   transition: transform 0.7s ease-in-out; /* Smooth slide animation */
-  border-radius: 15px;
+  border-radius: 0px 15px 15px 0px;
   overflow: hidden;
   opacity: 0; /* Make sure it’s fully hidden */
   padding-right: 24px;
@@ -199,6 +201,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

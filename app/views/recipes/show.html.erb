@@ -29,7 +29,7 @@
   <div class="col-4 video mt-5">
     <div style="width: 100%;">
       <div class="video mt-5">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8gvdG2bpOEc?si=NX9HXws00IfjG5SW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="<%= @recipe.video_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: center;">
         <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), "javascript:history.back()", class: "btn btn-primary rounded-pill px-3 mx-2" %>
