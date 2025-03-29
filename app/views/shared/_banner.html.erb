@@ -7,11 +7,11 @@
     <i class="fa-solid fa-magnifying-glass"></i>
     <i class="fa-solid fa-book"></i>
     <i class="fa-solid fa-receipt"></i>
-    <% if user_signed_in? %>
-      <!-- Avatar link with dropdown toggle -->
+      <% if user_signed_in? %>
+       Avatar link with dropdown toggle
       <a href="#" class="avatar dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <% if current_user.image.present? && current_user.image.key.present? %>
-          <%= cl_image_tag(current_user.image.key, class: "avatar", transformation: [
+        <% if current_user.present? && current_user.present? %>
+           <%= cl_image_tag("current_user.image.key", class: "avatar", transformation: [
             {gravity: "face", height: 200, width: 200, crop: "thumb"},
             {radius: "max"},
             {fetch_format: "auto"}

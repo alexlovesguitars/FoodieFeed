@@ -9,6 +9,6 @@ class Recipe < ApplicationRecord
 
   has_one_attached :image
 
-  has_many :cookbooks
+  has_many :cookbooks, dependent: :destroy
   has_many :users, through: :cookbooks
 end

@@ -16,9 +16,19 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  post '/users/:user_id/cookbooks', to: 'cookbooks#create', as: 'user_cookbooks'
-  delete '/users/:user_id/cookbooks/:recipe_id', to: 'cookbooks#destroy', as: 'user_cookbook'
-  get '/users/:user_id/cookbooks', to: 'cookbooks#show', as: 'user_cookbook_show'
+  #this for like function
+
+  # root to: "recipes#index"
+  # resources :recipes, only: [:index, :show] do
+  #   resources :cookbook, only: :create
+  #   collection do
+  #     get recipe
+  #   end
+  # end
+
+  # or this ?
+
+  resources :cookbook, only: [:create, :destroy, :show]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

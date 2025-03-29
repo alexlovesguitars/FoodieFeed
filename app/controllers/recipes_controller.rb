@@ -27,10 +27,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def like
-    @recipe = Recipe.find(params[:id])
-    @recipe.cookbook.save
-  end
+  # def like
+  #   @recipe = Recipe.find(params[:id])
+  #   @recipe.cookbook.save
+  # end
 
   private
 
