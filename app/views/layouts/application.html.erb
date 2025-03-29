@@ -13,8 +13,7 @@
 <%# OLD COLOUR style="background: #F4EBCA;" %>
 
   <body style="background: #FFF5CF;">
-    <% unless action_name == "landing" || action_name = "configure_sign_up_params" %>
-      <%= render "shared/navbar" %>
+    <% unless action_name == "landing" || action_name == "configure_sign_up_params" %>
     <% end %>
     <%= render "shared/flashes" %>
 
