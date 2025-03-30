@@ -3,8 +3,10 @@
 <div class="container-fluid d-flex">
   <div class="col-3 mt-5">
     <div class="button mb-3 d-flex">
-      <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), home_path, class: "icon-back btn btn-ghost rounded-pill mb-3 text-black fs-5"%>
-      <p class="mt-2" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
+      <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill mb-1 text-black fs-5 d-flex align-items-center gap-2" do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+        <p class="mb-0" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
+      <% end %>
     </div>
     <div class="mb-3">
       <% if @recipe.image.present? && @recipe.image.key? %>
