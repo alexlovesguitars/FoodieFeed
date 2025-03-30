@@ -1,7 +1,7 @@
 <%= render "shared/recipe_banner" %>
 
 <div class="container-fluid d-flex">
-  <div class="col-3 mt-5">
+  <div class="col-4 mt-5">
     <div class="button mb-3 d-flex">
       <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill mb-1 text-black fs-5 d-flex align-items-center gap-2" do %>
         <i class="fa-solid fa-arrow-left-long"></i>
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="col-5 mt-5 mx-5 scrollable">
+  <div class="col-4 mt-5 mx-5 scrollable">
     <h2 class="mb-5">Ingredients</h2>
 
     <% if (@recipe) %>
