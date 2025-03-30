@@ -3,13 +3,21 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["content"]
 
+  connect() {
+    // Ensure modal is hidden when the page is loaded
+    this.hide();
+  }
+
   show() {
-    // Add the show class when modal opens
     this.contentTarget.classList.add("show")
   }
 
   hide() {
-    // Remove the show class when modal closes
     this.contentTarget.classList.remove("show")
+  }
+
+  disconnect() {
+    // Hide modal when navigating away
+    this.hide();
   }
 }
