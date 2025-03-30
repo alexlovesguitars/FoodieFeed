@@ -1,11 +1,11 @@
 .container-fluid {
-  padding: 0 100px 0 100px;
+  padding: 0 100px;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
 
 
   .card-resize {
@@ -27,6 +27,7 @@
   border-radius: inherit;
   background-color: #DF9755;
   box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
+  transition-duration: 0.3s;
 
 
   &:hover {
@@ -43,6 +44,7 @@
       border-top-right-radius: 15px;
       overflow: hidden;
     }
+
 
     i {
       position: absolute;
@@ -173,14 +175,14 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

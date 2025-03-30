@@ -14,11 +14,11 @@ require 'open-uri'
 
 puts "Destroying previous Recipes"
 
-Recipe.destroy_all
+Recipe.delete_all
 
 puts "Destroying previous Foodies"
 
-User.destroy_all
+User.delete_all
 
 puts "Creating foodies..."
 
@@ -29,7 +29,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "mattymatheson",
     bio: Faker::Coffee.notes,
-    social: "Instagram",
+    social: "instagram.com/mattymatheson, https://www.youtube.com/@mattymatheson",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743234531/osfvvfyhppp3mzs1l0jz.webp"
   )
@@ -89,9 +89,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "nigellalawson",
     bio: "Nigella has been teaching us about the pleasures of the table since her first book, How to Eat, hit the shelves in 1998. She has since published several best-selling cookery books, many complementing an accompanying television series, and has become known for her sensual descriptions of her dishes.",
-    social: "Instagram",
+    social: "https://www.instagram.com/nigellalawson",
     creator: true,
-    avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743250276/Profile_nigellaLawson_tcatxz.jpg"
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_nigellaLawson.jpg")["url"]), filename: "Profile_nigellaLawson.jpg")
   user.save!
@@ -111,15 +110,10 @@ puts "Creating foodies..."
       "few fronds fresh dill, chopped",
       "thick sourdough toast, to serve"],
       method: ["Fill a saucepan up to 4cm/1½in deep with water and bring to the boil. Place the yoghurt into a heatproof bowl large enough to sit over the pan and stir in the garlic and salt. Place the bowl over the pan, making sure the base doesn’t touch the water. Stir until it reaches body temperature and has the consistency of lightly whipped double cream. Turn off the heat, leaving the bowl over the pan.",
-
       "Melt the butter gently in a seperate small saucepan until it is just beginning to turn hazelnut-brown. Turn the heat off, then stir in the oil, followed by the Aleppo pepper and set aside.",
-
       "Fill a wide, lidded saucepan with 4cm/1½in water and place over a medium heat. Line a large plate with kitchen paper.",
-
       "Crack the first egg into a small fine mesh strainer suspended over a small bowl, then lift up and swirl gently for about 30 seconds, letting the watery part of the white drip into the bowl; discard. Gently tip the egg into a small cup or ramekin and pour 1 teaspoon of lemon juice onto it, aiming for the white. Repeat with the second egg.",
-
       "When the poaching water is just starting to simmer, gently slide in the eggs, one on each side of the pan. Turn the heat right down so there is no movement in the water, and poach the eggs for 3–4 minutes, until the whites are set and the yolks still runny. Transfer the eggs to the lined plate using a slotted spoon.",
-
       "Divide the warm, creamy yoghurt between two shallow bowls, top each with a poached egg, pour over the peppery butter, scatter the chopped dill on top and eat with the toast."],
       cuisine_type: "Meditteranian",
       description: "If I hadn’t eaten the Turkish eggs at Peter Gordon’s restaurant, I most certainly wouldn’t be tempted by the idea of poached eggs on Greek yoghurt. I say that only to pre-empt any hesitancy on your part. For çilbir, pronounced “chulburr”, is a revelation and a complete sensation.",
@@ -130,7 +124,7 @@ puts "Creating foodies..."
       user: user,
       video_link: "https://www.youtube.com/embed/XZ1Rd5HOEK4?si=nu_O-GXW2z25oK41",
     )
-    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_NigellaLawson.jpg")["url"]), filename: "Recipe_NigellaLawson.jpg")
+    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_NigellaLawson.webp")["url"]), filename: "Recipe_NigellaLawson.webp")
     recipe.save!
   end
 
@@ -141,7 +135,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "halfbakedharvest",
     bio: "The recipes you’ll find here are inspired by the people and places I love most. I come from a family of ten, and a big family means BIG meals. In an effort to tame some of our mealtime chaos and get dinner on the table at a respectable hour, I began to help cook. I soon realized how much I enjoyed it, and before I knew it, I had taken over cooking our meals full-time. I captured the process in photos and documented my best recipes, and that’s how Half Baked Harvest was born.",
-    social: "Youtube",
+    social: "https://www.instagram.com/halfbakedharvest",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_HalfBakedHarvest.jpg")["url"]), filename: "Profile_HalfBakedHarvest.jpg")
@@ -194,7 +188,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "Another Day In Paradise",
     bio: "I'm a chef & photographer. Here to inspure you to cook more & enjoy food.",
-    social: "Youtube, Instagram",
+    social: "https://www.youtube.com/@adipfood, https://www.instagram.com/adip_food",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_ADIP.jpg")["url"]), filename: "Profile_ADIP.jpg")
@@ -234,7 +228,7 @@ puts "Creating foodies..."
       user: user,
       video_link: "https://www.youtube.com/embed/NuCoZ9df2Ac?si=n0pNwlpt9q3-sV4q",
     )
-    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_ADIP.jpg")["url"]), filename: "Recipe_ADIP.jpg")
+    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_ADIP.png")["url"]), filename: "Recipe_ADIP.png")
     recipe.save!
 
     recipe = Recipe.new(
@@ -264,7 +258,7 @@ puts "Creating foodies..."
       user: user,
       video_link: "https://www.youtube.com/embed/Nnfy-r_eFcI?si=Hj-Xr5djAPppIGuY"
     )
-    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe2_ADIP.jpg")["url"]), filename: "Recipe2_ADIP.jpg")
+    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe2_ADIP.png")["url"]), filename: "Recipe2_ADIP.png")
     recipe.save!
   end
 
@@ -276,7 +270,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "donaldo_cooks",
     bio: "home cook, and a dad.  Making dinner should be easy",
-    social: "Youtube, Instagram",
+    social: "https://www.youtube.com/@donaldo_cooks, instagram.com/donaldo_cooks",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743250276/Profile_Donaldo_tjbqg8.jpg"
   )
@@ -330,7 +324,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "Chef Billy Parisi",
     bio: "Classical culinary expertise meets home cooking! I’m Billy Parisi, a classically trained culinary school graduate from Scottsdale Culinary Institute with over 15 years in the restaurant industry and over 25 years of cooking experience. ",
-    social: "Youtube, Instagram",
+    social: "https://www.youtube.com/@ChefBillyParisi, instagram.com/chefbillyparisi",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743250275/Profile_ChefBilly_writpp.jpg"
   )
@@ -433,7 +427,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "The Foodie Diaries",
     bio: "A curated collection of recipes & recommendations across food and travel. You’ll find plenty of Kitchen Inspiration here including pantry picks, tips and tricks. Explore new destinations through our detailed travel guides; and discover a treasure trove of resources for navigating pregnancy and motherhood.",
-    social: "Youtube, Instagram",
+    social: "https://www.instagram.com/the_foodiediaries, https://www.youtube.com/@the_foodiediaries",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_FoodieDiaries.png")["url"]), filename: "Profile_FoodieDiaries.jpg")
@@ -489,7 +483,7 @@ puts "Creating foodies..."
       password: "123456",
       user_name: "Munchies",
       bio: "A curated collection of recipes & recommendations across food and travel. You’ll find plenty of Kitchen Inspiration here including pantry picks, tips and tricks. Explore new destinations through our detailed travel guides; and discover a treasure trove of resources for navigating pregnancy and motherhood.",
-      social: "Youtube, Instagram",
+      social: "https://www.youtube.com/Munchies, https://www.instagram.com/munchies",
       creator: true
     )
     user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_Munchies.png")["url"]), filename: "Profile_Munchies.png")
@@ -571,8 +565,129 @@ puts "Creating foodies..."
       recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_Munchies.webp")["url"]), filename: "Recipe_Munchies.webp")
       recipe.save!
     end
-# 9
-# 10
+# 9 The Mediterranian Dish - Turkish Meatballs - This Recipe has Timestamps on Youtube!
+    user = User.new(
+      email:  Faker::Internet.email,
+      password: "123456",
+      user_name: "The Mediterranian Dish",
+      bio: "Mediterranean Food & Diet | Easy Recipes | Suzy Karadsheh
+      2 X New York Times Bestselling Author. Leading online resource for easy Mediterranean recipes + Mediterranean diet for home cooks.",
+      social: "https://www.instagram.com/themediterraneandish/, https://www.youtube.com/@TheMediterraneanDish",
+      creator: true
+    )
+    user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_TheMediterranianDish.jpg")["url"]), filename: "Profile_TheMediterranianDish.jpg")
+    user.save!
+
+    if user.persisted?
+
+      recipe = Recipe.new(
+        title: "Kofta Meatballs",
+        ingredients: ["Extra virgin olive oil",
+        "1 slice of bread, toasted",
+        "1 pound ground beef or lamb",
+        "1 medium yellow onion, quartered",
+        "2 garlic cloves",
+        "1 whole bunch parsley, stems removed (about 2 packed cups of leaves)",
+        "1 1/2 teaspoons allspice",
+        "1/2 teaspoon ground green cardamom",
+        "1/2 teaspoon paprika",
+        "1/2 teaspoon sumac",
+        "1/2 teaspoon ground nutmeg",
+        "1/4 teaspoon cayenne",
+        "Kosher salt",
+        "Black pepper",
+        "1/4 cup pine nuts",
+        "1/4 teaspoon Aleppo pepper",
+        "10 ounces hummus (about 1 cup)",
+        "Pita bread, for serving (optional)"],
+        method: ["Get ready. Heat your oven to 425°F. Lightly brush a large sheet pan with a thin layer of olive oil.", "Soak the bread until very tender. In a large bowl cover the bread with 1 cup of water. Let it sit for 15 minutes.", "Prepare the fresh seasonings. While the bread soaks, add the onion, garlic, and parsley (set aside a small handful of leaves for garnish) to a food processor and pulse until they are finely minced. You can also do this by hand if you'd like, just make sure everything is very finely chopped.", "Crumble the bread. Use your hands to squeeze the liquid out of the bread. Discard the water and crumble the bread slice back into the bowl. This is the secret to a juicy meatball!", "Make the meatball mixture. Into the bowl with the bread, add a good drizzle of olive oil, the onion and garlic mixture, ground meat, allspice, cardamom, paprika, sumac, nutmeg, cayenne, and a big pinch each of kosher salt and pepper. Use your hands to mix it all together, making sure everything is well combined.", "Roll the meatballs. Form the meat mixture into small balls, just slightly larger than the size of a golf ball. Arrange them on the prepared sheet pan without touching.", "Bake the meatballs. Place in the oven and bake, turning over halfway through, until the meatballs are well browned and the center is no longer pink, 20 to 25 minutes.", "Toast the pine nuts. While the meatballs roast, set a small skillet over medium-low heat. Add enough olive oil to coat the bottom of the skillet and the pine nuts. Toast, stirring, until they are fragrant and golden. Stay close by and stir constantly so they don’t burn. Transfer to a small plate.", "Make the sizzled Aleppo oil. A few minutes before the meatballs have cooked through, return the skillet where you toasted the pine nuts to medium heat. Add the 1/4 cup of olive oil and the Aleppo pepper. You just want to warm and flavor the oil. This should only take a few minutes. Turn off the heat.", "Assemble. Remove the meatballs from the oven. Spread hummus on a plate or platter, using a spoon to make swoops and swirls. Pour the warmed oil over the hummus and top with meatballs. Garnish with the toasted pine nuts and reserved parsley leaves. Serve with pita bread on the side."],
+        cuisine_type: "Middle Eastern, Mediterranian",
+        description: "Meatballs, Middle Eastern Style! Weeknight-friendly baked meatballs recipe with ground beef or lamb seasoned with Middle Eastern spices and baked in the oven until golden brown and juicy. Serve these meatballs over a bed of creamy hummus with a drizzle of olive oil and toasted pine nuts!",
+        utensils: "None",
+        dietary_restrictions: "Meat, Nuts, Dairy",
+        recipe_hashtags: ["Beef", "Lamb", "Nuts", "Mediterranian", "Middle Eastern"],
+        cook_time: 50,
+        user: user,
+        video_link: "https://www.youtube.com/embed/CZTnQAspJDc?si=DQM9LrWl2WqyPiBX",
+      )
+      recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_TurkishMeatballs.png")["url"]), filename: "Recipe_TurkishMeatballs.png")
+      recipe.save!
+    end
+# 10 Just One Cookbook - Vegetarian Ramen
+  user = User.new(
+    email:  Faker::Internet.email,
+    password: "123456",
+    user_name: "Just One Cookbook",
+    bio: "Whether you’re passionate about Japanese cuisine or simply eager to expand your kitchen skills, Just One Cookbook is your trusted guide to authentic Japanese home cooking and food culture.",
+    social: "https://www.instagram.com/justonecookbook/, https://www.youtube.com/@justonecookbook",
+    creator: true
+  )
+  user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_TheMediterranianDish.jpg")["url"]), filename: "Profile_TheMediterranianDish.jpg")
+  user.save!
+
+  if user.persisted?
+
+    recipe = Recipe.new(
+      title: "Vegetarian Ramen",
+      ingredients: ["For the Soup Broth",
+      "2 Tbsp toasted white sesame seeds",
+      "1½ tsp ginger (grated; from a 1-inch, 2.5-cm knob)",
+      "2 cloves garlic",
+      "2 green onions/scallions (save the green part for garnish)",
+      "1 Tbsp toasted sesame oil",
+      "1½ Tbsp doubanjiang (spicy chili bean paste) (use either the spicy or non-spicy type, or use gluten-free doubanjiang)",
+      "1½ Tbsp miso (I use my favorite miso by Hikari Miso; most types will work, except Saikyo and Hatcho varieties)",
+      "1 Tbsp sake",
+      "1½ Tbsp soy sauce (use GF soy sauce for gluten-free)",
+      "2 cups unsweetened soy milk",
+      "1 cup Vegan Dashi (use my Vegan Dashi recipe or follow the instructions below)",
+      "½ tsp Diamond Crystal kosher salt",
+      "1 dash of white pepper powder",
+      "For the Ramen",
+      "2 servings fresh ramen noodles (10–12 oz, 283–340 g fresh noodles; 6.3 oz, 180 g dry ramen noodles; use GF ramen noodles for gluten-free)",
+      "1 head Shanghai bok choy (large)",
+      "toppings of your choice (I like to add ramen eggs (skip for vegan), corn, nori seaweed, vegan kimchi, and spicy bean sprout salad; see the instructions for details)"],
+      method: ["Gather all the ingredients. If you haven‘t already made the vegan dashi, prepare my Vegan Dashi recipe or follow the instructions below. Make sure all the toppings are ready to go before you begin cooking the ramen. If you‘re making my Ramen Eggs recipe (1 per bowl), prepare them a day in advance. I also like to divide and add ½ cup of my Spicy Bean Sprout Salad and ¼ cup of my friend Seonkyoung‘s homemade vegan kimchi. Finally, ¼ cup corn (frozen or canned) and 1 sheet nori (dried laver seaweed) are other popular toppings to divide among the bowls.",
+      "A typical ramen bowl can hold 1200–1400 ml of liquid. We will prepare 1½ cups (360 ml) of soup broth per bowl, which should be more than enough. If you’re using bigger bowls, you may need to prepare extra soup.",
+      "To Make the Vegan Dashi",
+      "Measure 1 cup (240 ml) of water. Add 1–2 dried shiitake mushrooms (3–5 g each) and 1 piece of kombu (dried kelp) (5 g; 2 x 2 inches, 5 x 5 cm per piece). I set a small heavy cup or bowl on top to keep the mushrooms completely submerged in the water. Soak for at least 30 minutes. Meanwhile, prepare the ramen ingredients. Tip: Use less mushroom if they are thick and large and more if they are flat and small.",
+      "After 30 minutes, transfer this cold brew vegan dashi (the liquid, kombu, and shiitake) to a medium saucepan.",
+      "Slowly bring it to a near boil over low heat; this slow extraction will enhance the dashi flavor. Right before the liquid boils, remove the kombu and shiitake mushroom from the dashi. Turn off the heat. Tip: If you leave the kombu in the pot, the dashi will become slimy and bitter.",
+      "Transfer the vegan dashi to a measuring cup. Make sure you have 1 cup; if not, add water.",
+      "Tip: You can repurpose the spent kombu to make Simmered Kombu (Kombu Tsukudani) and Homemade Furikake (Rice Seasoning). Cut off the stem of the spent shiitake mushroom and use the cap just as you would a fresh shiitake mushroom.",
+      "Prepare a big pot of water for cooking the bok choy and noodles. Slowly bring it to a boil on medium-low heat while you prepare all the ingredients.",
+      "Grind and crush 2 Tbsp toasted white sesame seeds in a Japanese mortar and pestle (suribachi and surikogi)",
+      "Grate the ginger (I use a ceramic grater). Reserve 1½ tsp ginger (grated, with juice). If you’re unsure how much ginger flavor you’d like, start with less and add more later.",
+      "Next, mince or press 2 cloves garlic",
+      "Separate the green and white parts of 2 green onions/scallions. Cut the white part (for the soup broth) into thin rounds.",
+      "Then, cut the green part (for the garnish) into thin rounds. Keep them in separate bowls.",
+      "Cut 1 head Shanghai bok choy into quarters lengthwise and rinse clean under water. Debris tends to hide between the layers, so rinse them thoroughly.",
+      "To Make the Soup Broth",
+      "Set a small saucepan over medium-low heat. Add 1 Tbsp toasted sesame oil, the minced garlic, the grated ginger, and the white part of the green onions/scallions. Cook until fragrant, about 1–2 minutes. Tip: Make sure not to burn the aromatics.",
+      "Add 1½ Tbsp doubanjiang (spicy chili bean paste) and 1½ Tbsp miso to the saucepan. Stir constantly so that they don’t burn. Tip: Try different miso types to create a slightly different flavor for the soup broth. For information on doubanjiang substitution, see the blog post.",
+      "Next, add 1 Tbsp sake and use a wooden spatula to stir and release the bits of the sauce attached to the bottom of the saucepan.",
+      "Add the ground sesame seeds and 1½ Tbsp soy sauce and mix it all together.",
+      "Gradually add 2 cups unsweetened soy milk, stirring constantly and making sure to dissolve the doubanjiang and miso.",
+      "Then, add 1 cup Vegan Dashi.",
+      "Taste the soup now and adjust the seasoning with ½ tsp Diamond Crystal kosher salt and 1 dash of white pepper powder, to taste. Don‘t be shy about adding salt because the broth will taste less salty after you add the noodles. Turn off the heat, cover with a lid, and set aside.",
+      "Blanch your Pak Choi & place it in a bowl with ice water after to keep it from cooking further",
+      "Now, it‘s time to reheat the soup broth until it‘s piping hot, but don‘t let it overboil because it may curdle. Before cooking the fresh noodles, loosen them up with your hands.",
+      "When the noodles are done cooking, drain them well in a strainer, shaking it a few times to drain the water thoroughly (otherwise it will dilute the soup broth). Transfer the noodles to the individual ramen bowls.",
+      "To Serve: Divide and pour the piping-hot soup broth with seasonings over the noodles. Then, divide and add the bok choy and toppings of your choice to the bowls. I topped this Vegetarian Ramen with 2 ramen eggs sliced lengthwise, ¼ cup frozen or canned corn, 1 sheet nori (dried laver seaweed), ½ cup Spicy Bean Sprout Salad, and ¼ cup vegan kimchi. Garnish with the chopped green onions and serve."],
+      cuisine_type: "Japanese, Asian",
+      description: "This Vegetarian Ramen is going to rock your world! Learn the secret to creating a super-rich and creamy broth with soy milk, miso, sesame seeds, and spicy chili bean sauce. Make it vegan by skipping the ramen egg!",
+      utensils: "None",
+      dietary_restrictions: "Vegetarian",
+      recipe_hashtags: ["Asian", "Japanese", "Vegetarian", "Noodles", "Ramen", "Soup"],
+      cook_time: 60,
+      user: user,
+      video_link: "https://www.youtube.com/embed/odQoGW7siCc?si=tuwuzSgRv0DUV0vI",
+    )
+    recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_JustOneCookbook.png")["url"]), filename: "Recipe_JustOneCookbook.png")
+    recipe.save!
+  end
+
+
 
 
 puts "Your Foodies & Recipes are ready"

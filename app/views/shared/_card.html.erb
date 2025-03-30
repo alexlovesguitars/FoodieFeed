@@ -3,7 +3,7 @@
     <div class="card-category">
       <div class="photo">
         <i class="fa-regular fa-heart favorite-icon"></i>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id %>">
         <% if recipe.image.present? && recipe.image.key? %>
           <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
         </a>
@@ -11,60 +11,25 @@
       </div>
       <div class="content d-flex justify-content-between align-items-center">
         <h4 class="card-title"> <%= recipe.title %></h4>
-      <a href="#" class="avatar-card">
-        <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
-          <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
-            {gravity: "face", height: 200, width: 200, crop: "thumb"},
-            {radius: "max"},
-            {fetch_format: "auto"}
-          ]) %>
-        <% else %>
-          <i class="fa-solid fa-user avatar-card"></i>
-        <% end %>
-      </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="card" data-action="shown.bs.modal->card#show hidden.bs.modal->card#hide">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4 position-relative">
-      <div class="cards position-relative d-flex">
-
-        <!-- Left Image Section -->
-        <div class="card-category-modal position-relative">
-          <div class="photo position-relative">
-            <i class="fa-regular fa-heart favorite-icon"></i>
-          <% if recipe.image.present? && recipe.image.key? %>
-            <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop:"auto", class: "img-fluid justify-content-center") %>
+        <a href="#" class="avatar-card">
+          <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
+            <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
+              {gravity: "face", height: 200, width: 200, crop: "thumb"},
+              {radius: "max"},
+              {fetch_format: "auto"}
+            ]) %>
+          <% else %>
+            <i class="fa-solid fa-user avatar-card"></i>
           <% end %>
-          </div>
-          <div class="content d-flex justify-content-between align-items-center">
-            <h4 class="card-title"> <%= recipe.title %></h4>
-              <a href="#" class="avatar-card dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
-                  <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
-                    {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                    {radius: "max"},
-                    {fetch_format: "auto"}
-                  ]) %>
-                <% else %>
-                  <i class="fa-solid fa-user avatar-card"></i>
-                <% end %>
-              </a>
-          </div>
-        </div>
-
-        <!-- Right Sliding Content Section (Completely Hidden Initially) -->
-        <div data-card-target="content" class="sliding-content position-absolute bg-light p-4 shadow-lg d-flex flex-column">
-          <h4>Delicious & luxurious.</h4>
-          <p class="mx-4">This recipe is the culmination of class. <br> A perfect exmaple of italian heritage.</p>
-          <%= link_to "Go To Recipe!", "", class: "btn btn-primary rounded-pill d-flex align-content-center mt-2 mb-4" %>
-        </div>
-
+        </a>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- Render Modals -->
+
+<% @recipes.each do |recipe| %>
+  <%= render "shared/modal", recipe: recipe %>
+<% end %>
