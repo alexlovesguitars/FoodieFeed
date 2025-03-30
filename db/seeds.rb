@@ -622,7 +622,7 @@ puts "Creating foodies..."
     social: "https://www.instagram.com/justonecookbook/, https://www.youtube.com/@justonecookbook",
     creator: true
   )
-  user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_TheMediterranianDish.jpg")["url"]), filename: "Profile_TheMediterranianDish.jpg")
+  user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_JustOneCookbook.jpg")["url"]), filename: "Profile_JustOneCookbook.jpg")
   user.save!
 
   if user.persisted?
@@ -690,4 +690,12 @@ puts "Creating foodies..."
 
 
 
+
 puts "Your Foodies & Recipes are ready"
+
+
+puts "Creating your Foodie Experiences"
+
+
+# 1 FoodTechniqueBerlin - Ramen
+# 2
