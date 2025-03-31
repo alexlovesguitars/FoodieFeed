@@ -29,7 +29,6 @@
   box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
   transition-duration: 0.3s;
 
-
   &:hover {
     transform: scale(1.1);
     transition-duration: 0.3s;
@@ -45,8 +44,7 @@
       overflow: hidden;
     }
 
-
-    i {
+    i:not(.favorite-icon) {
       position: absolute;
       right: auto;
       padding: 10px 10px 0 0;
@@ -58,7 +56,6 @@
       }
     }
   }
-
 
 
   .content {
