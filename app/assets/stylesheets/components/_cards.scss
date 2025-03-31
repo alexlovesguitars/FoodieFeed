@@ -49,6 +49,7 @@
     i.favorite-icon {
       position: absolute;
       right: auto;
+      padding: 10px 10px 0 0;
       font-size: 20px;
       color: white;
       transition: transform 0.3s, color 0.3s;
@@ -56,6 +57,11 @@
       &:hover {
         transform: scale(1.2);
         color: $logo-color;
+      }
+
+      &.fa-solid { // Selects the filled heart icon
+        color: $logo-color;
+        fill: $logo-color;
       }
     }
 
@@ -115,6 +121,11 @@
       &:hover {
         transform: scale(1.2);
         color: $logo-color;
+      }
+
+      &.fa-solid { // Selects the filled heart icon
+        color: $logo-color;
+        fill: $logo-color;
       }
     }
 

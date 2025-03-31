@@ -2,7 +2,18 @@
   <div class="card-resize">
     <div class="card-category">
       <div class="photo">
-        <i class="fa-regular fa-heart favorite-icon"></i>
+        <% if user_signed_in? %>
+          <% favorite = current_user.favorites.find_by(recipe: recipe) %>
+            <% if favorite %>
+              <%= button_to favorite_path(recipe, favorite), method: :delete, class: "favorite-link" do %>
+                <i class="fa-solid fa-heart favorite-icon"></i>
+              <% end %>
+            <% else %>
+              <%= button_to favorites_path(recipe), method: :post, class: "favorite-link" do %>
+                <i class="fa-regular fa-heart favorite-icon"></i>
+              <% end %>
+            <% end %>
+          <% end %>
         <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id %>">
         <% if recipe.image.present? && recipe.image.key? %>
           <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>

@@ -1,0 +1,16 @@
+<%= render "shared/banner" %>
+<div class="container">
+  <h1>My Cookbook</h1>
+  <div>
+    <% if @favorite_recipes.empty? %>
+      <h2>Your Cookbook is empty</h2>
+      <p>Like some recipes to store them in your cookbook</p>
+    <% else %>
+      <div>
+        <% @favorite_recipes.each do |recipe| %>
+          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
