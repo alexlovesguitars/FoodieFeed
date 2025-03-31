@@ -3,45 +3,28 @@
 
 <div class="container-fluid">
   <div class="row">
-    <h4 class="mt-4 mb-1 lato-bold">FEATURED RECIPES</h4>
+    <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
     <div class="cards">
-      <% @recipes.each do |recipe| %>
-        <div class="card-resize">
-          <div class="card-category">
-            <div class="photo">
-              <a href="<%= recipe_path(recipe) %>">
-                <%= image_tag("ragu_still.png", gravity: "auto", width: 298, height: 220, class: "img-fluid justify-content-center") %>
-              </a>
-              <div class="icons">
-                <i class="fa-regular fa-heart favorite-icon"></i>
-              </div>
-            </div>
-            <div class="content d-flex justify-content-start align-items-center">
-        <h4 class="card-title"><%= recipe.title %></h4>
+
+      <div class="d-flex">
+        <% @recipes.each do |recipe| %>
+          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% end %>
       </div>
-          </div>
-        </div>
-      <% end %>
 
-
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
-      <%= render "shared/card"%>
     </div>
   </div>
 
   <div class="row">
-    <h4 class="mt-4 mb-1 lato-bold">FEATURED EXPERIENCES</h4>
+    <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
     <div class="cards">
-      <%= render "shared/experience_card"%>
-      <%= render "shared/experience_card"%>
-      <%= render "shared/experience_card"%>
-      <%= render "shared/experience_card"%>
-      <%= render "shared/experience_card"%>
-      <%= render "shared/experience_card"%>
+
+      <div class="d-flex">
+        <% @recipes.each do |recipe| %>
+          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 

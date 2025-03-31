@@ -20,7 +20,7 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :image, as: :file %>
+      <%= f.input :avatar, as: :file %>
 
       <div data-controller="creator-form">
       <%= f.input :creator, as: :boolean, label: "Are you a creator?",

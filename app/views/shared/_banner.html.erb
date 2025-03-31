@@ -10,8 +10,8 @@
     <% if user_signed_in? %>
       <!-- Avatar link with dropdown toggle -->
       <a href="#" class="avatar dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <% if current_user.image.present? && current_user.image.key.present? %>
-          <%= cl_image_tag(current_user.image.key, class: "avatar", transformation: [
+        <% if current_user.avatar.present? && current_user.avatar.key.present? %>
+          <%= cl_image_tag(current_user.avatar.key, class: "avatar", transformation: [
             {gravity: "face", height: 200, width: 200, crop: "thumb"},
             {radius: "max"},
             {fetch_format: "auto"}
@@ -20,7 +20,7 @@
           <i class="fa-solid fa-user avatar"></i>
         <% end %>
       </a>
-      <% end %>
+    <% end %>
       <!-- Dropdown menu -->
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>

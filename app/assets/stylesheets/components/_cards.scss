@@ -1,11 +1,12 @@
 .container-fluid {
-  padding: 0 100px 0 100px;
+  padding: 0 100px;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+
 
   .card-resize {
     width: 298px;
@@ -26,6 +27,8 @@
   border-radius: inherit;
   background-color: #DF9755;
   box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
+  transition-duration: 0.3s;
+
 
   &:hover {
     transform: scale(1.1);
@@ -41,6 +44,7 @@
       border-top-right-radius: 15px;
       overflow: hidden;
     }
+
 
     i {
       position: absolute;
@@ -135,7 +139,7 @@
   z-index: 0; /* Keep it behind the photo card */
   transform: translateX(-90%); /* Start hidden */
   transition: transform 0.7s ease-in-out; /* Smooth slide animation */
-  border-radius: 15px;
+  border-radius: 0px 15px 15px 0px;
   overflow: hidden;
   opacity: 0; /* Make sure it’s fully hidden */
   padding-right: 24px;
@@ -171,14 +175,14 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -199,6 +203,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

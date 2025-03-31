@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_29_090518) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_29_111057) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_29_090518) do
     t.string "ingredients", default: [], array: true
     t.string "method", default: [], array: true
     t.string "recipe_hashtags", default: [], array: true
+    t.string "video_link"
+    t.string "image_link"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -81,6 +84,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_29_090518) do
     t.text "bio"
     t.string "social"
     t.boolean "creator"
+    t.string "avatar_link"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
