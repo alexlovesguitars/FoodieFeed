@@ -1,7 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "FoodieFeedLogo.svg", class: "Hero" %>
-  <% end %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div>
+    <%= link_to root_path do %>
+      <%= image_tag "foodiefeed_logo_klein.png", style: "height: 40px;" %>
+    <% end %>
+    <h1 class="recipe-title-red" style="font-size: 50px;"><%= @recipe.title %></h1>
+    <p class="recipe-title-red" style="font-size: 15px; letter-spacing: 0.05vw">BY <%= @recipe.user.user_name.upcase %></p>
+  </div>
   <div class="nav-items d-flex justify-content-end">
     <i class="fa-solid fa-filter"></i>
     <i class="fa-solid fa-magnifying-glass"></i>
@@ -20,7 +24,7 @@
           <i class="fa-solid fa-user avatar"></i>
         <% end %>
       </a>
-    <% end %>
+      <% end %>
       <!-- Dropdown menu -->
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>
