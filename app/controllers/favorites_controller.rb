@@ -1,24 +1,39 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
-  before_action :set_recipe, only: [:create, :destroy]
+  before_action :set_recipe, only: [:create]
   before_action :set_favorite, only: [:destroy]
+
 
   def index
     @favorite_recipes = current_user.favorite_recipes
   end
 
   def create
-    current_user.favorites.create(recipe: @recipe)
-    redirect_to recipes_path, notice: "Added to cookbook!"
+    # Find the recipe
+    @recipe = Recipe.find(params[:recipe_id])
+
+    # Create a new favorite
+    favorite = current_user.favorites.new(recipe: @recipe)
+
+    if favorite.save
+      redirect_back(fallback_location: recipes_path, notice: "Added to cookbook!")
+    else
+      redirect_back(fallback_location: recipes_path, alert: "Could not add to cookbook.")
+    end
   end
 
   def destroy
+    # Find the favorite
     @favorite = current_user.favorites.find(params[:id])
+
+    # Delete it
     @favorite.destroy
-    redirect_to request.referer || recipes_path, notice: "Recipe removed from cookbook!"
-  rescue ActiveRecord::RecordNotFound
-    redirect_to recipes_path, alert: "Cookbook not found."
+
+    # Redirect back
+    redirect_back(fallback_location: recipes_path, notice: "Recipe removed from cookbook!")
+  rescue
+    redirect_back(fallback_location: recipes_path, alert: "Could not remove from cookbook.")
   end
 
   private

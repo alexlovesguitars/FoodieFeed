@@ -1,31 +1,38 @@
-<%= render "shared/banner" %>
-
-
 <div class="container-fluid">
   <div class="row">
     <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
     <div class="cards">
-
       <div class="d-flex">
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% if @recipes.present? %>
+          <% @recipes.each do |recipe| %>
+            <%= render partial: "shared/card", locals: { recipe: recipe } %>
+          <% end %>
+        <% else %>
+          <p>No recipes found.</p>
         <% end %>
       </div>
-
     </div>
   </div>
 
   <div class="row">
     <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
     <div class="cards">
-
       <div class="d-flex">
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% if @recipes.present? %>
+          <% @recipes.each do |recipe| %>
+            <%= render partial: "shared/card", locals: { recipe: recipe } %>
+          <% end %>
+        <% else %>
+          <p>No experiences found.</p>
         <% end %>
       </div>
-
     </div>
   </div>
-
 </div>
+
+<!-- Render Modals -->
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <%= render "shared/modal", recipe: recipe %>
+  <% end %>
+<% end %>
