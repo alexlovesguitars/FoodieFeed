@@ -15,12 +15,10 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = current_user.favorites.find(params[:id])
-    if @favorite
-      @favorite.destroy
-      redirect_to request.referer || recipes_path, notice: "Recipe removed from cookbook!"
-    else
-      redirect_to recipes_path, alert: "Cookbook not found."
-    end
+    @favorite.destroy
+    redirect_to request.referer || recipes_path, notice: "Recipe removed from cookbook!"
+  rescue ActiveRecord::RecordNotFound
+    redirect_to recipes_path, alert: "Cookbook not found."
   end
 
   private

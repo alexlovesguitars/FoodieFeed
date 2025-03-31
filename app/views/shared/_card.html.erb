@@ -3,14 +3,19 @@
     <div class="card-category">
       <div class="photo">
         <% if user_signed_in? %>
-          <% favorite = current_user.favorites.find_by(recipe: recipe) %>
+          <% favorite = current_user.favorites.find_by(recipe_id: recipe.id) %>
             <% if favorite %>
-              <%= button_to favorite_path(recipe, favorite), method: :delete, class: "favorite-link" do %>
-                <i class="fa-solid fa-heart favorite-icon"></i>
+              <%= form_with url: favorite_path(favorite), method: :delete, class: "favorite-form" do %>
+                <button type="submit" class="favorite-link">
+                  <i class="fa-solid fa-heart favorite-icon"></i>
+                </button>
               <% end %>
             <% else %>
-              <%= button_to favorites_path(recipe), method: :post, class: "favorite-link" do %>
-                <i class="fa-regular fa-heart favorite-icon"></i>
+              <%= form_with url: favorites_path, method: :post, class: "favorite-form" do %>
+                <%= hidden_field_tag :recipe_id, recipe.id %>
+                <button type="submit" class="favorite-link">
+                  <i class="fa-regular fa-heart favorite-icon"></i>
+                </button>
               <% end %>
             <% end %>
           <% end %>
