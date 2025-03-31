@@ -4,9 +4,11 @@
 
   .socials i {
     font-size: 25px;
+    transition-duration: 0.3s;
 
     &:hover {
       transform: scale(1.5);
+      transition-duration: 0.3s;
       color: white;
     }
   }
