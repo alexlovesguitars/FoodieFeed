@@ -1,43 +1,56 @@
 <%= render "shared/recipe_banner" %>
 
 <div class="container-fluid d-flex">
-  <div class="col-3">
-
-    <h2 class="mb-5 lato-bold">Ingredients</h2>
-    <% if (@recipe) %>
-      <% @recipe.ingredients.each do |ingrdient| %>
-        <p><%= ingrdient %></p>
+  <div class="col-4 mt-2">
+    <div class="button mb-3 d-flex">
+      <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill text-black fs-5 d-flex align-items-center gap-2" do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+        <p class="mb-0" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
       <% end %>
-    <% end %>
-
-    <% if @recipe && @recipe.utensils.present? && @recipe.utensils.downcase != "none" %>
-      <h2 class="mb-3 lato-bold">Utensils</h2>
-      <p><%= @recipe.utensils %></p>
-    <% end %>
-  </div>
-
-  <div class="col-4 mt-5 mx-4 scrollable">
-    <h2 class="lato-bold mb-5 mt-3">Instructions</h2>
-     <% if (@recipe) %>
-      <% @recipe.method.each_with_index do |step, index| %>
-        <h6 class="mt-5"><strong>Step <%= index+1 %></strong></h6>
-        <p><%= step %></p>
+    </div>
+    <div class="mb-3">
+      <% if @recipe.image.present? && @recipe.image.key? %>
+        <%= cl_image_tag(@recipe.image.key, gravity: "auto", width: 420, height: 280, crop: "auto", class: "img-fluid justify-content-center custom-border") %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    <div>
+      <h2 class="mb-3">Description</h2>
 
-  <div class="col-4 video mt-5">
-    <div style="width: 100%;">
-      <div class="video mt-5">
-        <iframe width="560" height="315" src="<%= @recipe.video_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <div style="d-flex justify-content-center flex-wrap gap-2">
-        <%= link_to raw('<i class="fa-solid fa-arrow-left-long"></i>'), "javascript:history.back()", class: "btn btn-primary rounded-pill px-3" %>
-        <%= link_to "Cook!", cookmode_recipe_path, class: "btn btn-primary rounded-pill px-3" %>
-        <%= link_to "Leave a review!", "#reviewModal", class: "btn btn-primary rounded-pill px-3", data: { bs_toggle: "modal" } %>
-      </div>
+        <% if (@recipe) %>
+            <p><%= @recipe.description %></p>
+        <% end %>
+
+        <% if @recipe && @recipe.utensils.present? && @recipe.utensils.downcase != "none" %>
+          <h2 class="mb-2">Utensils</h2>
+          <p><%= @recipe.utensils %></p>
+        <% end %>
     </div>
   </div>
+
+  <div class="col-4 mt-5 mx-5 scrollable">
+    <h2 class="mb-5">Ingredients</h2>
+
+    <% if (@recipe) %>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <p><%= ingredient %></p>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <div class="col-3 mt-5">
+
+    <div class="button">
+      <%= link_to "Get Cooking!", cookmode_recipe_path(@recipe), class: "btn btn-primary rounded-pill px-5 py-2 text-white fs-3 w-100" %>
+    </div>
+
+    <div class="ratings mt-4">
+
+      <%= render "shared/review_recipeshow" %>
+
+    </div>
+  </div>
+
 
 </div>
 
