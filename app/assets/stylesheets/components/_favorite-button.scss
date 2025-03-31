@@ -1,0 +1,17 @@
+.favorite-icon {
+  position: absolute;
+  right: auto;
+  padding: 10px 10px 0 0;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $logo-color;
+  }
+
+  &.liked {
+    color: $logo-color;
+  }
+}
