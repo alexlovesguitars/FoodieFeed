@@ -20,6 +20,7 @@
   letter-spacing: 0.05vw;
 }
 
+
 .card-category {
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@
   background-color: #DF9755;
   box-shadow: rgba(0, 0, 0, 0.252) 0 4px 4px;
   transition-duration: 0.3s;
+
 
   &:hover {
     transform: scale(1.1);
@@ -44,7 +46,20 @@
       overflow: hidden;
     }
 
-    i:not(.favorite-icon) {
+    i.favorite-icon {
+      position: absolute;
+      right: auto;
+      font-size: 20px;
+      color: white;
+      transition: transform 0.3s, color 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+        color: $logo-color;
+      }
+    }
+
+    i {
       position: absolute;
       right: auto;
       padding: 10px 10px 0 0;
@@ -56,6 +71,7 @@
       }
     }
   }
+
 
 
   .content {
@@ -87,6 +103,19 @@
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
       overflow: hidden;
+    }
+
+    i.favorite-icon {
+      position: absolute;
+      right: auto;
+      font-size: 20px;
+      color: white;
+      transition: transform 0.3s, color 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+        color: $logo-color;
+      }
     }
 
     i {
