@@ -11,7 +11,7 @@
       </div>
       <div class="content d-flex justify-content-between align-items-center">
         <h4 class="card-title"> <%= recipe.title %></h4>
-        <a href="#" class="avatar-card">
+        <a href="<%= user_path(recipe.user) %>" class="avatar-card">
           <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
             <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
               {gravity: "face", height: 200, width: 200, crop: "thumb"},
