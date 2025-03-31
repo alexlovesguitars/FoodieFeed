@@ -4,7 +4,7 @@
       <%= image_tag "foodiefeed_logo_klein.png", style: "height: 40px;" %>
     <% end %>
     <h1 class="recipe-title-red" style="font-size: 50px;"><%= @recipe.title %></h1>
-    <h2 class="recipe-title-red" style="font-size: 20px;">by <%= @recipe.user.user_name %></h1>
+    <p class="recipe-title-red" style="font-size: 15px; letter-spacing: 0.05vw">BY <%= @recipe.user.user_name.upcase %></p>
     <%= render "shared/info_box" %>
   </div>
   <div class="nav-items d-flex justify-content-end">
