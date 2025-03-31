@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["step"]
+  static targets = ["step", "previousButton", "nextButton"]
 
   connect() {
     this.currentStepIndex = 0
@@ -12,6 +12,17 @@ export default class extends Controller {
     this.stepTargets.forEach((step, i) => {
       step.style.display = i === this.currentStepIndex ? "block" : "none"
     })
+    if (this.hasPreviousButtonTarget) {
+     this.previousButtonTarget.style.display =
+      this.currentStepIndex === 0 ? "none" : "inline-block"
+    }
+
+    if (this.hasNextButtonTarget) {
+      this.nextButtonTarget.style.display =
+      this.currentStepIndex === this.stepTargets.length - 1
+        ? "none"
+        : "inline-block"
+    }
   }
 
   nextStep() {
