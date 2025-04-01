@@ -7,15 +7,21 @@
         <!-- Left Image Section -->
         <div class="card-category-modal position-relative">
           <div class="photo position-relative">
+
+
             <% if user_signed_in? %>
               <% favorite = current_user.favorites.find_by(recipe: recipe) %>
                 <% if favorite %>
-                  <%= button_to favorite_path(favorite), method: :delete, class: "favorite-link" do %>
-                    <i class="fa-solid fa-heart favorite-icon"></i>
+                  <%= link_to favorite_path(favorite),
+                        data: { turbo_method: :delete },
+                        class: "favorite-link" do %>
+                  <i class="fa-solid fa-heart favorite-icon"></i>
                   <% end %>
                 <% else %>
-                  <%= button_to favorites_path(recipe_id: recipe.id), method: :post, class: "favorite-link" do %>
-                    <i class="fa-regular fa-heart favorite-icon"></i>
+                  <%= link_to favorites_path(recipe_id: recipe.id),
+                        data: { turbo_method: :post },
+                        class: "favorite-link" do %>
+                  <i class="fa-regular fa-heart favorite-icon"></i>
                   <% end %>
                 <% end %>
               <% end %>
