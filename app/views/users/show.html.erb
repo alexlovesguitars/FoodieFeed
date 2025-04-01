@@ -1,0 +1,79 @@
+<%# Add Banner to Show Page %>
+<%= render "shared/banner" %>
+
+<div class="container-fluid d-flex">
+
+  <div class="col-3 mt-2">
+    <div class="button mb-3 d-flex">
+      <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill text-black fs-5 d-flex align-items-center gap-2" do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+        <p class="mb-0" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
+      <% end %>
+    </div>
+    <div class="bio_box">
+      <div class="mx-3 py-4 d-flex justify-content-center">
+        <% if @user.avatar.present? && @user.avatar.key? %>
+          <%= cl_image_tag(@user.avatar.key, gravity: "auto", width: 250, height: 250, crop: "auto", class: "img-fluid justify-content-center large-shadow",
+          transformation: [
+                    {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                    {radius: "max"},
+                    {fetch_format: "auto"}]) %>
+        <% else %>
+          <div class="roundedBackground mt-3 d-flex flex-column justify-content-center align-items-center">
+            <%= image_tag "AvatarFailed.png", width: 200 %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="socials d-flex flex-row justify-content-center align-items-even my-2">
+        <i class="fa-brands fa-youtube mx-2"></i>
+        <i class="fa-brands fa-instagram mx-2"></i>
+        <i class="fa-brands fa-tiktok mx-2"></i>
+      </div>
+
+      <div class="d-flex flex-column">
+        <h2 class="mb-3 text-white mx-5">Bio</h2>
+
+          <% if (@user) %>
+              <p class="text-white mx-5 mb-4"><%= @user.bio %></p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 px-5 mt-5 mx-5">
+  <h2 class="mb-5">Recipes</h2>
+
+    <%# <div class="recipes d-flex flex-row align-items-between"> %>
+    <div class="cards">
+
+        <% if @recipes.any? %>
+          <% @recipes.each do |recipe| %>
+            <%= render "shared/card", recipe: recipe %>
+          <% end %>
+        <% else %>
+          <p><%= @user.user_name %> hasn't shared any recipes yet.</p>
+        <% end %>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
