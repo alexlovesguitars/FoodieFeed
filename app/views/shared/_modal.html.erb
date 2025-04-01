@@ -1,4 +1,5 @@
 <!-- Modal -->
+
 <div class="modal fade" id="recipeModal-<%= recipe.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="card" data-action="shown.bs.modal->card#show hidden.bs.modal->card#hide">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content p-4 position-relative">
@@ -7,8 +8,6 @@
         <!-- Left Image Section -->
         <div class="card-category-modal position-relative">
           <div class="photo position-relative">
-
-
             <% if user_signed_in? %>
               <% favorite = current_user.favorites.find_by(recipe: recipe) %>
                 <% if favorite %>
@@ -25,6 +24,9 @@
                   <% end %>
                 <% end %>
               <% end %>
+            <% if recipe.image.present? && recipe.image.key? %>
+              <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop:"auto", class: "img-fluid justify-content-center") %>
+            <% end %>
           </div>
           <div class="content d-flex justify-content-between align-items-center">
             <h4 class="card-title"> <%= recipe.title %></h4>
