@@ -14,11 +14,11 @@ require 'open-uri'
 
 puts "Destroying previous Recipes"
 
-Recipe.delete_all
+Recipe.destroy_all
 
 puts "Destroying previous Foodies"
 
-User.delete_all
+User.destroy_all
 
 puts "Creating foodies..."
 
@@ -29,7 +29,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "mattymatheson",
     bio: Faker::Coffee.notes,
-    social: "instagram.com/mattymatheson, https://www.youtube.com/@mattymatheson",
+    instagram: "https://www.instagram.com/mattymatheson",
+    youtube:  "https://www.youtube.com/@mattymatheson",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743234531/osfvvfyhppp3mzs1l0jz.webp"
   )
@@ -89,7 +90,7 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "nigellalawson",
     bio: "Nigella has been teaching us about the pleasures of the table since her first book, How to Eat, hit the shelves in 1998. She has since published several best-selling cookery books, many complementing an accompanying television series, and has become known for her sensual descriptions of her dishes.",
-    social: "https://www.instagram.com/nigellalawson",
+    instagram: "https://www.instagram.com/nigellalawson",
     creator: true,
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_nigellaLawson.jpg")["url"]), filename: "Profile_nigellaLawson.jpg")
@@ -135,7 +136,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "halfbakedharvest",
     bio: "The recipes you’ll find here are inspired by the people and places I love most. I come from a family of ten, and a big family means BIG meals. In an effort to tame some of our mealtime chaos and get dinner on the table at a respectable hour, I began to help cook. I soon realized how much I enjoyed it, and before I knew it, I had taken over cooking our meals full-time. I captured the process in photos and documented my best recipes, and that’s how Half Baked Harvest was born.",
-    social: "https://www.instagram.com/halfbakedharvest",
+    instagram: "https://www.instagram.com/halfbakedharvest",
+    youtube: "https://www.youtube.com/channel/UCAavPs6fs6GrvbGiE80xGDQ",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_HalfBakedHarvest.jpg")["url"]), filename: "Profile_HalfBakedHarvest.jpg")
@@ -188,7 +190,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "Another Day In Paradise",
     bio: "I'm a chef & photographer. Here to inspure you to cook more & enjoy food.",
-    social: "https://www.youtube.com/@adipfood, https://www.instagram.com/adip_food",
+    social: "https://www.instagram.com/adip_food",
+    youtube: "https://www.youtube.com/@adipfood",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_ADIP.jpg")["url"]), filename: "Profile_ADIP.jpg")
@@ -270,7 +273,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "donaldo_cooks",
     bio: "home cook, and a dad.  Making dinner should be easy",
-    social: "https://www.youtube.com/@donaldo_cooks, instagram.com/donaldo_cooks",
+    instagram: "https://www.instagram.com/donaldo_cooks",
+    youtube: "https://www.youtube.com/@donaldo_cooks",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743250276/Profile_Donaldo_tjbqg8.jpg"
   )
@@ -324,7 +328,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "Chef Billy Parisi",
     bio: "Classical culinary expertise meets home cooking! I’m Billy Parisi, a classically trained culinary school graduate from Scottsdale Culinary Institute with over 15 years in the restaurant industry and over 25 years of cooking experience. ",
-    social: "https://www.youtube.com/@ChefBillyParisi, instagram.com/chefbillyparisi",
+    instagram: "https://www.instagram.com/chefbillyparisi",
+    youtube: "https://www.youtube.com/@ChefBillyParisi",
     creator: true,
     avatar_link: "https://res.cloudinary.com/dmj0udbma/image/upload/v1743250275/Profile_ChefBilly_writpp.jpg"
   )
@@ -427,7 +432,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "The Foodie Diaries",
     bio: "A curated collection of recipes & recommendations across food and travel. You’ll find plenty of Kitchen Inspiration here including pantry picks, tips and tricks. Explore new destinations through our detailed travel guides; and discover a treasure trove of resources for navigating pregnancy and motherhood.",
-    social: "https://www.instagram.com/the_foodiediaries, https://www.youtube.com/@the_foodiediaries",
+    instagram: "https://www.instagram.com/the_foodiediaries",
+    youtube: "https://www.youtube.com/@the_foodiediaries",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_FoodieDiaries.png")["url"]), filename: "Profile_FoodieDiaries.jpg")
@@ -483,7 +489,8 @@ puts "Creating foodies..."
       password: "123456",
       user_name: "Munchies",
       bio: "A curated collection of recipes & recommendations across food and travel. You’ll find plenty of Kitchen Inspiration here including pantry picks, tips and tricks. Explore new destinations through our detailed travel guides; and discover a treasure trove of resources for navigating pregnancy and motherhood.",
-      social: "https://www.youtube.com/Munchies, https://www.instagram.com/munchies",
+      instagram: "https://www.instagram.com/munchies",
+      youtube: "https://www.youtube.com/Munchies",
       creator: true
     )
     user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_Munchies.png")["url"]), filename: "Profile_Munchies.png")
@@ -572,7 +579,8 @@ puts "Creating foodies..."
       user_name: "The Mediterranian Dish",
       bio: "Mediterranean Food & Diet | Easy Recipes | Suzy Karadsheh
       2 X New York Times Bestselling Author. Leading online resource for easy Mediterranean recipes + Mediterranean diet for home cooks.",
-      social: "https://www.instagram.com/themediterraneandish/, https://www.youtube.com/@TheMediterraneanDish",
+      instagram: "https://www.instagram.com/themediterraneandish/",
+      youtube: "https://www.youtube.com/@TheMediterraneanDish",
       creator: true
     )
     user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_TheMediterranianDish.jpg")["url"]), filename: "Profile_TheMediterranianDish.jpg")
@@ -619,7 +627,8 @@ puts "Creating foodies..."
     password: "123456",
     user_name: "Just One Cookbook",
     bio: "Whether you’re passionate about Japanese cuisine or simply eager to expand your kitchen skills, Just One Cookbook is your trusted guide to authentic Japanese home cooking and food culture.",
-    social: "https://www.instagram.com/justonecookbook/, https://www.youtube.com/@justonecookbook",
+    instagram: "https://www.instagram.com/justonecookbook/",
+    youtube: "https://www.youtube.com/@justonecookbook",
     creator: true
   )
   user.avatar.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Profile_JustOneCookbook.jpg")["url"]), filename: "Profile_JustOneCookbook.jpg")

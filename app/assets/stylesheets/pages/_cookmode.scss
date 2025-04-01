@@ -1,6 +1,6 @@
 .cookmode-container {
   width: 100%;
-  max-width: 1200px; // Adjust as needed
+  max-width: 100vw; // Adjust as needed
   margin: 0 auto;
   padding: 20px;
 }
@@ -8,6 +8,7 @@
 .cookmode-content {
   display: flex;
   justify-content: space-between;
+
 }
 
 .recipe-title {

@@ -9,7 +9,6 @@
       BY <%= link_to @recipe.user.user_name.upcase, user_path(@recipe.user), class: "text-white", style: "font-size: 15px; letter-spacing: 0.05vw;" %>
     </p>
 
-    <%= render "shared/info_box" %>
   </div>
   <div class="nav-items d-flex justify-content-end">
     <i class="fa-solid fa-filter"></i>
@@ -32,8 +31,6 @@
       <% end %>
       <!-- Dropdown menu -->
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-        <%= link_to "My cookbook", favorites_path, class: "dropdown-item" %>
         <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>
         <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
         <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
