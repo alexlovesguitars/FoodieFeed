@@ -12,6 +12,11 @@
   align-content: center;
   overflow: hidden;
 
+  img.Hero {
+    max-width: 100%;
+    height: auto;
+  }
+
   .nav-items {
     color: rgba(255, 255, 255, 0.669);
     align-items: center;
