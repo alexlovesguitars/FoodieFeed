@@ -1,17 +1,12 @@
 <%= render "shared/banner" %>
 
-
 <div class="container-fluid">
   <div class="row">
     <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
     <div class="cards">
-
-      <div class="d-flex">
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
-        <% end %>
-      </div>
-
+      <turbo-frame id="recipes">
+        <%= render partial: "shared/recipes", locals: { recipes: @recipes } %>
+      </turbo-frame>
     </div>
   </div>
 
@@ -24,8 +19,9 @@
           <%= render partial: "shared/card", locals: { recipe: recipe } %>
         <% end %>
       </div>
-
     </div>
   </div>
-
+<% @recipes.each do |recipe| %>
+  <%= render partial: "shared/modal", locals: { recipe: recipe } %>
+<% end %>
 </div>

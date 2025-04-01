@@ -4,7 +4,9 @@
   <% end %>
   <div class="nav-items d-flex justify-content-end">
     <i class="fa-solid fa-filter"></i>
-    <i class="fa-solid fa-magnifying-glass"></i>
+      <%= form_with url: home_path, method: :get, data: { turbo_frame: "recipes", controller: "search" }, class: "search-form-banner" do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search recipes...", class: "form-control search-input-banner", data: { action: "input->search#search", search_target: "input" } %>
+      <% end %>
     <i class="fa-solid fa-book"></i>
     <i class="fa-solid fa-receipt"></i>
     <% if user_signed_in? %>
