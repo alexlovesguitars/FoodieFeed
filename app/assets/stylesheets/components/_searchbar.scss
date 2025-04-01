@@ -1,0 +1,59 @@
+/* Search container with fixed width */
+#search-form {
+  position: relative;
+  width: 50px; /* Default width */
+  height: 50px;
+}
+
+/* Search form positioned absolutely inside the container */
+#search-form form {
+  position: absolute;
+  top: 0;
+  right: 0; /* Expands to the right */
+  width: 50px; /* Initial small size */
+  height: 50px; /* Fixed height */
+  background: #638c6d;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Keeps icon centered */
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  min-width: 50px;
+}
+
+/* Initially hidden input */
+#search-form input {
+  flex-grow: 1;
+  width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0;
+  transition: width 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* Keep the magnifying glass centered */
+.fa-solid.fa-magnifying-glass {
+  position: relative;
+  font-size: 0.75em;
+  color: #000000;
+  cursor: pointer;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* Expand input field when hovered */
+#search-form:hover form {
+  width: 350px; /* Expands to the right */
+  justify-content: flex-start; /* Moves the icon to the left when expanded */
+}
+
+#search-form:hover input {
+  width: 100%;
+  padding: 0 15px;
+}

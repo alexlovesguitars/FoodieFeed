@@ -2,39 +2,40 @@
 
 <div class="container-fluid">
 
-    <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
-    <div class="cards">
+  <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
+  <div class="cards">
+    <% if @recipes.present? %>
+      <% @recipes.each do |recipe| %>
+        <%= render partial: "shared/card", locals: { recipe: recipe } %>
+      <% end %>
+    <% else %>
+      <p>No experiences found.</p>
+    <% end %>
 
 
+    <% @recipes.each do |recipe| %>
+      <%= render partial: "shared/modal", locals: { recipe: recipe } %>
+    <% end %>
 
-      <turbo-frame id="recipes">
-        <%= render partial: "shared/recipes", locals: { recipes: @recipes } %>
-      </turbo-frame>
-
+    <%# <turbo-frame id="recipes">
+      <%= render partial: "shared/recipes", locals: { recipe: @recipes } %>
+    <%# </turbo-frame> %>
 
     </div>
 
     <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
     <div class="cards">
 
-      <div class="d-flex">
-        <% if @recipes.present? %>
-          <% @recipes.each do |recipe| %>
-            <%= render partial: "shared/card", locals: { recipe: recipe } %>
-          <% end %>
-        <% else %>
-          <p>No experiences found.</p>
+      <% if @recipes.present? %>
+        <% @recipes.each do |recipe| %>
+          <%= render partial: "shared/card", locals: { recipe: recipe } %>
         <% end %>
+      <% else %>
+        <p>No experiences found.</p>
+      <% end %>
 
-      </div>
     </div>
-
   </div>
-
-<% @recipes.each do |recipe| %>
-  <%= render partial: "shared/modal", locals: { recipe: recipe } %>
-<% end %>
-
 </div>
 
 
