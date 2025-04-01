@@ -6,25 +6,41 @@
     <div class="cards">
 
 
+
       <turbo-frame id="recipes">
         <%= render partial: "shared/recipes", locals: { recipes: @recipes } %>
       </turbo-frame>
+
 
     </div>
 
     <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
     <div class="cards">
 
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+      <div class="d-flex">
+        <% if @recipes.present? %>
+          <% @recipes.each do |recipe| %>
+            <%= render partial: "shared/card", locals: { recipe: recipe } %>
+          <% end %>
+        <% else %>
+          <p>No experiences found.</p>
         <% end %>
 
       </div>
     </div>
 
   </div>
+
 <% @recipes.each do |recipe| %>
   <%= render partial: "shared/modal", locals: { recipe: recipe } %>
 <% end %>
 
 </div>
+
+
+<!-- Render Modals -->
+<% if @favorite_recipes.present? %>
+  <% @favorite_recipes.each do |recipe| %>
+    <%= render "shared/modal", recipe: recipe %>
+  <% end %>
+<% end %>
