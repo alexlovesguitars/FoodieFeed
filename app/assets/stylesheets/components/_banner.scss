@@ -3,7 +3,7 @@
   top: 0;
   z-index: 100;
   width: 100vw;
-  max-height: 40vh;
+  height: 30vh;
   overflow-x: hidden;
   background-size: cover;
   background-position: center;
@@ -12,17 +12,23 @@
   align-content: center;
   overflow: hidden;
 
-  img {
-    margin-top: 45px;
-    margin-left: 100px;
+  img.Hero {
+    max-width: 100%;
+    height: auto;
   }
 
   .nav-items {
     color: rgba(255, 255, 255, 0.669);
     align-items: center;
     font-size: 25px;
-    margin-top: 190px;
-    margin-right: 50px;
+    padding: 20px 0px 20px 0px;
+    margin-right: 25px;
+
+    .fa-magnifying-glass {
+      background-color: rgba(255, 255, 255, 0.63);
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.669);
+    }
 
     i {
       padding: 15px;
@@ -34,8 +40,7 @@
     }
 
     img {
-      margin-bottom: 45px;
-      margin-left: 15px;
+      padding-bottom: 15px;
     }
   }
 
