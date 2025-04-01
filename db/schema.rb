@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2025_03_31_183757) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_31_183757) do
     t.string "method", default: [], array: true
     t.string "recipe_hashtags", default: [], array: true
     t.string "image_link"
+    t.string "video_link"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

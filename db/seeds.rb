@@ -14,11 +14,11 @@ require 'open-uri'
 
 puts "Destroying previous Recipes"
 
-Recipe.delete_all
+Recipe.destroy_all
 
 puts "Destroying previous Foodies"
 
-User.delete_all
+User.destroy_all
 
 puts "Creating foodies..."
 
