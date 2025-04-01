@@ -2,17 +2,36 @@
   <div class="card-resize">
     <div class="card-category">
       <div class="photo">
-        <i class="fa-regular fa-heart favorite-icon"></i>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id %>">
-        <% if recipe.image.present? && recipe.image.key? %>
-          <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-        </a>
+        <% if user_signed_in? %>
+          <% favorite = current_user.favorites.find_by(recipe_id: recipe.id) %>
+          <% if favorite %>
+            <!-- Delete favorite link -->
+            <%= link_to favorite_path(favorite),
+                        data: { turbo_method: :delete },
+                        class: "favorite-link" do %>
+              <i class="fa-solid fa-heart favorite-icon"></i>
+            <% end %>
+          <% else %>
+            <!-- Create favorite link -->
+            <%= link_to favorites_path(recipe_id: recipe.id),
+                        data: { turbo_method: :post },
+                        class: "favorite-link" do %>
+              <i class="fa-regular fa-heart favorite-icon"></i>
+            <% end %>
+          <% end %>
         <% end %>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id if defined?(recipe) && recipe.present? %>">
+          <% if defined?(recipe) && recipe.present? && recipe.image.present? && recipe.image.key? %>
+
+            <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+          <% end %>
+        </a>
       </div>
       <div class="content d-flex justify-content-between align-items-center">
-        <h4 class="card-title"> <%= recipe.title %></h4>
-        <a href="<%= user_path(recipe.user) %>" class="avatar-card">
-          <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
+        <h4 class="card-title"><%= recipe.title if defined?(recipe) && recipe.present? %></h4>
+        <a href="#" class="avatar-card">
+          <% if defined?(recipe) && recipe.present? && recipe.user.present? && recipe.user.avatar.present? && recipe.user.avatar.key? %>
+
             <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
               {gravity: "face", height: 200, width: 200, crop: "thumb"},
               {radius: "max"},
@@ -23,12 +42,15 @@
           <% end %>
         </a>
       </div>
-    </div>
   </div>
 
 
 <!-- Render Modals -->
-
-<% @recipes.each do |recipe| %>
-  <%= render "shared/modal", recipe: recipe %>
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <%= render "shared/modal", recipe: recipe %>
+  <% end %>
 <% end %>
+
+</div>
+

@@ -1,0 +1,9 @@
+<turbo-frame id="recipes">
+  <div class="cards">
+    <div class="d-flex">
+      <% recipes.each do |recipe| %>
+        <%= render partial: "shared/card", locals: { recipe: recipe } %>
+      <% end %>
+    </div>
+  </div>
+</turbo-frame>

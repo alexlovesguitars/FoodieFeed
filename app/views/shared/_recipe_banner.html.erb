@@ -32,6 +32,8 @@
       <% end %>
       <!-- Dropdown menu -->
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+        <%= link_to "My cookbook", favorites_path, class: "dropdown-item" %>
         <%= link_to "Submit new recipe", new_recipe_path, class: "dropdown-item" %>
         <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
         <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>

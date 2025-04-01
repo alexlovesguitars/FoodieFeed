@@ -11,8 +11,15 @@ validates :instagram, length: { maximum: 255 }, if: :creator?
 validates :youtube, length: { maximum: 255 }, if: :creator?
 has_many :recipes, dependent: :destroy
 
+
   def creator?
     creator == true
   end
 
+has_many :recipes, dependent: :destroy
+
+
+  has_many :recipes
+  has_many :favorites
+  has_many :favorite_recipes, through: :favorites, source: :recipe
 end

@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   validates :title, presence: true
   validates :ingredients, presence: true
   validates :description, presence: true
@@ -9,4 +9,8 @@ class Recipe < ApplicationRecord
 
   has_one_attached :image
   has_many :reviews, dependent: :destroy
+
+  belongs_to :user
+  has_many :favorites
+  has_many :favorited_by, through: :favorites, source: :user
 end
