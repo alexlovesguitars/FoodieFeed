@@ -1,12 +1,21 @@
 <%= render "shared/cookmode_banner" %>
 
 <div class="cookmode-container">
-  <div class="button mb-1 d-flex">
+  <div class="button mb-1 d-flex" data-controller="share">
       <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill text-black fs-5 d-flex align-items-center gap-2" do %>
         <i class="fa-solid fa-arrow-left-long"></i>
         <p class="mb-0" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
       <% end %>
+      <div class="share-icon mb-1 d-flex">
+        <i class="fa-solid fa-share-nodes"
+          id="open-share-modal"
+          data-bs-toggle="modal"
+          data-bs-target="#shareModal">
+        </i>
+      </div>
+
     </div>
+
     <div class="cookmode-content d-flex" data-controller="steps">
       <div class="instructions-section w-40">
         <div id="recipe-steps" class="recipe-steps mt-4">
@@ -38,3 +47,6 @@
     </div>
   </div>
 </div>
+
+
+<%= render "shared/share_modal" %>

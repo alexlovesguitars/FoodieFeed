@@ -42,26 +42,11 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "White Ragu Shells",
-      ingredients: ["For the White Ragu:
-                      Olive oil
-                      1 pound ground pork
-                      1 pound ground beef
-                      2 carrots, diced
-                      1 stalk celery, diced
-                      1 onion, diced
-                      6 garlic cloves, sliced
-                      2 sprigs rosemary
-                      1 small bunch sage
-                      3 cups white wine
-                      Kosher salt and black pepper
-                      2 cups chicken stock", "For the Shell Filling:
-                      1 (16 ounce) container ricotta
-                      1 egg
-                      1 cup grated Parmesan
-                      Kosher salt and black pepper
-                      ½ teaspoon lemon zest", "For the Topping:
-                      Whole milk mozzarella
-                      Parmesan"],
+      ingredients: ["For the White Ragu:",
+                    "Olive oil", "1 pound ground pork", "1 pound ground beef", "2 carrots, diced", "1 stalk celery, diced", "1 onion, diced", "6 garlic cloves, sliced", "2 sprigs rosemary", "1 small bunch sage", "3 cups white wine", "Kosher salt and black pepper", "2 cups chicken stock",
+                    "For the Shell Filling:", "1 (16 ounce) container ricotta", "1 egg", "1 cup grated Parmesan", "Kosher salt and black pepper", "½ teaspoon lemon zest",
+                    "For the Topping:",
+                    "Whole milk mozzarella", "Parmesan"],
       method: ["Preheat the oven to 375°F.",
       "Mix the meat together in a large mixing bowl until fully combined.",
       "In a large, deep pot over medium heat, add the olive oil. Once the oil is lightly shimmering, add the meat in as little clumps, season with salt and pepper, and cook for 6-8 minutes, or until lightly browned. Remove with a slotted spoon, leaving any excess oil in the pot.",
@@ -100,16 +85,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Turkish Eggs",
-      ingredients: ["200g/7oz Greek-style plain yoghurt",
-      "1 garlic clove, crushed",
-      "1 tsp sea salt flakes",
-      "2 tbsp unsalted butter",
-      "1 tbsp extra virgin olive oil",
-      "1 tsp Aleppo pepper",
-      "2 large free-range eggs, fridge cold",
-      "2 tsp lemon juice",
-      "few fronds fresh dill, chopped",
-      "thick sourdough toast, to serve"],
+      ingredients: ["200g/7oz Greek-style plain yoghurt", "1 garlic clove, crushed", "1 tsp sea salt flakes", "2 tbsp unsalted butter", "1 tbsp extra virgin olive oil", "1 tsp Aleppo pepper", "2 large free-range eggs, fridge cold", "2 tsp lemon juice", "few fronds fresh dill, chopped", "thick sourdough toast, to serve"],
       method: ["Fill a saucepan up to 4cm/1½in deep with water and bring to the boil. Place the yoghurt into a heatproof bowl large enough to sit over the pan and stir in the garlic and salt. Place the bowl over the pan, making sure the base doesn’t touch the water. Stir until it reaches body temperature and has the consistency of lightly whipped double cream. Turn off the heat, leaving the bowl over the pan.",
       "Melt the butter gently in a seperate small saucepan until it is just beginning to turn hazelnut-brown. Turn the heat off, then stir in the oil, followed by the Aleppo pepper and set aside.",
       "Fill a wide, lidded saucepan with 4cm/1½in water and place over a medium heat. Line a large plate with kitchen paper.",
@@ -147,28 +123,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Chipotle Steak Tacos",
-      ingredients: ["For the taco filling:",
-      "2 tablespoons extra virgin olive oil",
-      "1 pound ground chicken, beef, or turkey",
-      "1 yellow onion, chopped",
-      "2-3 teaspoons chipotle chili powder, use to your taste",
-      "2 teaspoons smoked paprika",
-      "1 1/2 teaspoons ground cumin",
-      "1 teaspoon garlic powder",
-      "1/4-1/2 teaspoon crushed red pepper, use to your taste",
-      "1/2 teaspoon dried oregano",
-      "1 teaspoon kosher salt",
-      "1/4 cup fresh cilantro, chopped",
-      "12 hard shell tacos",
-      "2 cups shredded Mexican cheese",
-      "For the Cilantro Lime Ranch",
-      "1 cup sour cream or plain Greek yogurt",
-      "3/4 cup fresh cilantro, finely chopped",
-      "1 teaspoon garlic powder",
-      "1 teaspoon onion powder",
-      "1/4 cup pickled jalapeños, chopped + 2 tablespoons brine",
-      "juice from 2 limes",
-      "1 teaspoon kosher salt"],
+      ingredients: ["For the taco filling:", "2 tablespoons extra virgin olive oil", "1 pound ground chicken, beef, or turkey", "1 yellow onion, chopped", "2-3 teaspoons chipotle chili powder, use to your taste", "2 teaspoons smoked paprika", "1 1/2 teaspoons ground cumin", "1 teaspoon garlic powder", "1/4-1/2 teaspoon crushed red pepper, use to your taste", "1/2 teaspoon dried oregano", "1 teaspoon kosher salt", "1/4 cup fresh cilantro, chopped", "12 hard shell tacos", "2 cups shredded Mexican cheese", "For the Cilantro Lime Ranch", "1 cup sour cream or plain Greek yogurt", "3/4 cup fresh cilantro, finely chopped", "1 teaspoon garlic powder", "1 teaspoon onion powder", "1/4 cup pickled jalapeños, chopped + 2 tablespoons brine", "juice from 2 limes", "1 teaspoon kosher salt"],
       method: ["Preheat the oven to 425 degrees F.", "In a large skillet, heat the olive oil over high heat. When the oil shimmers, add the ground chicken and onion. Cook, breaking up the meat as it cooks, until the chicken is browned, about 5 minutes. Add the chipotle chili powder, paprika, cumin, garlic powder, red pepper flakes, oregano, and salt. Add 3/4 cup water. Reduce the heat to medium and simmer until the sauce has thickened slightly around the chicken, about 10 minutes. Remove from the heat and stir in the cilantro.", "Line the taco shells up on a sheet pan or in a 9x13 inch baking dish. Transfer to the oven and bake 5 minutes. Evenly divide the meat among each taco shell and top with cheese. Bake 10 minutes, until the cheese has melted.", "Meanwhile, make the ranch. Combine all ingredients in a glass jar and shake or stir until creamy.", "Serve the tacos topped with ranch, avocado, red onion, and any other desired toppings."],
       cuisine_type: "Mexican",
       description: "Weeknight style Cheesy Baked Crispy Chipotle Chicken Tacos with Cilantro Lime Ranch…and all the toppings. Because loaded tacos are just better. Ground chicken seasoned with a smoky chipotle chili spice mix, stuffed into hard shell tacos, topped with cheese, and oven-baked. These tacos are crunchy on the outside, but spicy and cheesy inside. Serve each taco with a creamy, cooling cilantro lime ranch sauce, and a mix of your favorite taco toppings. They come together in minutes and are so delicious…the perfect weeknight dinner. Bonus, the chipotle chicken is great as a leftover. Pile it high onto your favorite tortilla chips for some seriously delicious nachos or serve it up atop greens for a Mexican inspired salad.",
@@ -201,20 +156,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Dijon Mustard Chicken",
-      ingredients: ["1 medium chicken",
-      "Maris piper or russet potatoes (enough to cover your sheet pan)",
-      "1 head garlic (you can use the roasted garlic afterwards)",
-      "100g Dijon mustard",
-      "1 lemon",
-      "1 bundle thyme",
-      "Olive oil",
-      "Black Pepper",
-      "Salt",
-      "For the Toum:",
-      "160g peeled garlic",
-      "500ml rapeseed oil (or your preferred oil)",
-      "100ml fresh lemon juice",
-      "Salt"],
+      ingredients: ["1 medium chicken", "Maris piper or russet potatoes (enough to cover your sheet pan)", "1 head garlic (you can use the roasted garlic afterwards)", "100g Dijon mustard", "1 lemon", "1 bundle thyme", "Olive oil", "Black Pepper", "Salt", "For the Toum:", "160g peeled garlic", "500ml rapeseed oil (or your preferred oil)", "100ml fresh lemon juice", "Salt"],
       method: ["Salt the chicken before adding the Dijon mustard and olive oil. Rub all over the entire surface and cavity. Leave to rest in the fridge for 2-3 hours or overnight for the best results.",
       "Finely slice the potatoes with a mandolin or a sharp knife - leave to rest in cold water for one hour. Drain well before coating with olive oil and salt.",
       "Evenly spread the potatoes over a sheet tray before adding a little bit more olive oil, salt and pepper to the top.",
@@ -236,16 +178,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Smokey Aubergine Katsu",
-      ingredients: [
-      "1 aubergine/eggplant",
-      "1/2 cup panko bread crumbs",
-      "1/2 cup all purpose flour",
-      "1 egg",
-      "1/4 head white cabbage",
-      "1 tbsp soy sauce",
-      "1 tbsp Worcestershire sauce ",
-      "4 tbsp ketchup",
-      "oil for frying - I used rapeseed"],
+      ingredients: ["1 aubergine/eggplant", "1/2 cup panko bread crumbs", "1/2 cup all purpose flour", "1 egg", "1/4 head white cabbage", "1 tbsp soy sauce", "1 tbsp Worcestershire sauce ", "4 tbsp ketchup", "oil for frying - I used rapeseed"],
       method: ["Poke a few holes in the aubergine with the tip of your knife before cooking straight over an open flame or under a grill/broiler for about 10-15 minutes, making sure it's blackened all over and soft inside. Place them in a bowl and cover with plastic wrap to gently steam until they have cooled down.",
       "Shave the cabbage on a mandolin then submerge in cold water. This gives the cabbage its signature height and texture once it is piled up. I left mine in the water as long as it took me to put the rest together - about 10-15 minutes.",
       "Once the aubergine has cooled but is still warm you can begin to peel the charred skin. You can use a paper towel to wipe off the excess burnt skin. Use a fork to press out the flesh into a flat shape without breaking it. Season both sides with salt.",
@@ -285,11 +218,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Crispy AirFryer Chicken",
-      ingredients: ["boneless, skinless chicken breasts or thighs",
-      "1 ½ cups cornflakes, crushed",
-      "2 eggs",
-      "1 cup flour (optional add seasoning to flour)",
-      "Cooking spray or oil (for spraying)"],
+      ingredients: ["boneless, skinless chicken breasts or thighs", "1 ½ cups cornflakes, crushed", "2 eggs", "1 cup flour (optional add seasoning to flour)", "Cooking spray or oil (for spraying)"],
       method: ["Prepare the chicken:",
       "Trim any excess fat from the chicken breasts or thighs. If using large chicken breasts, consider cutting them in half to ensure they cook evenly.",
       "Set up breading stations:",
@@ -340,21 +269,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Short Rib Ragu",
-      ingredients: ["4 ounces medium-diced pancetta, about ½ cup",
-      "3 pounds bone-in short ribs",
-      "1 large, small-diced yellow onion, about 2 cups",
-      "3 peeled medium-sized small diced carrots",
-      "3 small diced ribs of celery",
-      "8 smashed garlic cloves",
-      "2 tablespoons tomato paste",
-      "2 cups dry red wine",
-      "28 ounces tomato puree",
-      "3 cups beef stock",
-      "2 fresh rosemary sprigs",
-      "2-4 fresh thyme sprigs",
-      "2-4 fresh parsley sprigs",
-      "2 bay leaves",
-      "coarse salt and fresh cracked pepper to taste"],
+      ingredients: ["4 ounces medium-diced pancetta, about ½ cup", "3 pounds bone-in short ribs", "1 large, small-diced yellow onion, about 2 cups", "3 peeled medium-sized small diced carrots", "3 small diced ribs of celery", "8 smashed garlic cloves", "2 tablespoons tomato paste", "2 cups dry red wine", "28 ounces tomato puree", "3 cups beef stock", "2 fresh rosemary sprigs", "2-4 fresh thyme sprigs", "2-4 fresh parsley sprigs", "2 bay leaves", "coarse salt and fresh cracked pepper to taste"],
       method: ["Crisp the pancetta: I cook the pancetta in a large rondeau pot over low to medium heat, letting it slowly render its fat until it’s crispy. Once it’s ready, I scoop out the lardons and set them aside, making sure to keep all that flavorful fat in the pot.","Prep the short ribs: I pat dry the short ribs on all sides and then season with salt and pepper.",
       "Sear the short ribs: I place the short ribs into the pot fat cap side down and cook over medium heat and brown well on all sides, which takes about 3 to 4 minutes per side. Then, I set them to the side.",
       "Sauté the onions: I stir in the onions, gently season with salt, and cook for 5 minutes or until they start to turn brown. Then, I turn the heat down to low and cook for 10 minutes while occasionally stirring.",
@@ -381,18 +296,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Peruvian Chicken",
-      ingredients: ["1 whole chicken",
-      "1 tsp cumin seeds",
-      "1 tsp coriander seeds",
-      "12 garlic cloves",
-      "1/2” peeled hunk of fresh ginger",
-      "1 tablespoon finely minced fresh rosemary",
-      "1 tablespoon huacatay",
-      "1 ½ tablespoons aji panca",
-      "3 tablespoons soy sauce",
-      "3 tablespoons red wine vinegar",
-      "¼ cup olive oil",
-      "coarse salt and fresh cracked pepper to taste"],
+      ingredients: ["1 whole chicken", "1 tsp cumin seeds", "1 tsp coriander seeds", "12 garlic cloves", "1/2” peeled hunk of fresh ginger", "1 tablespoon finely minced fresh rosemary", "1 tablespoon huacatay", "1 ½ tablespoons aji panca", "3 tablespoons soy sauce", "3 tablespoons red wine vinegar", "¼ cup olive oil", "coarse salt and fresh cracked pepper to taste"],
       method: ["Toast: I add the seeds to a medium-sized sauté pan and cook them over low to medium heat, stirring occasionally until they’re fragrant.",
       "Grind: Then, I transfer the toasted seeds to a mortar and pestle and grind them until they’re finely ground.",
       "Add: After grinding the seeds, I toss in the garlic and ginger, then start working everything together with the pestle until it’s well blended.",
@@ -443,17 +347,7 @@ puts "Creating foodies..."
 
     recipe = Recipe.new(
       title: "Coconut Lime Tofu",
-      ingredients: ["For the red curry paste",
-      "9-10  dried red chillies (you can use Kashimiri chillies)",
-      "3-4 cloves garlic cloves",
-      "4-5 kaffir lime leaves",
-      "1 inch galangal/ ginger",
-      "2 lemongrass stalks (each about 2 inches tall), finely chopped",
-      "1 medium-sized onion",
-      "½ tsp coriander powder",
-      "½ tsp cumin powder",
-      "pinch of white or black peppercorns",
-      "salt to taste"],
+      ingredients: ["For the red curry paste", "9-10  dried red chillies (you can use Kashimiri chillies)", "3-4 cloves garlic cloves", "4-5 kaffir lime leaves", "1 inch galangal/ ginger", "2 lemongrass stalks (each about 2 inches tall), finely chopped", "1 medium-sized onion", "½ tsp coriander powder", "½ tsp cumin powder", "pinch of white or black peppercorns", "salt to taste"],
       method: ["For the red curry paste",
       "Deseed the red chillies before soaking them in warm water for 15 minutes. Drain, reserving 1-2 tbsp of the water.",
       "Start by blitzing the onion into a wettish paste. Doing so separately , gives us the moisture we need to blend the remaining ingredients into a smooth paste.",
@@ -500,56 +394,14 @@ puts "Creating foodies..."
 
       recipe = Recipe.new(
         title: "Chicken Tikka Masala",
-        ingredients: ["for the chicken tikka:",
-        "2 pounds|916 grams boneless, skinless chicken thighs",
-        "1 tablespoon kosher salt",
-        "1 tablespoon red chili powder",
-        "6 garlic cloves, peeled and mashed into a paste",
-        "1 (1-inch) piece ginger, peeled and mashed into a paste",
-        "2 lemons, juiced",
-        "1 cup|225 grams plain yogurt",
-        "¼ cup|60 ml canola oil",
-        "1 tablespoon garam masala",
-        "2 teaspoons ground turmeric",
-        "2 tablespoons unsalted butter, melted",
-        "for the makhni gravy:",
-        "1 pound|450 grams tomatoes, halved",
-        "1 garlic clove, peeled and mashed into a paste",
-        "1 (½-inch) piece ginger, peeled and mashed into a paste",
-        "1 teaspoon red chilli powder",
-        "1 small green chilli",
-        "1 cardamom pod",
-        "1 whole clove",
-        "15 grams cilantro with stems",
-        "kosher salt, to taste",
-        "½ tablespoon unsalted butter",
-        "¼ cup|60ml heavy cream",
-        "2 tablespoons kasoori methi",
-        "honey, to taste",
+        ingredients: ["For the chicken tikka:",
+        "2 pounds|916 grams boneless, skinless chicken thighs", "1 tablespoon kosher salt", "1 tablespoon red chili powder", "6 garlic cloves, peeled and mashed into a paste", "1 (1-inch) piece ginger, peeled and mashed into a paste", "2 lemons, juiced", "1 cup|225 grams plain yogurt", "¼ cup|60 ml canola oil", "1 tablespoon garam masala", "2 teaspoons ground turmeric", "2 tablespoons unsalted butter, melted",
+        "For the makhni gravy:",
+        "1 pound|450 grams tomatoes, halved", "1 garlic clove, peeled and mashed into a paste", "1 (½-inch) piece ginger, peeled and mashed into a paste", "1 teaspoon red chilli powder", "1 small green chilli", "1 cardamom pod", "1 whole clove", "15 grams cilantro with stems", "kosher salt, to taste", "½ tablespoon unsalted butter", "¼ cup|60ml heavy cream", "2 tablespoons kasoori methi", "honey, to taste",
         "for the onion tomato masala:",
-        "¼ cup|60 ml canola oil",
-        "½ pound red onion, diced",
-        "2 garlic cloves, peeled and mashed into a paste",
-        "1 (¾-inch) piece ginger, peeled and mashed into a paste",
-        "½ teaspoon red chili powder",
-        "½ pound|225 grams tomatoes, diced",
-        "½ teaspoon garam masala",
-        "kosher salt, to taste",
-        "for the chicken tikka masala:",
-        "3 tablespoons|150 grams ghee",
-        "3 teaspoons cumin seeds",
-        "8 whole dried red chiles",
-        "7 small garlic cloves, chopped",
-        "2 pounds|1 kg chicken tikka",
-        "2 teaspoons red chilli powder",
-        "1 ¼ cups onion tomato masala",
-        "1 ¼ cups makhni gravy",
-        "5 green chillies, thinly sliced",
-        "¼ cup|60 ml heavy cream",
-        "1 tablespoon unsalted butter",
-        "2 tablespoons kasoori methi",
-        "1 tablespoon garam masala",
-        "kosher salt, to taste",
+        "¼ cup|60 ml canola oil", "½ pound red onion, diced", "2 garlic cloves, peeled and mashed into a paste", "1 (¾-inch) piece ginger, peeled and mashed into a paste", "½ teaspoon red chili powder", "½ pound|225 grams tomatoes, diced", "½ teaspoon garam masala", "kosher salt, to taste",
+        "For the chicken tikka masala:",
+        "3 tablespoons|150 grams ghee", "3 teaspoons cumin seeds", "8 whole dried red chiles", "7 small garlic cloves, chopped", "2 pounds|1 kg chicken tikka", "2 teaspoons red chilli powder", "1 ¼ cups onion tomato masala", "1 ¼ cups makhni gravy", "5 green chillies, thinly sliced", "¼ cup|60 ml heavy cream", "1 tablespoon unsalted butter", "2 tablespoons kasoori methi", "1 tablespoon garam masala", "kosher salt, to taste",
         "chopped cilantro, for garnish",
         "1 (1-inch) piece ginger, peeled and julienned, for garnish",
         "steamed basmati rice, to serve"],
@@ -590,23 +442,7 @@ puts "Creating foodies..."
 
       recipe = Recipe.new(
         title: "Kofta Meatballs",
-        ingredients: ["Extra virgin olive oil",
-        "1 slice of bread, toasted",
-        "1 pound ground beef or lamb",
-        "1 medium yellow onion, quartered",
-        "2 garlic cloves",
-        "1 whole bunch parsley, stems removed (about 2 packed cups of leaves)",
-        "1 1/2 teaspoons allspice",
-        "1/2 teaspoon ground green cardamom",
-        "1/2 teaspoon paprika",
-        "1/2 teaspoon sumac",
-        "1/2 teaspoon ground nutmeg",
-        "1/4 teaspoon cayenne",
-        "Kosher salt",
-        "Black pepper",
-        "1/4 cup pine nuts",
-        "1/4 teaspoon Aleppo pepper",
-        "10 ounces hummus (about 1 cup)",
+        ingredients: ["Extra virgin olive oil", "1 slice of bread, toasted", "1 pound ground beef or lamb", "1 medium yellow onion, quartered", "2 garlic cloves", "1 whole bunch parsley, stems removed (about 2 packed cups of leaves)", "1 1/2 teaspoons allspice", "1/2 teaspoon ground green cardamom", "1/2 teaspoon paprika", "1/2 teaspoon sumac", "1/2 teaspoon ground nutmeg", "1/4 teaspoon cayenne", "Kosher salt", "Black pepper", "1/4 cup pine nuts", "1/4 teaspoon Aleppo pepper", "10 ounces hummus (about 1 cup)",
         "Pita bread, for serving (optional)"],
         method: ["Get ready. Heat your oven to 425°F. Lightly brush a large sheet pan with a thin layer of olive oil.", "Soak the bread until very tender. In a large bowl cover the bread with 1 cup of water. Let it sit for 15 minutes.", "Prepare the fresh seasonings. While the bread soaks, add the onion, garlic, and parsley (set aside a small handful of leaves for garnish) to a food processor and pulse until they are finely minced. You can also do this by hand if you'd like, just make sure everything is very finely chopped.", "Crumble the bread. Use your hands to squeeze the liquid out of the bread. Discard the water and crumble the bread slice back into the bowl. This is the secret to a juicy meatball!", "Make the meatball mixture. Into the bowl with the bread, add a good drizzle of olive oil, the onion and garlic mixture, ground meat, allspice, cardamom, paprika, sumac, nutmeg, cayenne, and a big pinch each of kosher salt and pepper. Use your hands to mix it all together, making sure everything is well combined.", "Roll the meatballs. Form the meat mixture into small balls, just slightly larger than the size of a golf ball. Arrange them on the prepared sheet pan without touching.", "Bake the meatballs. Place in the oven and bake, turning over halfway through, until the meatballs are well browned and the center is no longer pink, 20 to 25 minutes.", "Toast the pine nuts. While the meatballs roast, set a small skillet over medium-low heat. Add enough olive oil to coat the bottom of the skillet and the pine nuts. Toast, stirring, until they are fragrant and golden. Stay close by and stir constantly so they don’t burn. Transfer to a small plate.", "Make the sizzled Aleppo oil. A few minutes before the meatballs have cooked through, return the skillet where you toasted the pine nuts to medium heat. Add the 1/4 cup of olive oil and the Aleppo pepper. You just want to warm and flavor the oil. This should only take a few minutes. Turn off the heat.", "Assemble. Remove the meatballs from the oven. Spread hummus on a plate or platter, using a spoon to make swoops and swirls. Pour the warmed oil over the hummus and top with meatballs. Garnish with the toasted pine nuts and reserved parsley leaves. Serve with pita bread on the side."],
         cuisine_type: "Middle Eastern, Mediterranian",
@@ -639,19 +475,7 @@ puts "Creating foodies..."
     recipe = Recipe.new(
       title: "Vegetarian Ramen",
       ingredients: ["For the Soup Broth",
-      "2 Tbsp toasted white sesame seeds",
-      "1½ tsp ginger (grated; from a 1-inch, 2.5-cm knob)",
-      "2 cloves garlic",
-      "2 green onions/scallions (save the green part for garnish)",
-      "1 Tbsp toasted sesame oil",
-      "1½ Tbsp doubanjiang (spicy chili bean paste) (use either the spicy or non-spicy type, or use gluten-free doubanjiang)",
-      "1½ Tbsp miso (I use my favorite miso by Hikari Miso; most types will work, except Saikyo and Hatcho varieties)",
-      "1 Tbsp sake",
-      "1½ Tbsp soy sauce (use GF soy sauce for gluten-free)",
-      "2 cups unsweetened soy milk",
-      "1 cup Vegan Dashi (use my Vegan Dashi recipe or follow the instructions below)",
-      "½ tsp Diamond Crystal kosher salt",
-      "1 dash of white pepper powder",
+      "2 Tbsp toasted white sesame seeds", "1½ tsp ginger (grated; from a 1-inch, 2.5-cm knob)", "2 cloves garlic", "2 green onions/scallions (save the green part for garnish)", "1 Tbsp toasted sesame oil", "1½ Tbsp doubanjiang (spicy chili bean paste) (use either the spicy or non-spicy type, or use gluten-free doubanjiang)", "1½ Tbsp miso (I use my favorite miso by Hikari Miso; most types will work, except Saikyo and Hatcho varieties)", "1 Tbsp sake", "1½ Tbsp soy sauce (use GF soy sauce for gluten-free)", "2 cups unsweetened soy milk", "1 cup Vegan Dashi (use my Vegan Dashi recipe or follow the instructions below)", "½ tsp Diamond Crystal kosher salt", "1 dash of white pepper powder",
       "For the Ramen",
       "2 servings fresh ramen noodles (10–12 oz, 283–340 g fresh noodles; 6.3 oz, 180 g dry ramen noodles; use GF ramen noodles for gluten-free)",
       "1 head Shanghai bok choy (large)",
@@ -695,8 +519,6 @@ puts "Creating foodies..."
     recipe.image.attach(io: URI.open(Cloudinary::Uploader.upload("public/data_pics/Recipe_JustOneCookbook.png")["url"]), filename: "Recipe_JustOneCookbook.png")
     recipe.save!
   end
-
-
 
 
 

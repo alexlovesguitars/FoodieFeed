@@ -1,0 +1,32 @@
+.modal.fade {
+  border-radius: 15px;
+}
+
+.modal-body {
+  background: #FFFAE7;
+  border: 10px solid #DF6D2D;
+  border-radius: 15px;
+  margin-top: 20px;
+  color: #590202;
+
+  h3 {
+    margin-right: 10px;
+    font-family: 'Lato', 'serif';
+  }
+
+  i {
+    color: #590202;
+    font-size: 50px;
+    padding: 0 10px 10px 10px;
+
+    &:hover{
+      transform: scale(1.2);
+      color: #DF6D2D;
+    }
+
+  }
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
