@@ -5,9 +5,11 @@
     <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
     <div class="cards">
 
+
       <turbo-frame id="recipes">
         <%= render partial: "shared/recipes", locals: { recipes: @recipes } %>
       </turbo-frame>
+
     </div>
 
     <h4 class="mt-4 mb-1" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
@@ -19,8 +21,10 @@
 
       </div>
     </div>
+
   </div>
 <% @recipes.each do |recipe| %>
   <%= render partial: "shared/modal", locals: { recipe: recipe } %>
 <% end %>
+
 </div>

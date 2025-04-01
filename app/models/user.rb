@@ -18,4 +18,5 @@ has_many :recipes, dependent: :destroy
 has_many :recipes, dependent: :destroy
 
 
+
 end
