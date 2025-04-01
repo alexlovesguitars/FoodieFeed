@@ -6,7 +6,8 @@
       <div class="modal-body">
         <!-- Share Options -->
         <div>
-          <h3 class="d-flex justify-content-center mb-5">Share <%= @recipe.user.user_name %>'s recipe:</h3>
+          <h3 class="d-flex justify-content-center"><%= @recipe.user.user_name %> says's:</h3>
+          <h2 class="mb-5 d-flex justify-content-center">❤️<strong>THANKS FOR SHARING</strong>❤️</h2>
         </div>
         <div class="d-flex justify-content-center">
           <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank" class="mx-2">
