@@ -1,8 +1,15 @@
 .recipe-steps {
-  border: solid, #DF9755;
+  border: 10px solid #DF9755;
   border-radius: 15px;
   padding: 15px;
   border-width: 10px;
   background-color: white;
   color: #590202;
+}
+.step-card {
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fff;
 }
