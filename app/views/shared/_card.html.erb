@@ -2,17 +2,15 @@
 <div class="card-resize">
   <div class="card-category">
     <div class="photo">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && recipe.present? %>
         <% favorite = current_user.favorites.find_by(recipe_id: recipe.id) %>
         <% if favorite %>
-          <!-- Delete favorite link -->
           <%= link_to favorite_path(favorite),
                       data: { turbo_method: :delete },
                       class: "favorite-link" do %>
             <i class="fa-solid fa-heart favorite-icon"></i>
           <% end %>
         <% else %>
-          <!-- Create favorite link -->
           <%= link_to favorites_path(recipe_id: recipe.id),
                       data: { turbo_method: :post },
                       class: "favorite-link" do %>
@@ -20,25 +18,27 @@
           <% end %>
         <% end %>
       <% end %>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id if defined?(recipe) && recipe.present? %>">
-        <% if defined?(recipe) && recipe.present? && recipe.image.present? && recipe.image.key? %>
-          <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-        <% end %>
-      </a>
+      <% if recipe.present? && recipe.image.present? && recipe.image.key? %>
+        <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+      <% end %>
     </div>
     <div class="content d-flex justify-content-between align-items-center">
-      <h4 class="card-title"><%= recipe.title if defined?(recipe) && recipe.present? %></h4>
-      <a href="<%= user_path(recipe.user) %>" class="avatar-card">
-        <% if defined?(recipe) && recipe.present? && recipe.user.present? && recipe.user.avatar.present? && recipe.user.avatar.key? %>
-          <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
-            {gravity: "face", height: 200, width: 200, crop: "thumb"},
-            {radius: "max"},
-            {fetch_format: "auto"}
-          ]) %>
-        <% else %>
-          <i class="fa-solid fa-user avatar-card"></i>
-        <% end %>
-      </a>
+      <% if recipe.present? %>
+        <h4 class="card-title"><%= recipe.title %></h4>
+      <% end %>
+      <% if recipe.present? && recipe.user.present? %>
+        <a href="<%= user_path(recipe.user) %>" class="avatar-card">
+          <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
+            <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
+              {gravity: "face", height: 200, width: 200, crop: "thumb"},
+              {radius: "max"},
+              {fetch_format: "auto"}
+            ]) %>
+          <% else %>
+            <i class="fa-solid fa-user avatar-card"></i>
+          <% end %>
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
