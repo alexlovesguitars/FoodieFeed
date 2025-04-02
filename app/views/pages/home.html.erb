@@ -3,7 +3,23 @@
 <div class="container-fluid">
 
   <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
+  <%# Add the entire grid of the first row into the frame. This ensure the entire first row is replaxced and keeps the layout /
+      Notice that I added the class="cards" into the frame to hold the layout. THis was trial and error. %>
+  <turbo-frame id="recipes">
+    <div class="cards">
+      <% if @recipes.present? %>
+        <% @recipes.each do |recipe| %>
+          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+      <% end %>
+    <% else %>
+      <p>No experiences found.</p>
+    <% end %>
+    </div>
+  </turbo-frame>
+
+  <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
   <div class="cards">
+
     <% if @recipes.present? %>
       <% @recipes.each do |recipe| %>
         <%= render partial: "shared/card", locals: { recipe: recipe } %>
@@ -12,31 +28,9 @@
       <p>No experiences found.</p>
     <% end %>
 
-
-    <% @recipes.each do |recipe| %>
-      <%= render partial: "shared/modal", locals: { recipe: recipe } %>
-    <% end %>
-
-    <%# <turbo-frame id="recipes">
-      <%= render partial: "shared/recipes", locals: { recipe: @recipes } %>
-    <%# </turbo-frame> %>
-
-    </div>
-
-    <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
-    <div class="cards">
-
-      <% if @recipes.present? %>
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
-        <% end %>
-      <% else %>
-        <p>No experiences found.</p>
-      <% end %>
-
-    </div>
   </div>
 </div>
+
 
 
 <!-- Render Modals -->
@@ -44,4 +38,8 @@
   <% @favorite_recipes.each do |recipe| %>
     <%= render "shared/modal", recipe: recipe %>
   <% end %>
+<% end %>
+
+<% @recipes.each do |recipe| %>
+  <%= render partial: "shared/modal", locals: { recipe: recipe } %>
 <% end %>
