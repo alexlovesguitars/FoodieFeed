@@ -5,17 +5,19 @@
   <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED RECIPES</h4>
   <%# Add the entire grid of the first row into the frame. This ensure the entire first row is replaxced and keeps the layout /
       Notice that I added the class="cards" into the frame to hold the layout. THis was trial and error. %>
-  <turbo-frame id="recipes">
-    <div class="cards">
-      <% if @recipes.present? %>
-        <% @recipes.each do |recipe| %>
-          <%= render partial: "shared/card", locals: { recipe: recipe } %>
+  <div id="recipe-list">
+    <turbo-frame id="recipes">
+      <div class="cards">
+        <% if @recipes.present? %>
+          <% @recipes.each do |recipe| %>
+            <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <% end %>
+      <% else %>
+        <p>No experiences found.</p>
       <% end %>
-    <% else %>
-      <p>No experiences found.</p>
-    <% end %>
-    </div>
-  </turbo-frame>
+      </div>
+    </turbo-frame>
+  </div>
 
   <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED EXPERIENCES</h4>
   <div class="cards">
