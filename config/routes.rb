@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'copy_ingredients'
       # post 'copy_ingredients'
     end
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
 
 
