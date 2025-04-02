@@ -9,7 +9,7 @@
       </div>
 
       <div class="modal-body">
-   <%= form_with model: [@recipe, Review.new], local: true do |f| %>
+        <%= form_with model: [@recipe, Review.new], local: true do |f| %>
           <%= f.number_field :rating, in: 1..5, placeholder: "Rating (1-5)", class: "form-control mb-3 rounded-pill" %>
           <%= f.text_area :comment, rows: 3, placeholder: "Your comment", class: "form-control mb-3 rounded" %>
           <%= f.submit "Submit", class: "btn btn-primary px-3 rounded-pill mt-3 w-100" %>

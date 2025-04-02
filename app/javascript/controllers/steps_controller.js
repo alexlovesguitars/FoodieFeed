@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["step", "previousButton", "nextButton"]
+  static targets = ["step", "previousButton", "nextButton", "reviewButton"]
 
   connect() {
     this.currentStepIndex = 0
@@ -9,20 +9,18 @@ export default class extends Controller {
   }
 
   showStep() {
+    // Show only the current step
     this.stepTargets.forEach((step, i) => {
       step.style.display = i === this.currentStepIndex ? "block" : "none"
     })
-    if (this.hasPreviousButtonTarget) {
-     this.previousButtonTarget.style.display =
-      this.currentStepIndex === 0 ? "none" : "inline-block"
-    }
 
-    if (this.hasNextButtonTarget) {
-      this.nextButtonTarget.style.display =
-      this.currentStepIndex === this.stepTargets.length - 1
-        ? "none"
-        : "inline-block"
-    }
+    // Hide "Previous" button on first step
+    this.previousButtonTarget.classList.toggle("d-none", this.currentStepIndex === 0)
+
+    // Hide "Next" button & show "Review" on last step
+    const isLastStep = this.currentStepIndex === this.stepTargets.length - 1
+    this.nextButtonTarget.classList.toggle("d-none", isLastStep)
+    this.reviewButtonTarget.classList.toggle("d-none", !isLastStep)
   }
 
   nextStep() {
