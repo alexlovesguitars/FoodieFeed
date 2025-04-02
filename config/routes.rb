@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     member do
       get 'cookmode'
     end
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
 
 
