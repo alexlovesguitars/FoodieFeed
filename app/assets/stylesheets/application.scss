@@ -27,3 +27,15 @@
 .custom-border {
   border-radius: 15px;
 }
+
+#header-link {
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.3s;
+
+  &:hover {
+    color: $blue;
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+  }
+}
