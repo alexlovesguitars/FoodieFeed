@@ -32,24 +32,20 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    # Find the favorite
     @favorite = current_user.favorites.find(params[:id])
+    @recipe = @favorite.recipe
 
-    # Delete it
-
-    # Redirect back
-    if @favorite
-      @favorite.destroy
+    if @favorite.destroy
       flash.now[:notice] = "The recipe has been removed from your cookbook."
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to @favorite }
+        format.html { redirect_to recipes_path, notice: "The recipe has been removed from your cookbook." }
       end
     else
-      flash.now[:notice] = "The recipe has been removed from your cookbook."
+      flash.now[:alert] = "Something went wrong. Please try again."
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove("favorite_icon_#{@favorite.id}")}
-        format.html {redirect_to @favorite}
+        format.turbo_stream { render turbo_stream: turbo_stream.remove("favorite_icon_#{@recipe.id}") }
+        format.html { redirect_to recipes_path, alert: "Something went wrong. Please try again." }
       end
     end
   end
