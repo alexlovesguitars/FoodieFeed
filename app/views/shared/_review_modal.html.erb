@@ -2,15 +2,25 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="background-color: white !important; border: solid; border-color: #DF9755; border-radius: 15px; padding: 15px; border-width: 10px;">
 
-
       <div class="modal-header">
         <h2 class="modal-title">Leave a Review</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body" data-controller="star-rating">
         <%= form_with model: [@recipe, Review.new], local: true do |f| %>
-          <%= f.number_field :rating, in: 1..5, placeholder: "Rating (1-5)", class: "form-control mb-3 rounded-pill" %>
+          <%= f.text_field :title, placeholder: "Title", class: "form-control mb-3 rounded" %>
+
+          <!-- Star Rating System -->
+          <div id="star-rating" class="d-flex px-2 justify-content-center mb-3">
+            <% (1..5).each do |i| %>
+              <i class="fa-solid fa-star text-secondary star" data-value="<%= i %>"></i>
+            <% end %>
+          </div>
+
+          <!-- Hidden Input to store rating -->
+          <%= f.hidden_field :rating, id: "rating-input" %>
+
           <%= f.text_area :comment, rows: 3, placeholder: "Your comment", class: "form-control mb-3 rounded" %>
           <%= f.submit "Submit", class: "btn btn-primary px-3 rounded-pill mt-3 w-100" %>
         <% end %>
