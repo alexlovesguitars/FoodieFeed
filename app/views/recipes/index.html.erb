@@ -1,6 +1,14 @@
-<h2>this is the index page, yay!</h2>
-<div class="container">
-  <div class="d-flex flex-wrap gap-3">
+<%= render "shared/banner" %>
+
+<div class="container-fluid">
+  <div class="button mt-3 mb-3">
+    <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill text-black fs-5 d-flex align-items-center gap-2" do %>
+      <i class="fa-solid fa-arrow-left-long" style="font-color: #590202"></i>
+      <p class="mb-0" style="font-size: 18px; font-weight: bold;"><strong>Go Back</strong></p>
+    <% end %>
+    <h3 class="mt-3 mb-5">All Recipes</h3>
+  </div>
+  <div class="cards">
     <% @recipes.each do |recipe| %>
       <%= render "shared/card", recipe: recipe %>
     <% end %>
