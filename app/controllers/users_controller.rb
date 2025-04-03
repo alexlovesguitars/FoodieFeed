@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     unless @user.creator?
-      redirect_to root_path, alert: "This user does not have a creator page."
+      redirect_to edit_user_registration_path, alert: "User is not yet a creator."
       return
     end
     @recipes = @user.recipes
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       @user = User.find_by(user_name: params[:user_name])
     end
     if @user.nil?
-      redirect_to root_path, alert: "User not found."
+      redirect_to edit_user_registration_path, alert: "User is not yet a creator."
     end
   end
 end
