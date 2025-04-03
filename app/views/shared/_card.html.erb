@@ -2,6 +2,7 @@
 <div class="card-resize">
   <div class="card-category">
     <div class="photo">
+      <div id="favorite_icon_<%= recipe.id %>">
       <% if user_signed_in? %>
         <% favorite = current_user.favorites.find_by(recipe_id: recipe.id) %>
         <% if favorite %>
@@ -20,6 +21,7 @@
           <% end %>
         <% end %>
       <% end %>
+      </div>
       <a href="#" data-bs-toggle="modal" data-bs-target="#recipeModal-<%= recipe.id if defined?(recipe) && recipe.present? %>">
         <% if defined?(recipe) && recipe.present? && recipe.image.present? && recipe.image.key? %>
           <%= cl_image_tag(recipe.image.key, gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>

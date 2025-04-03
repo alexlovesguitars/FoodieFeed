@@ -16,10 +16,18 @@ class FavoritesController < ApplicationController
     # Create a new favorite
     favorite = current_user.favorites.new(recipe: @recipe)
 
-    if favorite.save
-      redirect_back(fallback_location: recipes_path, notice: "Added to cookbook!")
+    @favorites = current_user.favorites
+    duplicate = @favorites.find_by(recipe: @recipe)
+
+    if duplicate
+      redirect_back(fallback_location: recipes_path, alert: "Already in your cookbook.")
     else
-      redirect_back(fallback_location: recipes_path, alert: "Could not add to cookbook.")
+      favorite.save
+      respond_to do |format|
+        flash.now[:notice] = "The recipe has been saved to your cookbook."
+        format.turbo_stream
+        format.html {redirect_to @favorite}
+      end
     end
   end
 
@@ -28,12 +36,22 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.find(params[:id])
 
     # Delete it
-    @favorite.destroy
 
     # Redirect back
-    redirect_back(fallback_location: recipes_path, notice: "Recipe removed from cookbook!")
-  rescue
-    redirect_back(fallback_location: recipes_path, alert: "Could not remove from cookbook.")
+    if @favorite
+      @favorite.destroy
+      flash.now[:notice] = "The recipe has been removed from your cookbook."
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to @favorite }
+      end
+    else
+      flash.now[:notice] = "The recipe has been removed from your cookbook."
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove("favorite_icon_#{@favorite.id}")}
+        format.html {redirect_to @favorite}
+      end
+    end
   end
 
   private
@@ -49,4 +67,5 @@ class FavoritesController < ApplicationController
   def set_favorite
     @favorite = Favorite.find_by(user: @user, recipe: @recipe)
   end
+
 end
