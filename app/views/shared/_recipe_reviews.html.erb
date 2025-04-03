@@ -1,20 +1,19 @@
-<div>
-  <%# <h2 class="lato-bold mb-4">Reviews</h2> %>
-  <% if @recipe.reviews.any? %>
-    <% @recipe.reviews.each do |review| %>
-      <div class="text mt-3 px-4 py-3 d-flex flex-column" style="background-color:rgba(99, 140, 109, 0.74); font-size: 15px; border-radius: 15px;">
+<% if @recipe.reviews.any? %>
+  <% @recipe.reviews.each do |review| %>
+    <div class="text mt-3 px-4 py-3 d-flex flex-column"
+      style="background-color: rgba(99, 140, 109, 0.74); font-size: 15px; border-radius: 15px;">
 
-        <div class="d-flex justify-content-between" style="color: white">
-          <p style="color: white; font-size: 16px;"><strong>This recipe is amazing!</strong></p>
-          <span><%= review.rating %>/5 ⭐️</span>
-        </div>
-
-        <p style="color: white; font-size: 14px"><%= review.comment %></p>
-        <p style="color: white; font-size: 12px">– <%= review.user.user_name %></p>
-        <% end %>
+      <div class="d-flex justify-content-between" style="color: white">
+        <p style="color: white; font-size: 16px;"><strong><%= review.title %></strong></p>
+        <span>
+          <%= render "shared/star_rating", rating: review.rating %>
+        </span>
       </div>
-    <% else %>
-    <p class="mt-5" style="color: #590202">No reviews yet. Be the first to share your thoughts!</p>
+
+      <p style="color: white; font-size: 14px"><%= review.comment %></p>
+      <p style="color: white; font-size: 12px">– <%= review.user.user_name %></p>
+    </div>
   <% end %>
-  <%= link_to "Review!", "", class: "text-white btn btn-primary rounded-pill" %>
-</div>
+<% else %>
+  <p class="mt-5" style="color: #590202">No reviews yet. Be the first to share your thoughts!</p>
+<% end %>
