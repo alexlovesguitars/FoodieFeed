@@ -1,5 +1,7 @@
 <turbo-frame id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render partial: "shared/card", locals: { recipe: recipe } %>
-  <% end %>
+  <div class="cards">
+    <% @recipes.each do |recipe| %>
+      <%= render partial: "shared/card", locals: { recipe: recipe } %>
+    <% end %>
+  </div>
 </turbo-frame>

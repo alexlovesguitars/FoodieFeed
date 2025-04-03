@@ -28,6 +28,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def copy_ingredients
+    @recipe = Recipe.find(params[:id])
+    redirect_back(fallback_location: recipe_path(@recipe), notice: "Ingredients saved to clipboard!")
+  end
+
   private
 
   def recipe_params
