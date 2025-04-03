@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html # initial page load
       format.turbo_stream do
-        render partial: "shared/recipes", locals: { recipes: @recipes }
+        render turbo_stream: turbo_stream.replace("recipe-list", partial: "shared/recipes", locals: { recipes: @recipes })
       end
     end
   end
