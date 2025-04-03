@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'reviews/create'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -16,12 +15,11 @@ Rails.application.routes.draw do
       # post 'copy_ingredients'
     end
     resources :reviews, only: [:new, :create]
+    resource :note, only: [:create, :update]
   end
 
 
   resources :favorites, only: [:index, :create, :destroy]
-
-
   resources :users, only: [:show]
 
 
