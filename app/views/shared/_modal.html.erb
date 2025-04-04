@@ -30,7 +30,7 @@
           </div>
           <div class="content d-flex justify-content-between align-items-center">
             <h4 class="card-title"> <%= recipe.title %></h4>
-            <a href="<%= user_path(recipe.user) %>" class="avatar-card dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="<%= user_profile_path(recipe.user) %>" class="avatar-card dropdown-toggle no-arrow" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if recipe.user.avatar.present? && recipe.user.avatar.key? %>
                 <%= cl_image_tag(recipe.user.avatar.key, class: "avatar-card", transformation: [
                   {gravity: "face", height: 200, width: 200, crop: "thumb"},

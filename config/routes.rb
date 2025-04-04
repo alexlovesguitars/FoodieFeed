@@ -18,9 +18,12 @@ Rails.application.routes.draw do
     resource :note, only: [:create, :update]
   end
 
+   get '/users/:user_name', to: 'users#show', as: :user_profile
+
 
   resources :favorites, only: [:index, :create, :destroy]
-  resources :users, only: [:show]
+
+  # resources :users, only: [:show]
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
