@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
 
-  <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %></h4>
+  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %></h2>
   <%# Add the entire grid of the first row into the frame. This ensure the entire first row is replaxced and keeps the layout /
       Notice that I added the class="cards" into the frame to hold the layout. THis was trial and error. %>
   <div id="recipe-list">
@@ -21,7 +21,7 @@
   </div>
 
 
-  <h4 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "EXPERIENCES", "", id: "header-link" %></h4>
+  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "EXPERIENCES", "", id: "header-link" %></h2>
   <div class="cards">
 
     <% if @recipes.present? %>
