@@ -38,8 +38,15 @@ class FavoritesController < ApplicationController
     if @favorite.destroy
       flash.now[:notice] = "The recipe has been removed from your cookbook."
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream do
+          if request.referer&.include?(favorites_path) # from cookbook
+            render turbo_stream: [
+              turbo_stream.remove("recipe_card_#{@recipe.id}"),
+              turbo_stream.remove("recipe_card_#{@recipe.id}")
+          ]
         format.html { redirect_to recipes_path, notice: "The recipe has been removed from your cookbook." }
+          end
+        end
       end
     else
       flash.now[:alert] = "Something went wrong. Please try again."
