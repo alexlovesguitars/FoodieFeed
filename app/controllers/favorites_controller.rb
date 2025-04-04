@@ -16,24 +16,45 @@ class FavoritesController < ApplicationController
     # Create a new favorite
     favorite = current_user.favorites.new(recipe: @recipe)
 
-    if favorite.save
-      redirect_back(fallback_location: recipes_path, notice: "Added to cookbook!")
+    @favorites = current_user.favorites
+    duplicate = @favorites.find_by(recipe: @recipe)
+
+    if duplicate
+      redirect_back(fallback_location: recipes_path, alert: "Already in your cookbook.")
     else
-      redirect_back(fallback_location: recipes_path, alert: "Could not add to cookbook.")
+      favorite.save
+      respond_to do |format|
+        flash.now[:notice] = "The recipe has been saved to your cookbook."
+        format.turbo_stream
+        format.html {redirect_to @favorite}
+      end
     end
   end
 
   def destroy
-    # Find the favorite
     @favorite = current_user.favorites.find(params[:id])
+    @recipe = @favorite.recipe
 
-    # Delete it
-    @favorite.destroy
-
-    # Redirect back
-    redirect_back(fallback_location: recipes_path, notice: "Recipe removed from cookbook!")
-  rescue
-    redirect_back(fallback_location: recipes_path, alert: "Could not remove from cookbook.")
+    if @favorite.destroy
+      flash.now[:notice] = "The recipe has been removed."
+      respond_to do |format|
+        format.turbo_stream do
+          if request.referer&.include?(favorites_path) # from cookbook
+            render turbo_stream: [
+              turbo_stream.remove("recipe_card_#{@recipe.id}"),
+              turbo_stream.remove("recipe_card_#{@recipe.id}")
+          ]
+            format.html { redirect_to recipes_path, notice: "The recipe has been removed." }
+          end
+        end
+      end
+    else
+      flash.now[:alert] = "Something went wrong. Please try again."
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove("favorite_icon_#{@recipe.id}") }
+        format.html { redirect_to recipes_path, alert: "Something went wrong. Please try again." }
+      end
+    end
   end
 
   private
@@ -49,4 +70,5 @@ class FavoritesController < ApplicationController
   def set_favorite
     @favorite = Favorite.find_by(user: @user, recipe: @recipe)
   end
+
 end
