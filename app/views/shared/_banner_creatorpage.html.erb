@@ -4,10 +4,7 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "FoodieFeedLogo.svg", class: "Hero" %>
     <% end %>
-      <h1 class="recipe-title-red" style="font-size: 50px;"><%= @recipe.title %></h1>
-      <p class="recipe-title-red text-white" style="font-size: 15px; letter-spacing: 0.05vw;">
-        BY <%= link_to @recipe.user.user_name.upcase, user_profile_path(@recipe.user), class: "text-white", style: "font-size: 15px; letter-spacing: 0.05vw;" %>
-      </p>
+      <h1 class="recipe-title-red" style="font-size: 50px;"><%= @user.user_name %></h1>
   </div>
 
 
