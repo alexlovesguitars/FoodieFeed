@@ -1,6 +1,6 @@
 <%= render "shared/banner" %>
 
-<div class="container-fluid">
+<div class="container-cookbook">
   <h3 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">My Cookbook</h3>
   <div class="cards">
     <% if @favorite_recipes.empty? %>
@@ -8,9 +8,9 @@
       <p>Like some recipes to store them in your cookbook</p>
     <% else %>
       <% @favorite_recipes.each do |recipe| %>
-        <%= render partial: "shared/card", locals: { recipe: recipe } %>
-      <% end %>
+      <%= render partial: "shared/cookbook_card", locals: { recipe: recipe } %>
     <% end %>
+  <% end %>
   </div>
   </div>
 </div>

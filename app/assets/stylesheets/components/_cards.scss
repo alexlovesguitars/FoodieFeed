@@ -254,3 +254,27 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
+
+.recipe-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.recipe-card {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.recipe-note {
+  width: 100%;
+
+  .saved-note, .note-form {
+    width: 100%;
+  }
+}
+
+.container-cookbook {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
