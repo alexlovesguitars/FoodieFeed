@@ -39,3 +39,10 @@
     transition-duration: 0.3s;
   }
 }
+
+
+input::placeholder,
+textarea::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
