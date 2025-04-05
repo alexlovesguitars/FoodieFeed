@@ -74,8 +74,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_181155) do
     t.string "ingredients", default: [], array: true
     t.string "method", default: [], array: true
     t.string "recipe_hashtags", default: [], array: true
-    t.string "video_link"
     t.string "image_link"
+    t.string "video_link"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
