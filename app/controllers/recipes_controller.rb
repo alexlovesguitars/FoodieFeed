@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(processed_recipe_params)
     @recipe.user = current_user
 
     if @recipe.save
@@ -36,6 +36,26 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description, :cook_time, :method, :cuisine_type, :utensils, :dietary_restrictions, :recipe_hashtags, :image, :video_link)
+    params.require(:recipe).permit(
+      :title,
+      :ingredients,
+      :description,
+      :cook_time,
+      :method,
+      :cuisine_type,
+      :utensils,
+      :dietary_restrictions,
+      :recipe_hashtags,
+      :image,
+      :video_link
+    )
+  end
+
+  def processed_recipe_params
+    raw = recipe_params.dup
+    raw[:ingredients] = raw[:ingredients].split(';').map(&:strip) if raw[:ingredients].present?
+    raw[:method] = raw[:method].split(';').map(&:strip) if raw[:method].present?
+    raw[:recipe_hashtags] = raw[:recipe_hashtags].split(';').map(&:strip) if raw[:recipe_hashtags].present?
+    raw
   end
 end
