@@ -1,21 +1,20 @@
-<%= render "shared/banner_cookbook" %>
 <div class="container-fluid" id="cookbook">
-  <% if @favorite_recipes.empty? %>
+  <% if favorite_recipes.empty? %>
     <div class="d-flex flex-column" id="empty-cookbook">
       <h2 class="mt-5 mb-5">Your Cookbook is empty</h2>
       <p>Like some recipes to store them in your cookbook</p>
     </div>
   <% else %>
     <div class="cards mt-5 mb-5" id="recipe-cards">
-      <% @favorite_recipes.each do |recipe| %>
+      <% favorite_recipes.each do |recipe| %>
         <%= render partial: "shared/card", locals: { recipe: recipe } %>
       <% end %>
     </div>
   <% end %>
 </div>
 <!-- Render Modals -->
-<% if @favorite_recipes.present? %>
-  <% @favorite_recipes.each do |recipe| %>
+<% if favorite_recipes.present? %>
+  <% favorite_recipes.each do |recipe| %>
     <%= render "shared/modal", recipe: recipe %>
   <% end %>
 <% end %>

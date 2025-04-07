@@ -1,0 +1,7 @@
+<div class="container-fluid" id="cookbook">
+  <div class="cards mt-5 mb-5" id="recipe-cards">
+    <% favorite_recipes.each do |recipe| %>
+      <%= render partial: "shared/card", locals: { recipe: recipe } %>
+    <% end %>
+  </div>
+</div>
