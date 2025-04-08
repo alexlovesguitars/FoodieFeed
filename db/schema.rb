@@ -42,29 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_07_175855) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "experience_reviews", force: :cascade do |t|
-    t.string "title"
-    t.integer "rating"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_experience_reviews_on_user_id"
-  end
-
-  create_table "experiences", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.text "location"
-    t.string "duration"
-    t.text "experience_hastags"
-    t.integer "price"
-    t.datetime "date"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_experiences_on_user_id"
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "recipe_id", null: false
@@ -97,8 +74,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_07_175855) do
     t.string "ingredients", default: [], array: true
     t.string "method", default: [], array: true
     t.string "recipe_hashtags", default: [], array: true
-    t.string "video_link"
     t.string "image_link"
+    t.string "video_link"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -135,8 +112,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_07_175855) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "experience_reviews", "users"
-  add_foreign_key "experiences", "users"
   add_foreign_key "favorites", "recipes"
   add_foreign_key "favorites", "users"
   add_foreign_key "notes", "recipes"
