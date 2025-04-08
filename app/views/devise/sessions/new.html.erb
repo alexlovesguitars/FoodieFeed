@@ -1,7 +1,6 @@
 <div class="mt-5" style="border: solid, #DF9755; border-radius: 15px; padding: 15px; border-width: 10px; margin: 0 500px 0 500px; background-color: white;">
 <h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
@@ -12,12 +11,10 @@
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Log in", class: "btn btn-primary px-3 rounded-pill mt-3 mb-3" %>
   </div>
 <% end %>
-
 <%= link_to "Forgot your password?", new_password_path(resource_name) %>
 <%# <%= render "devise/shared/links" %>
 </div>
