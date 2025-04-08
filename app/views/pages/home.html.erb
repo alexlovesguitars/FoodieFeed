@@ -3,25 +3,6 @@
 
 <div class="container-fluid">
 
-  <% if params[:query].present? && @search_results.any? %>
-  <div id="search-results" class="container mb-5">
-    <h2 class="mt-4 mb-3" style="letter-spacing: 0.1rem;">
-      SEARCH RESULTS
-    </h2>
-    <div class="cards d-flex justify-content-center flex-wrap gap-3">
-      <% @search_results.each do |recipe| %>
-        <%= render partial: "shared/card", locals: { recipe: recipe } %>
-      <% end %>
-    </div>
-  </div>
-  <% elsif params[:query].present? && @search_results.empty? %>
-    <div id="search-results" class="container mb-5">
-      <h2 class="mt-4 mb-3" style="letter-spacing: 0.1rem;">
-        SEARCH RESULTS
-      </h2>
-      <p class="text-muted">No recipes matched your search.</p>
-    </div>
-  <% end %>
 
   <!-- FEATURED RECIPES HEADER -->
   <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">
@@ -33,7 +14,7 @@
     <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
       <% @recipes.each_slice(4).with_index do |group, index| %>
         <div class="custom-carousel-slide <%= 'active' if index == 0 %>">
-          <div class="cards d-flex justify-content-center flex-wrap gap-3">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
             <% group.each do |recipe| %>
               <%= render partial: "shared/card", locals: { recipe: recipe } %>
             <% end %>
@@ -59,7 +40,7 @@
     <div data-controller="custom-carousel" class="custom-carousel-container">
       <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
         <div class="custom-carousel-slide">
-          <div class="cards d-flex justify-content-center flex-wrap gap-3">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
             <%# BERLIN EXPERIENCE %>
             <div class="card-resize">
               <div class="card-category">
