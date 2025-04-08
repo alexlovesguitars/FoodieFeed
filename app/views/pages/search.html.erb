@@ -1,0 +1,12 @@
+<%= turbo_page_requires_reload %>
+<%= render "shared/banner" %>
+
+<div class="container-fluid">
+  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">SEARCH <span class="text-black">RESULTS</span></h2>
+
+    <% if @recipes.any? %>
+      <%= render partial: 'shared/recipes', locals: { recipes: @recipes } %>
+    <% else %>
+      <p>No recipes found matching your query.</p>
+    <% end %>
+</div>
