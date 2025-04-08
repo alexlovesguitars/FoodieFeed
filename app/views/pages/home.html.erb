@@ -1,236 +1,282 @@
-
+<%= turbo_page_requires_reload %>
 <%= render "shared/banner" %>
 
 <div class="container-fluid">
 
-  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %></h2>
-  <%# Add the entire grid of the first row into the frame. This ensure the entire first row is replaxced and keeps the layout /
-      Notice that I added the class="cards" into the frame to hold the layout. THis was trial and error. %>
-  <div id="recipe-list">
-    <turbo-frame id="recipes">
-      <div class="cards">
-        <% if @recipes.present? %>
-          <% @recipes.each do |recipe| %>
-            <%= render partial: "shared/card", locals: { recipe: recipe } %>
-        <% end %>
-      <% else %>
-        <p>No recipes found.</p>
+
+  <!-- FEATURED RECIPES HEADER -->
+  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">
+    FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %>
+  </h2>
+
+  <!-- CUSTOM CAROUSEL FOR RECIPES -->
+  <div data-controller="custom-carousel" class="custom-carousel-container">
+    <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
+      <% @recipes.each_slice(4).with_index do |group, index| %>
+        <div class="custom-carousel-slide <%= 'active' if index == 0 %>">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
+            <% group.each do |recipe| %>
+              <%= render partial: "shared/card", locals: { recipe: recipe } %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      </div>
-    </turbo-frame>
+    </div>
+
+    <!-- Arrows -->
+    <div class="carousel-controls">
+      <button class="carousel-arrow" data-action="click->custom-carousel#prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="carousel-arrow" data-action="click->custom-carousel#next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
 
-
+  <!-- FEATURED EXPERIENCES HEADER -->
   <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "EXPERIENCES", "", id: "header-link" %></h2>
-  <div class="cards">
-    <%# BERLIN EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Berlin_vmsw89.jpg", width: 298, height: 220, class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Explore Berlin</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059214/Berlin_avatar_c4fkbx.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# PARIS EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Paris_kegmhe.webp", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Bonjour, Paris</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744060050/Pairs_avatar_nxaopo.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# COPENHAGEN EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Copenhagen_rhfsau.webp", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Michelin Star Tour</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059993/Copenhage_Avatar_enijnl.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# ROME EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Rome_xcabqx.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Viva, Roma!</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059943/Rome_Avatar_epzaks.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# NEW YORK EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/New_York_mttwzm.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">NY Sandwich Tour</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059891/NYC_avatar_mn9slr.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# MEXICO CITY EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Mexico_City_ivuozw.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">The Ultimate Taco Tour</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059843/MexicoCity_Avatar_vv5jdq.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
 
-          </a>
+    <div data-controller="custom-carousel" class="custom-carousel-container">
+      <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
+        <div class="custom-carousel-slide">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
+            <%# BERLIN EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Berlin_vmsw89.jpg", width: 298, height: 220, class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Explore Berlin</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059214/Berlin_avatar_c4fkbx.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# PARIS EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Paris_kegmhe.webp", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Bonjour, Paris</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744060050/Pairs_avatar_nxaopo.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# COPENHAGEN EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Copenhagen_rhfsau.webp", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Michelin Star Tour</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059993/Copenhage_Avatar_enijnl.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# ROME EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Rome_xcabqx.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Viva, Roma!</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059943/Rome_Avatar_epzaks.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <%# MADRID EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Brussels_rxbu4v.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
+        <div class="custom-carousel-slide">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
+            <%# NEW YORK EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/New_York_mttwzm.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">NY Sandwich Tour</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059891/NYC_avatar_mn9slr.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# MEXICO CITY EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Mexico_City_ivuozw.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">The Ultimate Taco Tour</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059843/MexicoCity_Avatar_vv5jdq.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# MADRID EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/Brussels_rxbu4v.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Waffle your way home!</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059457/Madrid_avatar_hyft8h.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# BILBAO EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Bilbao_hdhxx0.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Pintxos in the Old Town</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059774/Brussels_avatar_lssgxf.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Waffle your way home!</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059457/Madrid_avatar_hyft8h.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
+        <div class="custom-carousel-slide">
+          <div class="cards d-flex justify-content-center flex-wrap gap-5">
+            <%# EDINBURGH EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055353/Edinburgh_v7wkni.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Haggis Galore!</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059600/Edinburgh_avatar_ei9lgf.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
 
-          </a>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <%# LONDON EXPERIENCE %>
+            <div class="card-resize">
+              <div class="card-category">
+                <div class="photo">
+                  <a href="#">
+                    <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/London_pmcpbr.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
+                  </a>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                  <h4 class="card-title">Livin' that Pub Life.</h4>
+                  <a href="" class="avatar-card">
+                      <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059673/London_avatar_xtuqxc.jpg", class: "avatar-card", transformation: [
+                        {gravity: "face", height: 200, width: 200, crop: "thumb"},
+                        {radius: "max"},
+                        {fetch_format: "auto"}
+                      ]) %>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <%# BILBAO EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055351/Bilbao_hdhxx0.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Pintxos in the Old Town</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059774/Brussels_avatar_lssgxf.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-
-          </a>
-        </div>
+      <!-- Arrows -->
+      <div class="carousel-controls">
+        <button class="carousel-arrow" data-action="click->custom-carousel#prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow" data-action="click->custom-carousel#next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
-    </div>
-    <%# EDINBURGH EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055353/Edinburgh_v7wkni.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Haggis Galore!</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059600/Edinburgh_avatar_ei9lgf.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-
-          </a>
-        </div>
-      </div>
-    </div>
-    <%# LONDON EXPERIENCE %>
-    <div class="card-resize">
-      <div class="card-category">
-        <div class="photo">
-          <a href="#">
-            <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/t_foodiefeed/v1744055352/London_pmcpbr.jpg", gravity: "auto", width: 298, height: 220, crop: "auto", class: "img-fluid justify-content-center") %>
-          </a>
-        </div>
-        <div class="content d-flex justify-content-between align-items-center">
-          <h4 class="card-title">Livin' that Pub Life.</h4>
-          <a href="" class="avatar-card">
-              <%= image_tag("https://res.cloudinary.com/dmj0udbma/image/upload/v1744059673/London_avatar_xtuqxc.jpg", class: "avatar-card", transformation: [
-                {gravity: "face", height: 200, width: 200, crop: "thumb"},
-                {radius: "max"},
-                {fetch_format: "auto"}
-              ]) %>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
-
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This website was made with love for our final project at Le Wagon by the 🍕 FoodieFeed Team 🌮
+  </div>
+</div>
 
 <!-- Render Modals -->
 <% if @favorite_recipes.present? %>
