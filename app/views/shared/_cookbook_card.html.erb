@@ -1,43 +1,45 @@
-<div id="note_container_<%= recipe.id %>">
-  <div class="recipe-container">
-      <%= render partial: "shared/card", locals: { recipe: recipe } %>
+  <div id="recipe_card_<%= recipe.id %>">
+    <div id="note_container_<%= recipe.id %>">
+    <div class="recipe-container">
+        <%= render partial: "shared/card", locals: { recipe: recipe } %>
 
-      <% is_editing = params[:edit_recipe_id].to_i == recipe.id %>
+        <% is_editing = params[:edit_recipe_id].to_i == recipe.id %>
 
-      <% if current_user && current_user.saved_recipe?(recipe) %>
-        <% note = (@notes_by_recipe && @notes_by_recipe[recipe.id]) || recipe.notes.find_by(user: current_user) %>
+        <% if current_user && current_user.saved_recipe?(recipe) %>
+          <% note = (@notes_by_recipe && @notes_by_recipe[recipe.id]) || recipe.notes.find_by(user: current_user) %>
 
-        <div id="note_section_<%= recipe.id %>" data-controller="toggle">
-          <!-- Toggle Button -->
-          <% if note.present? && !is_editing %>
-            <button data-action="click->toggle#fire" class="btn btn-outline-secondary rounded-pill mt-2">
-              View Note
-            </button>
-          <% else %>
-            <button data-action="click->toggle#fire" class="btn btn-outline-primary rounded-pill mt-2">
-              Add a Note
-            </button>
-          <% end %>
-
-          <!-- Toggled Note Section -->
-          <div data-toggle-target="togglableElement" class="<%= is_editing ? '' : 'd-none' %> mt-3">
-
+          <div id="note_section_<%= recipe.id %>" data-controller="toggle">
+            <!-- Toggle Button -->
             <% if note.present? && !is_editing %>
-              <div class="saved-note p-3" style="border-radius: 15px; width: 298px; background-color: #DF9755">
-                <h6 class="mb-2" style="font-weight: 600; color: white;">Your Note</h6>
-                <p class="mb-0" style="font-size: 14px;"><%= simple_format(note.content) %></p>
-                <%= link_to "Edit Note", favorites_path(edit_recipe_id: recipe.id), class: "btn btn-sm text-white mt-2 rounded-pill" %>
-              </div>
+              <button data-action="click->toggle#fire" class="btn btn-outline-secondary rounded-pill mt-2">
+                View Note
+              </button>
             <% else %>
-              <div class="note-form p-3" style="border-radius: 15px; width: 298px; background-color: #DF9755">
-                <h6 class="mb-2" style="font-weight: 600; color: white;">Your Note</h6>
-                <%= render 'notes/form', recipe: recipe, note: note || Note.new %>
-                <%= link_to "Cancel", favorites_path, class: "btn btn-link text-white mt-2" %>
-              </div>
+              <button data-action="click->toggle#fire" class="btn btn-outline-primary rounded-pill mt-2">
+                Add a Note
+              </button>
             <% end %>
 
+            <!-- Toggled Note Section -->
+            <div data-toggle-target="togglableElement" class="<%= is_editing ? '' : 'd-none' %> mt-3">
+
+              <% if note.present? && !is_editing %>
+                <div class="saved-note p-3" style="border-radius: 15px; width: 298px; background-color: #DF9755">
+                  <h6 class="mb-2" style="font-weight: 600; color: white;">Your Note</h6>
+                  <p class="mb-0" style="font-size: 14px;"><%= simple_format(note.content) %></p>
+                  <%= link_to "Edit Note", favorites_path(edit_recipe_id: recipe.id), class: "btn btn-sm text-white mt-2 rounded-pill" %>
+                </div>
+              <% else %>
+                <div class="note-form p-3" style="border-radius: 15px; width: 298px; background-color: #DF9755">
+                  <h6 class="mb-2" style="font-weight: 600; color: white;">Your Note</h6>
+                  <%= render 'notes/form', recipe: recipe, note: note || Note.new %>
+                  <%= link_to "Cancel", favorites_path, class: "btn btn-link text-white mt-2" %>
+                </div>
+              <% end %>
+
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
 </div>
