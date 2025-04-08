@@ -7,9 +7,15 @@ class NotesController < ApplicationController
     @note = @recipe.notes.new(note_params.merge(user: current_user))
 
     if @note.save
-      redirect_to favorites_path, notice: "Note added!"
+      respond_to do |format|
+        format.html { redirect_to favorites_path, notice: "Note added!" }
+        format.turbo_stream
+      end
     else
-      redirect_to favorites_path(edit_recipe_id: @recipe.id), alert: "Couldn't add note."
+      respond_to do |format|
+        format.html { redirect_to favorites_path(edit_recipe_id: @recipe.id), alert: "Couldn't add note." }
+        format.turbo_stream
+      end
     end
   end
 
@@ -17,7 +23,13 @@ class NotesController < ApplicationController
     @note = @recipe.notes.find_by(user: current_user)
 
     if @note.update(note_params)
-      redirect_to favorites_path, notice: "Note updated!"
+      respond_to do |format|
+        format.html { redirect_to favorites_path, notice: "Note updated!" }
+
+        format.turbo_stream do
+          render partial: "notes/update", formats: :turbo_stream, locals: { recipe: @recipe, note: @note }
+        end
+      end
     else
       redirect_to favorites_path(edit_recipe_id: @recipe.id), alert: "Couldn't update note."
     end
