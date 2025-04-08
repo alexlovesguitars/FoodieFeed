@@ -2,24 +2,44 @@
 <%= render "shared/banner" %>
 
 <div class="container-fluid">
+  <!-- FEATURED RECIPES HEADER -->
+  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">
+    FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %>
+  </h2>
 
-  <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "RECIPES", recipes_path, id: "header-link" %></h2>
-  <%# Add the entire grid of the first row into the frame. This ensure the entire first row is replaxced and keeps the layout /
-      Notice that I added the class="cards" into the frame to hold the layout. THis was trial and error. %>
-  <div id="recipe-list">
-    <turbo-frame id="recipes">
-      <div class="cards">
-        <% if @recipes.present? %>
-          <% @recipes.each do |recipe| %>
-            <%= render partial: "shared/card", locals: { recipe: recipe } %>
-        <% end %>
-      <% else %>
-        <p>No recipes found.</p>
+  <!-- CUSTOM CAROUSEL FOR RECIPES -->
+  <div data-controller="custom-carousel" class="custom-carousel-container">
+    <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
+      <% @recipes.each_slice(4).with_index do |group, index| %>
+        <div class="custom-carousel-slide <%= 'active' if index == 0 %>">
+          <div class="cards d-flex justify-content-center flex-wrap gap-3">
+            <% group.each do |recipe| %>
+              <%= render partial: "shared/card", locals: { recipe: recipe } %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      </div>
-    </turbo-frame>
+    </div>
+
+    <!-- Arrows -->
+    <div class="carousel-controls">
+      <button class="carousel-arrow" data-action="click->custom-carousel#prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="carousel-arrow" data-action="click->custom-carousel#next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
 
+  <!-- FEATURED EXPERIENCES HEADER -->
+
+  <div data-controller="custom-carousel" class="custom-carousel-container">
+    <div data-custom-carousel-target="wrapper" class="custom-carousel-wrapper">
+      <div class="custom-carousel-slide <%= 'active' if index == 0 %>">
+
+      </div>
+    </div>
 
   <h2 class="mt-5 mb-5" style="letter-spacing: 0.1rem;">FEATURED <%= link_to "EXPERIENCES", "", id: "header-link" %></h2>
   <div class="cards">
