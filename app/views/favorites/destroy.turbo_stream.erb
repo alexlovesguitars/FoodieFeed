@@ -1,0 +1,24 @@
+<%= turbo_stream.replace "favorite_icon_#{@recipe.id}" do %>
+  <div id="favorite_icon_<%= @recipe.id %>">
+    <% if user_signed_in? %>
+      <!-- Delete favorite link -->
+      <%= link_to favorites_path(recipe_id: @recipe.id),
+                      data: { turbo_method: :post },
+                      class: "favorite-link" do %>
+        <i class="fa-regular fa-heart favorite-icon"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<%= turbo_stream.replace "modal-icon-#{@recipe.id}" do %>
+  <div id="modal-icon-<%= @recipe.id %>">
+    <% if user_signed_in? %>
+      <!-- Delete favorite link -->
+      <%= link_to favorites_path(recipe_id: @recipe.id),
+                      data: { turbo_method: :post },
+                      class: "favorite-link" do %>
+        <i class="fa-regular fa-heart favorite-icon"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

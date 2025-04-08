@@ -1,0 +1,13 @@
+  <div id="modal-icon-<%= @recipe.id%>">
+  <% if user_signed_in? %>
+    <% favorite = current_user.favorites.find_by(recipe_id: @recipe.id) %>
+    <% if favorite %>
+      <!-- Delete favorite link -->
+      <%= link_to favorite_path(favorite),
+                      data: { turbo_method: :delete },
+                      class: "favorite-link" do %>
+        <i class="fa-solid fa-heart favorite-icon"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
