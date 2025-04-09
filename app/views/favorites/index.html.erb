@@ -8,7 +8,7 @@
   <% else %>
     <div class="cards mt-5 mb-5" id="recipe-cards">
       <% @favorite_recipes.each do |recipe| %>
-        <%= render partial: "shared/card", locals: { recipe: recipe } %>
+        <%= render partial: "shared/cookbook_card", locals: { recipe: recipe } %>
       <% end %>
     </div>
   <% end %>

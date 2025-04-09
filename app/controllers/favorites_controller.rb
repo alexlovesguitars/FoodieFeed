@@ -55,7 +55,7 @@ class FavoritesController < ApplicationController
               turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_create",
                                                               locals: { recipe: @recipe }),
               turbo_stream.remove("recipe_card_#{@recipe.id}"),
-              turbo_stream.remove("recipe_card_#{@recipe.id}")
+              turbo_stream.remove("note_section_#{@recipe.id}")
             ]
             if @favorite_recipes.empty?
               turbo_streams << turbo_stream.update("cookbook", partial: "favorites/empty_cookbook",

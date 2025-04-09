@@ -1,0 +1,39 @@
+.custom-carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-carousel-wrapper {
+  display: flex;
+  transition: transform 0.6s ease;
+  width: 100%;
+}
+
+.custom-carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 1rem 0;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none; // prevents controls blocking hover
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  pointer-events: all;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}

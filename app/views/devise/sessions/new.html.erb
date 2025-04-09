@@ -1,5 +1,6 @@
 <div class="mt-5" style="border: solid, #DF9755; border-radius: 15px; padding: 15px; border-width: 10px; margin: 0 500px 0 500px; background-color: white;">
 <h2>Log in</h2>
+
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,

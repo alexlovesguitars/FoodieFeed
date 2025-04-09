@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "note_container_#{recipe.id}" do %>
+  <%= render partial: "shared/cookbook_card", locals: { recipe: recipe } %>
+<% end %>

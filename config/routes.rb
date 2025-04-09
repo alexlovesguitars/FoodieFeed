@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resource :note, only: [:create, :update]
   end
 
-   get '/users/:user_name', to: 'users#show', as: :user_profile
+  get '/users/:user_name', to: 'users#show', as: :user_profile
+  get 'search', to: 'pages#search', as: 'search'
 
 
   resources :favorites, only: [:index, :create, :destroy]
