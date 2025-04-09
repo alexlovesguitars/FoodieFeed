@@ -1,5 +1,9 @@
 <%= render "shared/banner" %>
 
+<div id="flash-messages">
+  <%= render "shared/flashes" %>
+</div>
+
 <div class="container-fluid">
   <div class="button mt-3 mb-3">
     <%= link_to home_path, class: "icon-back btn btn-ghost rounded-pill text-black fs-5 d-flex align-items-center gap-2" do %>
