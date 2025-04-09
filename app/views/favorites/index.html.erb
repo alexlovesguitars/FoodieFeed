@@ -1,4 +1,7 @@
 <%= render "shared/banner_cookbook" %>
+<div id="flash-messages">
+  <%= render "shared/flashes" %>
+</div>
 <div class="container-fluid" id="cookbook">
   <% if @favorite_recipes.empty? %>
     <div class="d-flex flex-column" id="empty-cookbook">
