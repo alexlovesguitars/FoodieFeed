@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: "pages#landing"
   get "home", to: "pages#home", as: :home
-
+  # get "recipes/:id/copy_ingredients", to: "recipes#copy_ingredients", as: :copy_ingredients_recipe
   resources :recipes, only: [:show, :new, :create, :index] do
     member do
       get 'cookmode'

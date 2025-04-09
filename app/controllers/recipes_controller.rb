@@ -1,8 +1,8 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!
-
+  before_action :find_recipe, only: [:show, :copy_ingredients, :cookmode]
   def new
-    @recipe = Recipe.new
+     #@recipe = Recipe.new
   end
 
   def create
@@ -25,17 +25,25 @@ class RecipesController < ApplicationController
   end
 
   def cookmode
-    @recipe = Recipe.find(params[:id])
+    # @recipe = Recipe.find(params[:id])
   end
 
   def copy_ingredients
-    @recipe = Recipe.find(params[:id])
-    redirect_back(fallback_location: recipe_path(@recipe), notice: "Ingredients saved to clipboard!")
+    puts params.inspect
+    if @recipe
+      redirect_back(fallback_location: recipe_path(@recipe), notice: "Ingredients saved to clipboard!")
+    else
+      redirect_to recipes_path, alert: "Recipe not found."
+    end
   end
 
   private
 
   def recipe_params
     params.require(:recipe).permit(:title, :ingredients, :description, :cook_time, :method, :cuisine_type, :utensils, :dietary_restrictions, :recipe_hashtags, :image, :video_link)
+  end
+
+  def find_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end

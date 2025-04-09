@@ -35,7 +35,7 @@
       <div class="d-flex justify-content-between">
         <h2 class="mb-5">Ingredients</h2>
 
-          <%= link_to copy_ingredients_recipe_path(@recipe), class: "btn px-3 mb-5", id: "copy-ingredients-btn", style: "margin-right: 30px; color: #590202;" do %>
+          <%= link_to copy_ingredients_recipe_path(id: @recipe.id), class: "btn px-3 mb-5", id: "copy-ingredients-btn", style: "margin-right: 30px; color: #590202;" do %>
             <i class="fas fa-copy"></i>
           <% end %>
         </div>
@@ -62,22 +62,17 @@
 
   <div class="col-3 mt-5">
 
-    <div class="button">
+    <div class="button" style="position: sticky">
       <%= link_to "Get Cooking!", cookmode_recipe_path(@recipe), class: "btn btn-primary rounded-pill px-5 py-2 text-white fs-3 w-100" %>
     </div>
 
-    <div class="ratings mt-4">
-
-      <%= render "shared/review_recipeshow" %>
-
+    <div class="scrollable px-2">
+      <%= render 'shared/recipe_reviews' %>
     </div>
   </div>
 
 
 </div>
-
-<%= render 'shared/review_modal' %>
-<%= render 'shared/recipe_reviews' %>
 
 
 <script>
