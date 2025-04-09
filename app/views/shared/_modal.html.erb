@@ -47,21 +47,22 @@
         <!-- Right Sliding Content Section -->
         <div data-card-target="content" class="sliding-content position-absolute bg-light p-4 shadow-lg d-flex flex-column">
           <h4>by <%= recipe.user.user_name %></h4>
-          <div class="info-items justify-content-start align-items-center">
-            <div class="d-flex mt-2">
-              <i class="fas fa-clock"></i>
+          <div class="info-items justify-content-start align-items-center mt-2 mb-4">
+            <div class="d-flex">
+              <i class="fas fa-clock pt-1"></i>
               <p class="px-2"><%= recipe.cook_time %></p>
             </div>
             <div class="d-flex">
-              <i class="fas fa-leaf"></i>
+              <i class="fas fa-leaf pt-1"></i>
               <p class="px-2"><%= recipe.cuisine_type %></p>
             </div>
             <div class="d-flex">
-              <i class="fas fa-globe"></i>
+              <i class="fas fa-globe pt-1"></i>
               <p class="px-2"><%= recipe.dietary_restrictions %></p>
             </div>
+            <%= link_to "Go To Recipe!", recipe_path(recipe), class: "btn btn-primary rounded-pill text-white d-flex align-content-center mt-2 mb-4" %>
           </div>
-          <%= link_to "Go To Recipe!", recipe_path(recipe), class: "btn btn-primary rounded-pill text-white d-flex align-content-center mt-2 mb-4" %>
+
         </div>
       </div>
     </div>
