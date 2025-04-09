@@ -255,7 +255,7 @@ puts "Creating foodies..."
   user = User.new(
     email:  Faker::Internet.email,
     password: "123456",
-    user_name: "Chef Billy Parisi",
+    user_name: "Chef_Billy_Parisi",
     bio: "Classical culinary expertise meets home cooking! I’m Billy Parisi, a classically trained culinary school graduate from Scottsdale Culinary Institute with over 15 years in the restaurant industry and over 25 years of cooking experience. ",
     instagram: "https://www.instagram.com/chefbillyparisi",
     youtube: "https://www.youtube.com/@ChefBillyParisi",
@@ -334,7 +334,7 @@ puts "Creating foodies..."
   user = User.new(
     email:  Faker::Internet.email,
     password: "123456",
-    user_name: "The Foodie Diaries",
+    user_name: "The_Foodie_Diaries",
     bio: "A curated collection of recipes & recommendations across food and travel. You’ll find plenty of Kitchen Inspiration here including pantry picks, tips and tricks. Explore new destinations through our detailed travel guides; and discover a treasure trove of resources for navigating pregnancy and motherhood.",
     instagram: "https://www.instagram.com/the_foodiediaries",
     youtube: "https://www.youtube.com/@the_foodiediaries",
@@ -428,7 +428,7 @@ puts "Creating foodies..."
     user = User.new(
       email:  Faker::Internet.email,
       password: "123456",
-      user_name: "The Mediterranian Dish",
+      user_name: "Suzy_Karadsheh",
       bio: "Mediterranean Food & Diet | Easy Recipes | Suzy Karadsheh
       2 X New York Times Bestselling Author. Leading online resource for easy Mediterranean recipes + Mediterranean diet for home cooks.",
       instagram: "https://www.instagram.com/themediterraneandish/",
@@ -461,7 +461,7 @@ puts "Creating foodies..."
   user = User.new(
     email:  Faker::Internet.email,
     password: "123456",
-    user_name: "Just One Cookbook",
+    user_name: "Just_One_Cookbook",
     bio: "Whether you’re passionate about Japanese cuisine or simply eager to expand your kitchen skills, Just One Cookbook is your trusted guide to authentic Japanese home cooking and food culture.",
     instagram: "https://www.instagram.com/justonecookbook/",
     youtube: "https://www.youtube.com/@justonecookbook",
