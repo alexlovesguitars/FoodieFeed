@@ -69,9 +69,11 @@ class FavoritesController < ApplicationController
               turbo_streams << turbo_stream.update("cookbook", partial: "favorites/empty_cookbook", locals: { favorite_recipes: @favorite_recipes })
             end
           else
-            # Elsewhere (e.g., homepage or recipe list), just update the card
-            turbo_streams << turbo_stream.update("recipe_card_#{@recipe.id}", partial: "shared/card", locals: { recipe: @recipe })
-            turbo_streams << turbo_stream.update("flash-messages", partial: "shared/flashes")
+            turbo_streams += [
+              turbo_stream.update("recipe_card_#{@recipe.id}", partial: "shared/card", locals: { recipe: @recipe }),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_create", locals: { recipe: @recipe }),
+              turbo_stream.update("flash-messages", partial: "shared/flashes")
+            ]
           end
 
           render turbo_stream: turbo_streams
