@@ -1,8 +1,5 @@
-<%= render "shared/banner" %>
 <%= render "shared/banner", class: "mb-4" %>
 
-<div class="container">
-<%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
 <div class="container py-5 mb-4">
   <%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
     <%= f.input :title %>
