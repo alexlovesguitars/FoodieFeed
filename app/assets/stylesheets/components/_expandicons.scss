@@ -52,3 +52,31 @@
   right: 75px;
   justify-content: flex-start; /* Keep properly spaced */
 }
+
+
+.expandable-icon {
+  // position: relative;
+  top: 0;
+  width: 50px; /* Initial small size */
+  height: 50px; /* Fixed height */
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 5px solid #DF9755;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Keeps icon centered */
+
+}
+
+
+/* Ensure the icon stays fixed at the right */
+.expandable-icon i {
+  position: absolute;
+  font-size: 0.75em;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.5s, color 0.5s;
+}
