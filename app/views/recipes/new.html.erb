@@ -1,22 +1,18 @@
-<%= render "shared/banner" %>
+<%= render "shared/banner", class: "mb-4" %>
 
-<div class="container">
-<%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
+<div class="container py-5 mb-4">
+  <%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
     <%= f.input :title %>
     <%= f.input :ingredients, placeholder: "Enter ';' between each ingredient" %>
     <%= f.input :description, as: :text, placeholder: "Give us a short description" %>
     <%= f.input :cook_time, as: :integer, placeholder: "Enter cooking time in min" %>
     <%= f.input :method, placeholder: "Enter ';' between each cooking step" %>
-
     <%= f.input :cuisine_type %>
     <%= f.input :utensils %>
     <%= f.input :dietary_restrictions %>
     <%= f.input :recipe_hashtags %>
-
     <%= f.input :image, as: :file %>
-
     <%= f.input :video_link, placeholder: "Enter a YouTube or Vimeo link" %>
-
     <%= f.button :submit, class: "btn btn-primary rounded-pill px-3 m-2" %>
   <% end %>
 </div>
