@@ -35,9 +35,9 @@
       <div class="d-flex justify-content-between">
         <h2 class="mb-5">Ingredients</h2>
 
-          <%= link_to copy_ingredients_recipe_path(@recipe), class: "btn px-3 mb-5", id: "copy-ingredients-btn", style: "margin-right: 30px; color: #590202;" do %>
+          <button type="button" class="btn px-3 mb-5" id="copy-ingredients-btn" style="margin-right: 30px; color: #590202;">
             <i class="fas fa-copy"></i>
-          <% end %>
+          </button>
         </div>
         <div id="ingredients-to-copy" style="display: none;">
           <% if @recipe %>
@@ -73,25 +73,3 @@
 
 
 </div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const copyButton = document.getElementById('copy-ingredients-btn');
-    const ingredientsToCopy = document.getElementById('ingredients-to-copy').innerText;
-    const notification = document.getElementById('copy-notification');
-
-    copyButton.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      navigator.clipboard.writeText(ingredientsToCopy).then(() =>{
-        window.location.href = event.target.href; // Redirect to the link's target URL
-      }).catch((err) => {
-        console.error('Error copying text: ', err);
-
-        // In case of error, allow the default behavior (redirect anyway)
-        window.location.href = event.target.href; // Redirect to the link's target URL
-      });
-      });
-    });
-</script>

@@ -17,7 +17,9 @@
     <% unless action_name == "landing" || action_name == "configure_sign_up_params" %>
     <% end %>
     <%= render "shared/flashes" %>
-
+    <div id="flash-container">
+      <%= render "shared/flashes" %>
+    </div>
     <%= yield %>
   </body>
 </html>

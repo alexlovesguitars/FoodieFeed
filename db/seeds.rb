@@ -143,7 +143,7 @@ puts "Creating foodies..."
   user = User.new(
     email:  Faker::Internet.email,
     password: "123456",
-    user_name: "Another Day In Paradise",
+    user_name: "adip_food",
     bio: "I'm a chef & photographer. Here to inspure you to cook more & enjoy food.",
     social: "https://www.instagram.com/adip_food",
     youtube: "https://www.youtube.com/@adipfood",
