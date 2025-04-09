@@ -1,18 +1,26 @@
-<%= render "shared/banner", class: "mb-4" %>
 
-<div class="container py-5 mb-4">
-  <%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :ingredients, placeholder: "Enter ';' between each ingredient" %>
-    <%= f.input :description, as: :text, placeholder: "Give us a short description" %>
-    <%= f.input :cook_time, as: :integer, placeholder: "Enter cooking time in min" %>
-    <%= f.input :method, placeholder: "Enter ';' between each cooking step" %>
-    <%= f.input :cuisine_type %>
-    <%= f.input :utensils %>
-    <%= f.input :dietary_restrictions %>
-    <%= f.input :recipe_hashtags %>
-    <%= f.input :image, as: :file %>
-    <%= f.input :video_link, placeholder: "Enter a YouTube or Vimeo link" %>
-    <%= f.button :submit, class: "btn btn-primary rounded-pill px-3 m-2" %>
-  <% end %>
+<div style="max-width: 700px; margin: 50px auto; border: solid #DF9755; border-radius: 15px; padding: 15px; border-width: 10px; background-color: white;">
+ <h2>New recipe</h2>
+  <div class="form-inputs">
+    <%= simple_form_for(@recipe, html: { multipart: true }) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :ingredients, placeholder: "Enter ';' between each ingredient" %>
+      <%= f.input :description, as: :text, placeholder: "Give us a short description" %>
+      <%= f.input :cook_time, as: :integer, placeholder: "Enter cooking time in min" %>
+      <%= f.input :method, placeholder: "Enter ';' between each cooking step" %>
+
+      <%= f.input :cuisine_type %>
+      <%= f.input :utensils %>
+      <%= f.input :dietary_restrictions %>
+      <%= f.input :recipe_hashtags %>
+
+      <%= f.input :image, as: :file %>
+
+      <%= f.input :video_link, placeholder: "Enter a YouTube or Vimeo link" %>
+
+      <%= f.button :submit, class: "btn btn-primary rounded-pill text-white px-3 m-2 pb-2" %>
+    <% end %>
+
+    <%= link_to "Back to Home", root_path, class: "m-3" %>
+  </div>
 </div>

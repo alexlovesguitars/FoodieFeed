@@ -21,12 +21,15 @@ class UsersController < ApplicationController
   # end
 
   def find_user
+    user_name = params[:user_name].downcase
+
     begin
-      Integer(params[:user_name])
-      @user = User.find(params[:user_name])
+    Integer(user_name) # Attempt to convert to integer
+    @user = User.find(user_name)
     rescue ArgumentError, TypeError
-      @user = User.find_by(user_name: params[:user_name])
+      @user = User.where('LOWER(user_name) = ?', user_name).first # Case-insensitive query
     end
+
     if @user.nil?
       redirect_to edit_user_registration_path, alert: "User is not yet a creator."
     end
