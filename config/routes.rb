@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:show, :new, :create, :index] do
     member do
       get 'cookmode'
-      get 'copy_ingredients'
+      # get 'copy_ingredients'
       # post 'copy_ingredients'
     end
     resources :reviews, only: [:new, :create]
