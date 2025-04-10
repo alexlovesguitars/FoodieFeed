@@ -23,9 +23,7 @@ export default class extends Controller {
     const alert = document.createElement("div");
     alert.className = `alert alert-${type} alert-dismissible fade show`;
     alert.setAttribute("role", "alert");
-    alert.innerHTML = `
-      ${message}
-    `;
+    alert.innerHTML = `${message}`;
 
     container.appendChild(alert);
 
