@@ -1,7 +1,6 @@
 <%= form_with url: note.persisted? ? recipe_note_path(recipe) : recipe_note_path(recipe),
               method: note.persisted? ? :patch : :post,
-              scope: :note,
-              local: true do |f| %>
+              scope: :note do |f| %>
 
   <div class="mb-2">
     <%= f.text_area :content,
