@@ -25,15 +25,13 @@ class NotesController < ApplicationController
     if @note.update(note_params)
       respond_to do |format|
         format.html { redirect_to favorites_path, notice: "Note updated!" }
-
-        format.turbo_stream do
-          render partial: "notes/update", formats: :turbo_stream, locals: { recipe: @recipe, note: @note }
-        end
+        format.turbo_stream
       end
     else
       redirect_to favorites_path(edit_recipe_id: @recipe.id), alert: "Couldn't update note."
     end
   end
+
 
   def destroy
   end
