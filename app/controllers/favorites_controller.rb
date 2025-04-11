@@ -60,8 +60,8 @@ class FavoritesController < ApplicationController
           if request.referer&.include?(favorites_path)
             # If we're on the favorites (cookbook) page, remove the card
             turbo_streams += [
-              turbo_stream.remove("recipe_card_#{@recipe.id}"),
-              turbo_stream.remove("note_section_#{@recipe.id}"),
+              turbo_stream.remove("note_container_#{@recipe.id}"),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_create", locals: { recipe: @recipe }),
               turbo_stream.update("flash-messages", partial: "shared/flashes")
             ]
 
