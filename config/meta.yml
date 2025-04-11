@@ -1,0 +1,5 @@
+meta_product_name: "FoodieFeed"
+meta_title: "FoodieFeed - Keep things groovy. Feed your Foodie."
+meta_description: "Store and share recipes conveniently, as well as learning to cook!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
