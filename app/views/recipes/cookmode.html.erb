@@ -18,7 +18,7 @@
 
   </div>
 
-  <div class="cookmode-content d-flex" data-controller="steps">
+  <div class="cookmode-content d-flex mb-4" data-controller="steps">
     <div class="instructions-section w-40">
       <div id="recipe-steps" class="recipe-steps mt-4">
         <% @recipe.method.each_with_index do |step, index| %>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="video-section w-60">
+    <div class="video-section w-60 mb-4">
       <div class="video-container">
         <iframe
           class="responsive-iframe"
