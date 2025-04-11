@@ -16,9 +16,19 @@ class FavoritesController < ApplicationController
     respond_to do |format|
       if @favorite.save
         flash[:notice] = "The recipe has been saved to your cookbook."
+        turbo_streams = []
 
         format.turbo_stream do
-          turbo_streams = [
+          if request.referer&.include?(favorites_path)
+            # If we're on the favorites (cookbook) page, add the card
+            favorite_recipes = Recipe.where(id: current_user.favorites.select(:recipe_id))
+            turbo_streams += [
+              turbo_stream.update("cookbook", partial: "favorites/cookbook", locals: { favorite_recipes: favorite_recipes }),
+              turbo_stream.update("modal-icon-#{@favorite.recipe.id}", partial: "favorites/favorite_delete", locals: { recipe: @favorite.recipe })
+            ]
+          end
+
+          turbo_streams += [
             turbo_stream.update("recipe_card_#{@recipe.id}", partial: "shared/card", locals: { recipe: @recipe }),
             turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_delete", locals: { recipe: @recipe }),
             turbo_stream.update("flash-messages", partial: "shared/flashes")
@@ -49,7 +59,6 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.find(params[:id])
     @recipe = @favorite.recipe
     @favorite_recipes = current_user.favorite_recipes
-
     respond_to do |format|
       if @favorite.destroy
         flash[:notice] = "The recipe has been removed."
@@ -62,6 +71,7 @@ class FavoritesController < ApplicationController
             turbo_streams += [
               turbo_stream.remove("recipe_card_#{@recipe.id}"),
               turbo_stream.remove("note_section_#{@recipe.id}"),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_create", locals: { recipe: @recipe }),
               turbo_stream.update("flash-messages", partial: "shared/flashes")
             ]
 

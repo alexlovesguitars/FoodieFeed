@@ -9,7 +9,7 @@ export default class extends Controller {
 
     const icon = this.iconTarget; // Get the heart icon
     const method = this.element.dataset.turboMethod || "post"; // Check if it's a like or unlike request
-
+    console.log(icon)
     // Toggle classes before sending request (Optimistic UI update)
     icon.classList.toggle("fa-regular");
     icon.classList.toggle("fa-solid");
