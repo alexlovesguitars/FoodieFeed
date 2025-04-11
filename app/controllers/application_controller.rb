@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :creator, :bio, :social, :avatar])
   end
 
+  def default_url_options
+    { host: ENV[“www.foodiefeed.eu”] || “localhost:3000” }
+  end
 end
