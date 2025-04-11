@@ -18,14 +18,26 @@ class FavoritesController < ApplicationController
         flash[:notice] = "The recipe has been saved to your cookbook."
 
         format.turbo_stream do
-          turbo_streams = [
-            turbo_stream.update("recipe_card_#{@recipe.id}", partial: "shared/card", locals: { recipe: @recipe }),
-            turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_delete", locals: { recipe: @recipe }),
-            turbo_stream.update("flash-messages", partial: "shared/flashes")
-          ]
+          turbo_streams = []
 
-          if @favorites.count == 1
-            turbo_streams << turbo_stream.remove("empty-cookbook")
+          if request.referer&.include?(favorites_path)
+            # If on the cookbook page
+            turbo_streams += [
+              turbo_stream.append("recipe-cards", partial: "shared/cookbook_card", locals: { recipe: @recipe }),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_delete", locals: { recipe: @recipe }),
+              turbo_stream.update("flash-messages", partial: "shared/flashes")
+            ]
+
+            if @favorites.count == 1
+              turbo_streams << turbo_stream.remove("empty-cookbook")
+            end
+          else
+            # If on another page (like recipes index)
+            turbo_streams += [
+              turbo_stream.update("recipe_card_#{@recipe.id}", partial: "shared/card", locals: { recipe: @recipe }),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_delete", locals: { recipe: @recipe }),
+              turbo_stream.update("flash-messages", partial: "shared/flashes")
+            ]
           end
 
           render turbo_stream: turbo_streams
@@ -60,8 +72,8 @@ class FavoritesController < ApplicationController
           if request.referer&.include?(favorites_path)
             # If we're on the favorites (cookbook) page, remove the card
             turbo_streams += [
-              turbo_stream.remove("recipe_card_#{@recipe.id}"),
-              turbo_stream.remove("note_section_#{@recipe.id}"),
+              turbo_stream.remove("note_container_#{@recipe.id}"),
+              turbo_stream.update("modal-icon-#{@recipe.id}", partial: "favorites/favorite_create", locals: { recipe: @recipe }),
               turbo_stream.update("flash-messages", partial: "shared/flashes")
             ]
 
