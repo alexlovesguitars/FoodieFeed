@@ -15,11 +15,6 @@ class UsersController < ApplicationController
 
   private
 
-  # def find_user
-  #   @user = User.find(params[:id])
-  #   @user = User.find_by_user_name(param[:id])
-  # end
-
   def find_user
     user_name = params[:user_name].downcase
 
