@@ -35,7 +35,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get "/check_tables", to: proc { |env|
-  [200, { "Content-Type" => "text/plain" }, [ActiveRecord::Base.connection.tables.join(", ")]]
-}
 end
