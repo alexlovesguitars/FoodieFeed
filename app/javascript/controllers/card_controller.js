@@ -4,8 +4,18 @@ export default class extends Controller {
   static targets = ["content"]
 
   connect() {
-    // Ensure modal is hidden when the page is loaded
-    this.hide();
+    this.hide()
+    this.handleTurboRender = this.handleTurboRender.bind(this)
+    document.addEventListener("turbo:render", this.handleTurboRender)
+  }
+
+  disconnect() {
+    document.removeEventListener("turbo:render", this.handleTurboRender)
+    this.hide()
+  }
+
+  handleTurboRender() {
+    this.hide()
   }
 
   show() {
@@ -14,10 +24,5 @@ export default class extends Controller {
 
   hide() {
     this.contentTarget.classList.remove("show")
-  }
-
-  disconnect() {
-    // Hide modal when navigating away
-    this.hide();
   }
 }
